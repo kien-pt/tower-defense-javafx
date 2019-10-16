@@ -21,6 +21,7 @@ public class Main extends Application {
         Canvas canvas = new Canvas(1200, 900);
 
         root.getChildren().add(canvas);
+        int test;
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
         controller = new Controller();
