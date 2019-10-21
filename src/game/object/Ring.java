@@ -1,8 +1,8 @@
-package game.animation;
+package game.object;
 
 import javafx.scene.image.Image;
 
-public class Ring extends GameObject {
+public class Ring extends GameObject implements UpdatableObject {
     public Ring(int posX, int posY) {
         super(posX, posY, new Image("file:resources/gui_ring.png"));
         scale = 0;

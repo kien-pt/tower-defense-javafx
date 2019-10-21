@@ -1,9 +1,10 @@
 package game.stage;
 
+import game.enemy.BaseEnemy;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import game.animation.GameObject;
-import game.animation.StaticObject;
+import game.object.UpdatableObject;
+import game.object.GameObject;
 import game.tower.BaseTower;
 import game.tower.NormalTower;
 
@@ -11,8 +12,9 @@ import java.util.ArrayList;
 
 public abstract class GameStage {
     private Image map;
-    public ArrayList<StaticObject> ornament = new ArrayList<>();
+    public ArrayList<GameObject> ornament = new ArrayList<>();
     public ArrayList<BaseTower> towers = new ArrayList<>();
+    public ArrayList<BaseEnemy> enemies = new ArrayList<>();
 
     // Load map của level tương ứng
     public GameStage(int k) {
@@ -24,25 +26,37 @@ public abstract class GameStage {
 
     /**
      * Vẽ màn chơi
+     * Vẽ kẻ địch
      * Vẽ các tháp
      * Vẽ vật trang trí
      * Vẽ các layout
      */
     public void draw(GraphicsContext gc) {
         gc.drawImage(map, 0, -50);
+        for (BaseEnemy enemy : enemies) ((GameObject) enemy).draw(gc);
         for (BaseTower tower: towers) ((GameObject) tower).draw(gc);
-        for (StaticObject i: ornament) i.draw(gc);
+        for (GameObject i : ornament) i.draw(gc);
         for (BaseTower tower: towers) tower.drawLayout(gc);
     }
 
     /**
-     * Cập nhật màn chơ8
+     * Cập nhật màn chơi
      */
     public void update() {
         for (int i = 0; i < towers.size(); i++) {
+            // Update tháp
             towers.get(i).update();
-            if (towers.get(i).isUpgrade())
-                towers.set(i, new NormalTower(towers.get(i).getPosX() - 10, towers.get(i).getPosY() - 10));
+            // Nêu tháp được nâng cấp thì set 1 tháp mới thay vào
+            if (towers.get(i).isUpgrade()) {
+                int newPosX = towers.get(i).getPosX() - 10;
+                int newPosY = towers.get(i).getPosY() - 10;
+                towers.set(i, new NormalTower(newPosX, newPosY));
+            }
+        }
+
+        for (int i = 0; i < enemies.size(); i++) {
+            enemies.get(i).update();
+            if (enemies.get(i).getPosX() < -30) enemies.remove(i);
         }
     }
 

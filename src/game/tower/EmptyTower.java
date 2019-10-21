@@ -2,21 +2,21 @@ package game.tower;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import game.animation.Icon;
-import game.animation.GameObject;
-import game.animation.Ring;
-import game.animation.StaticObject;
+import game.object.Icon;
+import game.object.UpdatableObject;
+import game.object.Ring;
+import game.object.GameObject;
 
-public class EmptyTower extends GameObject implements BaseTower {
-    private StaticObject ring, buildBarBg, buildBar;
+public class EmptyTower extends GameObject implements UpdatableObject, BaseTower {
+    private GameObject ring, buildBarBg, buildBar;
     private Icon[] icons = new Icon[4];
     private boolean upgrade;
     private int upgradeRate = -1;
 
     public EmptyTower(int posX, int posY) {
-        super(posX, posY, new Image("file:resources/empty_tower.png"));
+        super(posX, posY, new Image("file:resources/tower/empty_tower.png"));
         this.upgrade = false;
-        buildBarBg = new StaticObject(posX + 20, posY - 15, new Image("file:resources/buildBar_bg.png"));
+        buildBarBg = new GameObject(posX + 20, posY - 15, new Image("file:resources/buildBar_bg.png"));
     }
 
     @Override
@@ -40,7 +40,7 @@ public class EmptyTower extends GameObject implements BaseTower {
     public void update() {
         if (upgradeRate >= 0) {
             Image tempImage = new Image("file:resources/buildBar.png", 54 * upgradeRate / 100, 8, false, false);
-            buildBar = new StaticObject(posX + 22, posY - 13, tempImage);
+            buildBar = new GameObject(posX + 22, posY - 13, tempImage);
             // Nếu nâng cấp đủ 100% thì dừng
             if ((upgradeRate += 2) > 100) {
                 upgradeRate = -1;

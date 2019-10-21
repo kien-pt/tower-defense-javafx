@@ -1,21 +1,21 @@
-package game.animation;
+package game.object;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import game.tower.BaseTower;
 
-public class Icon extends GameObject {
+public class Icon extends GameObject implements UpdatableObject {
     private int tag;
     private boolean isOn;
     private String imageURL_on, imageURL_off;
 
     public Icon(int posX, int posY, int tag) {
-        super(posX, posY, new Image("file:resources/icon_" + tag + "_off.png"));
+        super(posX, posY, new Image("file:resources/icon/icon_" + tag + "_off.png"));
         this.tag = tag;
         scale = 0;
         isOn = false;
-        imageURL_on = "file:resources/icon_" + tag + ".png";
-        imageURL_off = "file:resources/icon_" + tag + "_off.png";
+        imageURL_on = "file:resources/icon/icon_" + tag + ".png";
+        imageURL_off = "file:resources/icon/icon_" + tag + "_off.png";
     }
 
     public void onClick(int mouseX, int mouseY, BaseTower tower) {

@@ -16,6 +16,7 @@ public class Controller {
     }
 
     public void draw(GraphicsContext gc) {
+        gc.clearRect(0, 0, 1200, 900);
         level.draw(gc);
     }
     public void update() { level.update();  }
