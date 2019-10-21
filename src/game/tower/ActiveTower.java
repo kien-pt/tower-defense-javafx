@@ -2,19 +2,19 @@ package game.tower;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import game.animation.GameObject;
-import game.animation.Ring;
-import game.animation.StaticObject;
+import game.object.UpdatableObject;
+import game.object.Ring;
+import game.object.GameObject;
 
-public class ActiveTower extends GameObject implements BaseTower{
+public class ActiveTower extends GameObject implements UpdatableObject, BaseTower {
     private int nEffect_buildSmoke;
     private GameObject ring;
-    private StaticObject effect_buildSmoke;
+    private GameObject effect_buildSmoke;
 
     public ActiveTower(int posX, int posY, Image image) {
         super(posX, posY, image);
         Image img = new Image("file:resources/Effect/effect_buildSmoke_0.png");
-        effect_buildSmoke = new StaticObject(posX + 25, posY + 30, img);
+        effect_buildSmoke = new GameObject(posX + 25, posY + 30, img);
     }
 
     @Override
@@ -23,7 +23,6 @@ public class ActiveTower extends GameObject implements BaseTower{
             int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
             int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
             ring = new Ring(x, y);
-            System.out.println(ring.scale);
         } else ring = null;
     }
 
@@ -35,10 +34,7 @@ public class ActiveTower extends GameObject implements BaseTower{
 
     @Override
     public void drawLayout(GraphicsContext gc) {
-        if (ring != null) {
-            ((Ring) ring).update();
-            ring.draw(gc);
-        }
+        if (ring != null) ring.draw(gc);
     }
 
     @Override
@@ -48,6 +44,7 @@ public class ActiveTower extends GameObject implements BaseTower{
             Image img = new Image("file:resources/Effect/effect_buildSmoke_" + nEffect_buildSmoke / 5 + ".png");
             effect_buildSmoke.setImage(img);
         } else effect_buildSmoke = null;
+        if (ring != null) ((Ring) ring).update();
     }
 
     @Override
