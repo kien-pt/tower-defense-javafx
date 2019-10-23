@@ -11,6 +11,10 @@ import javafx.stage.Stage;
 public class Main extends Application {
     private static Controller controller;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setTitle("Taoua Diphens 3K");
@@ -21,7 +25,6 @@ public class Main extends Application {
         Canvas canvas = new Canvas(1200, 900);
 
         root.getChildren().add(canvas);
-        int tes;
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
         controller = new Controller();
@@ -41,10 +44,5 @@ public class Main extends Application {
         controller.mouseController(theScene);
 
         primaryStage.show();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
