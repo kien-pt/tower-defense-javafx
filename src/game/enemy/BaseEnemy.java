@@ -60,6 +60,6 @@ public class BaseEnemy extends GameObject implements UpdatableObject {
         int width = (int) getImage().getWidth();
         int height = (int) getImage().getHeight();
         gc.drawImage(getImage(), 0, 0, width, height, getPosX() + width, getPosY() - height, -width, height);
-        System.out.println(getPosX());
+        //System.out.println(getPosX());
     }
 }
