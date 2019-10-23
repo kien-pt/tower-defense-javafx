@@ -11,10 +11,10 @@ public class BaseEnemy extends GameObject implements UpdatableObject {
     public Image frame[] = new Image[12];
     public String tag;
     public double speed, doublePosX, doublePosY;
-    private int currentFrame, hp;
+    private int currentFrame, hp, type;
     private long lastAniTime, lastMoveTime;
 
-    public BaseEnemy(int posX, int posY, String tag, Image image) {
+    public BaseEnemy(int posX, int posY, String tag, Image image, int type) {
         super(posX, posY, image);
         this.tag = tag;
         currentFrame = 0;
@@ -23,6 +23,7 @@ public class BaseEnemy extends GameObject implements UpdatableObject {
         lastAniTime = lastMoveTime = System.currentTimeMillis();
         for (int i = 0; i < 12; i++) frame[i] = new Image("file:resources/enemy/" + tag + i + ".png");
         setImage(frame[0]);
+        this.type = type;
     }
 
     private void move(double x, double y) {
@@ -34,7 +35,7 @@ public class BaseEnemy extends GameObject implements UpdatableObject {
 
     @Override
     public void update() {
-        if (lastAniTime + 60 < System.currentTimeMillis()) {
+        if (lastAniTime + 80 < System.currentTimeMillis()) {
             lastAniTime = System.currentTimeMillis();
             currentFrame = (currentFrame + 1) % 12;
             setImage(frame[currentFrame]);
@@ -43,13 +44,13 @@ public class BaseEnemy extends GameObject implements UpdatableObject {
         if (lastMoveTime + 40 / speed < System.currentTimeMillis()) {
             //Chia ra các checkpoint để enemy di chuyển
             if (getPosX() >= 850) move(-1.8, 0);
-            if (790 <= getPosX() && getPosX() <= 850) move(-1, -1.5);
-            if (750 <= getPosX() && getPosX() <= 790) move(-1.2728, -1.2728);
-            if (670 <= getPosX() && getPosX() <= 750) move(-1.5, -1);
+            if (790 <= getPosX() && getPosX() <= 850) move(-1, -1.5 * type);
+            if (750 <= getPosX() && getPosX() <= 790) move(-1.2728, -1.2728 * type);
+            if (670 <= getPosX() && getPosX() <= 750) move(-1.5, -1 * type);
             if (480 <= getPosX() && getPosX() <= 670) move(-1.8, 0);
-            if (440 <= getPosX() && getPosX() <= 480) move(-1.5, 1);
-            if (400 <= getPosX() && getPosX() <= 440) move(-1.2728, 1.2728);
-            if (320 <= getPosX() && getPosX() <= 400) move(-1, 1.5);
+            if (440 <= getPosX() && getPosX() <= 480) move(-1.5, 1 * type);
+            if (400 <= getPosX() && getPosX() <= 440) move(-1.2728, 1.2728 * type);
+            if (320 <= getPosX() && getPosX() <= 400) move(-1, 1.5 * type);
             if (getPosX() <= 320) move(-1.8, 0);
             lastMoveTime = System.currentTimeMillis();
         }
@@ -60,6 +61,5 @@ public class BaseEnemy extends GameObject implements UpdatableObject {
         int width = (int) getImage().getWidth();
         int height = (int) getImage().getHeight();
         gc.drawImage(getImage(), 0, 0, width, height, getPosX() + width, getPosY() - height, -width, height);
-        System.out.println(getPosX());
     }
 }

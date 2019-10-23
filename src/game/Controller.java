@@ -1,5 +1,6 @@
 package game;
 
+import game.stage.Welcome;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
@@ -11,7 +12,7 @@ public class Controller {
     private GameStage level;
 
     Controller() {
-        level = new Level1(1);
+        level = new Level1();
         level.addOrnament();
     }
 

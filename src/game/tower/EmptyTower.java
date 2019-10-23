@@ -1,11 +1,16 @@
 package game.tower;
 
+import javafx.scene.Cursor;
+import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import game.object.Icon;
 import game.object.UpdatableObject;
 import game.object.Ring;
 import game.object.GameObject;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 
 public class EmptyTower extends GameObject implements UpdatableObject, BaseTower {
     private GameObject ring, buildBarBg, buildBar;
