@@ -46,11 +46,32 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
         }
     }
 
+    //  kiểm tra liệu 1 tháp có thể nâng cấp, nếu có thì nâng cấp
     public void upgrade() {
+        // hiển thị tùy chọn nâng cấp
+        if (upgradeRing != null) {
+            upgradeRing.update();
+            for (Icon icon: icons) icon.update();
+
+            int x_left = upgradeRing.getPosX();
+            int x_right = upgradeRing.getPosX() + (int) upgradeRing.getImage().getWidth() - (int) icons[1].getImage().getWidth();
+            int y_up = upgradeRing.getPosY();
+            int y_down = upgradeRing.getPosY() + (int) upgradeRing.getImage().getHeight() - (int) icons[2].getImage().getHeight();
+
+            icons[0].setPosX(x_left);
+            icons[0].setPosY(y_up);
+            icons[1].setPosX(x_right);
+            icons[1].setPosY(y_up);
+            icons[2].setPosX(x_left);
+            icons[2].setPosY(y_down);
+            icons[3].setPosX(x_right);
+            icons[3].setPosY(y_down);
+        }
+
         if (upgradeRate >= 0) {
             Image tempImage = new Image("file:resources/buildBar.png", 54 * upgradeRate / 100, 8, false, false);
             buildBar = new GameObject(posX + 22, posY - 13, tempImage);
-            // Nếu nâng cấp đủ 100% thì dừng
+//          Nếu nâng cấp đủ 100% thì dừng
             if ((upgradeRate += 2) > 100) {
                 upgradeRate = -1;
 //                upgrade = true;
@@ -73,36 +94,17 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
             icons[2] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 2);
             icons[3] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 3);
         } else upgradeRing = null;
-
-        //TODO chuyển đoạn này từ hàm update cũ
-        // Nếu có vòng lựa chọn thì update
-        if (upgradeRing != null) {
-            ((Ring) upgradeRing).update();
-            for (Icon icon: icons) icon.update();
-
-            int x_left = upgradeRing.getPosX();
-            int x_right = upgradeRing.getPosX() + (int) upgradeRing.getImage().getWidth() - (int) icons[1].getImage().getWidth();
-            int y_up = upgradeRing.getPosY();
-            int y_down = upgradeRing.getPosY() + (int) upgradeRing.getImage().getHeight() - (int) icons[2].getImage().getHeight();
-            icons[0].setPosX(x_left);
-            icons[0].setPosY(y_up);
-            icons[1].setPosX(x_right);
-            icons[1].setPosY(y_up);
-            icons[2].setPosX(x_left);
-            icons[2].setPosY(y_down);
-            icons[3].setPosX(x_right);
-            icons[3].setPosY(y_down);
-        }
     }
 
     @Override
     public void attack() {
-        //không làm gì cả
+        //trụ trống không thể tấn công
     }
 
     @Override
     public void update() {
-        //không làm gì cả, tiện cho việc viét for (Tower t : tower) t.update()
+//      do không thể tấn công nên update của empty_tower chỉ là kiểm tra xem có nâng cấp hay không
+        upgrade();
     }
 
     public void hover(int mouseX, int mouseY) {

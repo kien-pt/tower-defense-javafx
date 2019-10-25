@@ -1,6 +1,7 @@
 package game.stage;
 
 import game.enemy.BaseEnemy;
+import game.object.UpdatableObject;
 import game.tower.Tower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -42,9 +43,9 @@ public abstract class GameStage {
      * Cập nhật màn chơi
      */
     public void update() {
-        for (int i = 0; i < towers.size(); i++) {
+        for (Tower tower : towers) {
             // Update tháp
-            towers.get(i).update();
+            tower.update();
             // Nêu tháp được nâng cấp thì set 1 tháp mới thay vào
             //TODO phần này chỉ cần gói gọn trong hàm upgrade();
 //            if (towers.get(i).isUpgrade()) {
