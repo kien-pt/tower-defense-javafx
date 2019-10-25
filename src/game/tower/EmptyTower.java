@@ -23,7 +23,7 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
         super(posX, posY, new Image("file:resources/tower/empty_tower.png"));
         attackRange = 0;
         //this.upgrade = false;
-        buildBarBg = new GameObject(posX + 20, posY - 15, new Image("file:resources/buildBar_bg.png"));
+        buildBarBg = new GameObject(posX + 28, posY - 15, new Image("file:resources/buildBar_bg.png"));
     }
 
     @Override
@@ -48,7 +48,7 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
 
     //  kiểm tra liệu 1 tháp có thể nâng cấp, nếu có thì nâng cấp
     public void upgrade() {
-        // hiển thị tùy chọn nâng cấp
+        // hiển thị tùy chọn
         if (upgradeRing != null) {
             upgradeRing.update();
             for (Icon icon: icons) icon.update();
@@ -70,13 +70,21 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
 
         if (upgradeRate >= 0) {
             Image tempImage = new Image("file:resources/buildBar.png", 54 * upgradeRate / 100, 8, false, false);
-            buildBar = new GameObject(posX + 22, posY - 13, tempImage);
+            buildBar = new GameObject(posX + 30, posY - 13, tempImage);
 //          Nếu nâng cấp đủ 100% thì dừng
             if ((upgradeRate += 2) > 100) {
                 upgradeRate = -1;
-//                upgrade = true;
-            } //else upgrade = false;
+
+//              xây trụ thực ra là đổi ảnh và tăng tầm bắn từ 0 lên x
+                setImage("file:resources/tower/normal_tower.png");
+
+                Image img = new Image("file:resources/Effect/effect_buildSmoke_0.png");
+                effect_buildSmoke = new GameObject(posX + 25, posY + 30, img);
+
+            }
         }
+
+
     }
 
 
@@ -125,10 +133,4 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
     public int getPosY() {
         return super.getPosY();
     }
-
-
-    //    @Override
-//    public boolean isUpgrade() {
-//        return upgrade;
-//    }
 }

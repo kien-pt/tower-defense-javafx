@@ -33,8 +33,8 @@ public abstract class GameStage {
      */
     public void draw(GraphicsContext gc) {
         gc.drawImage(map, 0, -50);
-        for (BaseEnemy enemy : enemies) ((GameObject) enemy).draw(gc);
-        for (Tower tower : towers) ((GameObject) tower).draw(gc);
+        for (BaseEnemy enemy : enemies) enemy.draw(gc);
+        for (Tower tower : towers) tower.draw(gc);
         for (GameObject i : ornament) i.draw(gc);
         for (Tower tower : towers) tower.drawLayout(gc);
     }
@@ -42,17 +42,11 @@ public abstract class GameStage {
     /**
      * Cập nhật màn chơi
      */
+
+//  TODO sửa enemy để tận dụng tính đa hình khi dùng update()
     public void update() {
         for (Tower tower : towers) {
-            // Update tháp
             tower.update();
-            // Nêu tháp được nâng cấp thì set 1 tháp mới thay vào
-            //TODO phần này chỉ cần gói gọn trong hàm upgrade();
-//            if (towers.get(i).isUpgrade()) {
-//                int newPosX = towers.get(i).getPosX() - 10;
-//                int newPosY = towers.get(i).getPosY() - 10;
-//                towers.set(i, new NormalTower(newPosX, newPosY));
-//            }
         }
 
         for (int i = 0; i < enemies.size(); i++) {

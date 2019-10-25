@@ -10,7 +10,10 @@ public abstract class Tower extends GameObject implements UpdatableObject, BaseT
     protected int attackRange;
     protected Ring upgradeRing;
 
-    public Tower(int posX, int posY, Image image) {
+    protected int nEffect_buildSmoke;
+    protected GameObject effect_buildSmoke;
+
+    Tower(int posX, int posY, Image image) {
         super(posX, posY, image);
     }
 
@@ -22,7 +25,6 @@ public abstract class Tower extends GameObject implements UpdatableObject, BaseT
         } else upgradeRing = null;
     }
 
-    //TODO thêm if (effect_buildSmoke != null) effect_buildSmoke.draw(gc); cho trụ chưa xây
     public void draw(GraphicsContext gc) {
         super.draw(gc);
     }
