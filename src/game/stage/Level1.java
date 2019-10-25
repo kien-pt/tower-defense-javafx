@@ -9,15 +9,16 @@ import game.tower.EmptyTower;
 public class Level1 extends GameStage {
     private Image hammerTower, cityTower, overWall;
 
-    public Level1(int i) {
-        super(i);
+    public Level1() {
+        super(1);
         hammerTower = new Image("file:resources/stage1/Stage1_Hammer.png");
         cityTower = new Image("file:resources/stage1/city_tower.png");
         overWall = new Image("file:resources/stage1/Stage1_overWall.png");
-        enemies.add(new NormalEnemy(1200, 440));
-        enemies.add(new NormalEnemy(1225, 440));
-        enemies.add(new NormalEnemy(1250, 420));
-        enemies.add(new NormalEnemy(1275, 430));
+        enemies.add(new NormalEnemy(1200, 440, -1));
+        enemies.add(new NormalEnemy(1225, 440, -1));
+        enemies.add(new NormalEnemy(1250, 420, 1));
+        enemies.add(new NormalEnemy(1275, 430, -1));
+        enemies.add(new NormalEnemy(1300, 450, 1));
     }
 
     @Override

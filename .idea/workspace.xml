@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc">
+      <change afterPath="$PROJECT_DIR$/resources/Stage_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/range_circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (0).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (10).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (11).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (12).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (13).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (14).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (15).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (16).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (17).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (18).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (19).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (2).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (20).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (21).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (22).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (23).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (24).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (3).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (4).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (5).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (6).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (7).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (8).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (9).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/welcome/mainmenu_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/stage/Welcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/enemy/BaseEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/BaseEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/enemy/NormalEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/NormalEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stage/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/GameStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stage/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/tower/ActiveTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/ActiveTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/tower/BaseTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/BaseTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>file:</find>
+      <find>resource</find>
+      <find>resources</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>file:resources</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Nguyễn Hoàng Bá Khiêm &lt;48560151+khiem472@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1SUfHT1VDSrcV5NcDRyLvybvHKw" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/_cn/nam_2/_hdt/TaouaDiphenS/src/game/tower/NormalTower.java" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\_cn\nam_2\_hdt\TaouaDiphenS\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="game.Main" />
+      <module name="TaouaDiphenS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <module name="" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="" />
+      <created>1571197364388</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1571197364388</updated>
+    </task>
+    <task id="LOCAL-00001" summary="hihi hoho">
+      <created>1571197857999</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571197857999</updated>
+    </task>
+    <task id="LOCAL-00002" summary="files hierarchy reconstructed">
+      <created>1571293304757</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571293304757</updated>
+    </task>
+    <task id="LOCAL-00003" summary="files hierarchy reconstructed">
+      <created>1571293500731</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571293500731</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Thêm Lớp Enemy, thêm hình ảnh, chỉnh sửa">
+      <created>1571632489465</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1571632489465</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc">
+      <created>1571632719324</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571632719324</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Thêm Lớp Enemy, thêm hình ảnh, chỉnh sửa">
+      <created>1571634204389</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1571634204389</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Thêm Lớp Enemy, thêm hình ảnh, chỉnh sửa">
+      <created>1571634304474</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1571634304474</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc">
+      <created>1571634412969</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1571634412969</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="hihi hoho" />
+    <MESSAGE value="files hierarchy reconstructed" />
+    <MESSAGE value="Thêm Lớp Enemy, thêm hình ảnh, chỉnh sửa" />
+    <MESSAGE value="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+</project>

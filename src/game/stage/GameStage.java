@@ -1,6 +1,7 @@
 package game.stage;
 
 import game.enemy.BaseEnemy;
+import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import game.object.UpdatableObject;

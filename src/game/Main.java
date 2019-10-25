@@ -29,13 +29,10 @@ public class Main extends Application {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         controller = new Controller();
 
-        final long startNanoTime = System.nanoTime();
-
         new AnimationTimer()
         {
             public void handle(long currentNanoTime)
             {
-                double t = (currentNanoTime - startNanoTime) / 1000000000.0;
                 controller.update();
                 controller.draw(gc);
             }

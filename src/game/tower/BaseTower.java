@@ -1,5 +1,6 @@
 package game.tower;
 
+import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 
 public interface BaseTower {
