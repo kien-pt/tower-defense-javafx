@@ -1,20 +1,19 @@
 package game.stage;
 
 import game.enemy.BaseEnemy;
+import game.tower.Tower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import game.object.UpdatableObject;
 import game.object.GameObject;
 import game.tower.BaseTower;
-import game.tower.NormalTower;
 
 import java.util.ArrayList;
 
 public abstract class GameStage {
-    private Image map;
     public ArrayList<GameObject> ornament = new ArrayList<>();
-    public ArrayList<BaseTower> towers = new ArrayList<>();
+    public ArrayList<Tower> towers = new ArrayList<>();
     public ArrayList<BaseEnemy> enemies = new ArrayList<>();
+    private Image map;
 
     // Load map của level tương ứng
     public GameStage(int k) {
@@ -34,9 +33,9 @@ public abstract class GameStage {
     public void draw(GraphicsContext gc) {
         gc.drawImage(map, 0, -50);
         for (BaseEnemy enemy : enemies) ((GameObject) enemy).draw(gc);
-        for (BaseTower tower: towers) ((GameObject) tower).draw(gc);
+        for (Tower tower : towers) ((GameObject) tower).draw(gc);
         for (GameObject i : ornament) i.draw(gc);
-        for (BaseTower tower: towers) tower.drawLayout(gc);
+        for (Tower tower : towers) tower.drawLayout(gc);
     }
 
     /**
@@ -47,11 +46,12 @@ public abstract class GameStage {
             // Update tháp
             towers.get(i).update();
             // Nêu tháp được nâng cấp thì set 1 tháp mới thay vào
-            if (towers.get(i).isUpgrade()) {
-                int newPosX = towers.get(i).getPosX() - 10;
-                int newPosY = towers.get(i).getPosY() - 10;
-                towers.set(i, new NormalTower(newPosX, newPosY));
-            }
+            //TODO phần này chỉ cần gói gọn trong hàm upgrade();
+//            if (towers.get(i).isUpgrade()) {
+//                int newPosX = towers.get(i).getPosX() - 10;
+//                int newPosY = towers.get(i).getPosY() - 10;
+//                towers.set(i, new NormalTower(newPosX, newPosY));
+//            }
         }
 
         for (int i = 0; i < enemies.size(); i++) {

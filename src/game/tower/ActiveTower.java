@@ -6,9 +6,11 @@ import game.object.UpdatableObject;
 import game.object.Ring;
 import game.object.GameObject;
 
-public class ActiveTower extends GameObject implements UpdatableObject, BaseTower {
+//TODO xử lí nốt lớp này
+public class ActiveTower extends Tower implements UpdatableObject, BaseTower {
     private int nEffect_buildSmoke;
-    private GameObject ring;
+    //    private GameObject ring;
+//    kees thua ring tu cha
     private GameObject effect_buildSmoke;
 
     public ActiveTower(int posX, int posY, Image image) {
@@ -22,8 +24,8 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
         if (click(mouseX, mouseY)) {
             int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
             int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
-            ring = new Ring(x, y);
-        } else ring = null;
+            upgradeRing = new Ring(x, y);
+        } else upgradeRing = null;
     }
 
     @Override
@@ -34,7 +36,7 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
 
     @Override
     public void drawLayout(GraphicsContext gc) {
-        if (ring != null) ring.draw(gc);
+        if (upgradeRing != null) upgradeRing.draw(gc);
     }
 
     @Override
@@ -44,7 +46,7 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
             Image img = new Image("file:resources/Effect/effect_buildSmoke_" + nEffect_buildSmoke / 5 + ".png");
             effect_buildSmoke.setImage(img);
         } else effect_buildSmoke = null;
-        if (ring != null) ((Ring) ring).update();
+        if (upgradeRing != null) ((Ring) upgradeRing).update();
     }
 
     @Override
@@ -52,13 +54,23 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
 
     }
 
-    @Override
-    public boolean isUpgrade() {
-        return false;
-    }
+//    @Override
+//    public boolean isUpgrade() {
+//        return false;
+//    }
 
     @Override
     public void hover(int mouseX, int mouseY) {
+
+    }
+
+    @Override
+    public void attack() {
+
+    }
+
+    @Override
+    public void upgrade() {
 
     }
 }
