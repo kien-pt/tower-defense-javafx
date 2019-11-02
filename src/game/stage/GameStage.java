@@ -1,12 +1,10 @@
 package game.stage;
 
 import game.enemy.BaseEnemy;
-import game.object.UpdatableObject;
+import game.object.GameObject;
 import game.tower.Tower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import game.object.GameObject;
-import game.tower.BaseTower;
 
 import java.util.ArrayList;
 
@@ -60,7 +58,7 @@ public abstract class GameStage {
      *  key = 1: Mouse Position
      */
     public void input(int key, double mouseX, double mouseY) {
-        if (key == 0) for (BaseTower tower: towers) tower.onClick((int) mouseX, (int) mouseY);
-        if (key == 1) for (BaseTower tower: towers) tower.hover((int) mouseX, (int) mouseY);
+        if (key == 0) for (Tower tower : towers) tower.onClick((int) mouseX, (int) mouseY);
+        if (key == 1) for (Tower tower : towers) tower.hover((int) mouseX, (int) mouseY);
     }
 }

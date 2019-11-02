@@ -2,12 +2,8 @@ package game.tower;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import game.object.UpdatableObject;
-import game.object.Ring;
-import game.object.GameObject;
 
-//TODO xử lí nốt lớp này
-public class ActiveTower extends Tower implements UpdatableObject, BaseTower {
+public class ActiveTower extends Tower {
 //    private int nEffect_buildSmoke;
     //    private GameObject ring;
 //    kế thừa ring từ
@@ -19,14 +15,15 @@ public class ActiveTower extends Tower implements UpdatableObject, BaseTower {
 //        effect_buildSmoke = new GameObject(posX + 25, posY + 30, img);
     }
 
-    @Override
-    public void onClick(int mouseX, int mouseY) {
-        if (click(mouseX, mouseY)) {
-            int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
-            int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
-            upgradeRing = new Ring(x, y);
-        } else upgradeRing = null;
-    }
+
+//    kế thừa từ onClick của Tower
+//    public void onClick(int mouseX, int mouseY) {
+//        if (click(mouseX, mouseY)) {
+//            int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
+//            int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
+//            upgradeRing = new Ring(x, y);
+//        } else upgradeRing = null;
+//    }
 
     @Override
     public void draw(GraphicsContext gc) {

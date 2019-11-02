@@ -1,19 +1,17 @@
 package game.tower;
 
+import game.object.GameObject;
+import game.object.Icon;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import game.object.Icon;
-import game.object.UpdatableObject;
-import game.object.Ring;
-import game.object.GameObject;
 
-public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
+public class EmptyTower extends Tower {
 
     private GameObject buildBarBg, buildBar;
-    private int nEffect_buildSmoke;
+//    private int nEffect_buildSmoke;
     //private GameObject ring;
     //ring ke thua tu upgradeRing của Tower
-    private GameObject effect_buildSmoke;
+//    private GameObject effect_buildSmoke;
 
     private Icon[] icons = new Icon[4];
     //private boolean upgrade;
@@ -29,7 +27,7 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
     @Override
     public void draw(GraphicsContext gc) {
         super.draw(gc);
-        if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
+//        if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
     }
 
     //cài đặt từ interface BaseTower
@@ -90,18 +88,13 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
 
     public void onClick(int mouseX, int mouseY) {
         if (upgradeRing != null) for (Icon icon : icons) icon.onClick(mouseX, mouseY, this);
-
-        // Nếu Click vào tòa tháp sẽ hiện lên vòng tròn
-        if (click(mouseX, mouseY)) {
-            int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
-            int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
-            upgradeRing = new Ring(x, y);
-
+        super.onClick(mouseX, mouseY);
+        if (upgradeRing != null) {
             icons[0] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 0);
             icons[1] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 1);
             icons[2] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 2);
             icons[3] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 3);
-        } else upgradeRing = null;
+        }
     }
 
     @Override
@@ -111,7 +104,7 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
 
     @Override
     public void update() {
-//      do không thể tấn công nên update của empty_tower chỉ là kiểm tra xem có nâng cấp hay không
+//      do không thể tấn công nên update của emptytower chỉ là kiểm tra xem có nâng cấp hay không
         upgrade();
     }
 
@@ -124,13 +117,15 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
         this.upgradeRate = upgradeRate;
     }
 
-    @Override
-    public int getPosX() {
-        return super.getPosX();
-    }
 
-    @Override
-    public int getPosY() {
-        return super.getPosY();
-    }
+//    dư thừa phần này vì getPosX và getPosY được kế thừa sẵn
+//    @Override
+//    public int getPosX() {
+//        return super.getPosX();
+//    }
+//
+//    @Override
+//    public int getPosY() {
+//        return super.getPosY();
+//    }
 }
