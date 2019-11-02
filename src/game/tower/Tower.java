@@ -1,10 +1,9 @@
 package game.tower;
 
-import game.object.Ring;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import game.object.GameObject;
+import game.object.Ring;
 import game.object.UpdatableObject;
+import javafx.scene.image.Image;
 
 public abstract class Tower extends GameObject implements UpdatableObject, BaseTower {
 //    protected int attackRange;
@@ -17,7 +16,7 @@ public abstract class Tower extends GameObject implements UpdatableObject, BaseT
         super(posX, posY, image);
     }
 
-    public void clicked(int mouseX, int mouseY) {
+    public void onClick(int mouseX, int mouseY) {
         if (click(mouseX, mouseY)) {
             int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
             int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
@@ -25,9 +24,9 @@ public abstract class Tower extends GameObject implements UpdatableObject, BaseT
         } else upgradeRing = null;
     }
 
-    public void draw(GraphicsContext gc) {
-        super.draw(gc);
-    }
+//    public void draw(GraphicsContext gc) {
+//        super.draw(gc);
+//    }
 
     //public abstract void drawLayout(GraphicsContext gc);
 }
