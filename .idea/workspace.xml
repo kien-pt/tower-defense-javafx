@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="ban dc r">
+      <change afterPath="$PROJECT_DIR$/src/game/tower/Attacker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/object/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stage/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/GameStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/tower/NormalTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/NormalTower.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
