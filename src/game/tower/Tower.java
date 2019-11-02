@@ -7,11 +7,11 @@ import game.object.GameObject;
 import game.object.UpdatableObject;
 
 public abstract class Tower extends GameObject implements UpdatableObject, BaseTower {
-    protected int attackRange;
+//    protected int attackRange;
     protected Ring upgradeRing;
 
-    protected int nEffect_buildSmoke;
-    protected GameObject effect_buildSmoke;
+//    protected int nEffect_buildSmoke;
+//    protected GameObject effect_buildSmoke;
 
     Tower(int posX, int posY, Image image) {
         super(posX, posY, image);
