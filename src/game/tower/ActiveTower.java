@@ -15,7 +15,7 @@ public class ActiveTower extends Tower implements UpdatableObject, BaseTower {
 
     public ActiveTower(int posX, int posY, Image image) {
         super(posX, posY, image);
-//        Image img = new Image("file:resources/Effect/effect_buildSmoke_0.png");
+//        Image img = new Image("file:resources/Effect/buildSmoke_0.png");
 //        effect_buildSmoke = new GameObject(posX + 25, posY + 30, img);
     }
 
@@ -31,7 +31,7 @@ public class ActiveTower extends Tower implements UpdatableObject, BaseTower {
     @Override
     public void draw(GraphicsContext gc) {
         super.draw(gc);
-        if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
+//        if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
     }
 
     @Override
@@ -41,11 +41,11 @@ public class ActiveTower extends Tower implements UpdatableObject, BaseTower {
 
     @Override
     public void update() {
-        nEffect_buildSmoke++;
-        if (nEffect_buildSmoke < 35) {
-            Image img = new Image("file:resources/Effect/effect_buildSmoke_" + nEffect_buildSmoke / 5 + ".png");
-            effect_buildSmoke.setImage(img);
-        } else effect_buildSmoke = null;
+//        nEffect_buildSmoke++;
+//        if (nEffect_buildSmoke < 35) {
+//            Image img = new Image("file:resources/smoke/buildSmoke_" + nEffect_buildSmoke / 5 + ".png");
+//            effect_buildSmoke.setImage(img);
+//        } else effect_buildSmoke = null;
         if (upgradeRing != null) upgradeRing.update();
     }
 

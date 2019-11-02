@@ -21,7 +21,7 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
 
     public EmptyTower(int posX, int posY) {
         super(posX, posY, new Image("file:resources/tower/empty_tower.png"));
-        attackRange = 0;
+//        attackRange = 0;
         //this.upgrade = false;
         buildBarBg = new GameObject(posX + 28, posY - 15, new Image("file:resources/buildBar_bg.png"));
     }
@@ -77,9 +77,9 @@ public class EmptyTower extends Tower implements UpdatableObject, BaseTower {
 
 //              xây trụ thực ra là đổi ảnh và tăng tầm bắn từ 0 lên x
                 setImage("file:resources/tower/normal_tower.png");
-
-                Image img = new Image("file:resources/Effect/effect_buildSmoke_0.png");
-                effect_buildSmoke = new GameObject(posX + 25, posY + 30, img);
+//                khói
+//                Image img = new Image("file:resources/smoke/buildSmoke_0.png");
+//                effect_buildSmoke = new GameObject(posX + 25, posY + 30, img);
 
             }
         }
