@@ -54,11 +54,6 @@ public class ActiveTower extends Tower implements UpdatableObject, BaseTower {
 
     }
 
-//    @Override
-//    public boolean isUpgrade() {
-//        return false;
-//    }
-
     @Override
     public void hover(int mouseX, int mouseY) {
 
