@@ -1,5 +1,6 @@
 package game.tower;
 
+import game.object.Effect;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -8,14 +9,13 @@ import game.object.Ring;
 import game.object.GameObject;
 
 public class ActiveTower extends GameObject implements UpdatableObject, BaseTower {
-    private int nEffect_buildSmoke;
     private GameObject ring;
-    private GameObject effect_buildSmoke;
+    private Effect effect_buildSmoke;
 
     public ActiveTower(int posX, int posY, Image image) {
         super(posX, posY, image);
-        Image img = new Image("file:resources/Effect/effect_buildSmoke_0.png");
-        effect_buildSmoke = new GameObject(posX + 25, posY + 30, img);
+        String url = "file:resources/Effect/effect_buildSmoke_";
+        effect_buildSmoke = new Effect(posX + 25, posY + 30, url, 35, 60);
     }
 
     @Override
@@ -30,7 +30,10 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
     @Override
     public void draw(GraphicsContext gc) {
         super.draw(gc);
-        if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
+        if (effect_buildSmoke != null) {
+            effect_buildSmoke.draw(gc);
+            System.out.println("ok");
+        }
     }
 
     @Override
@@ -40,11 +43,10 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
 
     @Override
     public void update() {
-        nEffect_buildSmoke++;
-        if (nEffect_buildSmoke < 35) {
-            Image img = new Image("file:resources/Effect/effect_buildSmoke_" + nEffect_buildSmoke / 5 + ".png");
-            effect_buildSmoke.setImage(img);
-        } else effect_buildSmoke = null;
+        if (effect_buildSmoke != null) {
+            effect_buildSmoke.update();
+            if (effect_buildSmoke.isDestroyed()) effect_buildSmoke = null;
+        }
         if (ring != null) ((Ring) ring).update();
     }
 

@@ -18,8 +18,11 @@ public class Icon extends GameObject implements UpdatableObject {
         imageURL_off = "file:resources/icon/icon_" + tag + "_off.png";
     }
 
-    public void onClick(int mouseX, int mouseY, BaseTower tower) {
-        if (click(mouseX, mouseY)) tower.setUpgradeRate(0);
+    public int onClick(int mouseX, int mouseY) {
+        if (click(mouseX, mouseY)) {
+            return tag;
+        }
+        return -1;
     }
 
     public void hover(int mouseX, int mouseY) {
@@ -33,7 +36,7 @@ public class Icon extends GameObject implements UpdatableObject {
     }
 
     public void update() {
-        if (scale < 0.8) {
+        if (scale < 1) {
             scale += 0.05;
             setImage(new Image(imageURL_off, getWidth() * scale, getHeight() * scale, false, true));
         }

@@ -1,6 +1,7 @@
 package game.stage;
 
 import game.enemy.NormalEnemy;
+import game.enemy.TankerEnemy;
 import javafx.scene.image.Image;
 
 import game.object.GameObject;
@@ -16,9 +17,11 @@ public class Level1 extends GameStage {
         overWall = new Image("file:resources/stage1/Stage1_overWall.png");
         enemies.add(new NormalEnemy(1200, 440, -1));
         enemies.add(new NormalEnemy(1225, 440, -1));
-        enemies.add(new NormalEnemy(1250, 420, 1));
-        enemies.add(new NormalEnemy(1275, 430, -1));
         enemies.add(new NormalEnemy(1300, 450, 1));
+        enemies.add(new NormalEnemy(1275, 430, -1));
+        enemies.add(new NormalEnemy(1250, 420, 1));
+        enemies.add(new TankerEnemy(1330, 430, 1));
+        enemies.add(new TankerEnemy(1360, 420, -1));
     }
 
     @Override

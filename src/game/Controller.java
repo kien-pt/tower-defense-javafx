@@ -9,10 +9,12 @@ import game.stage.GameStage;
 import game.stage.Level1;
 
 public class Controller {
+    private int stage;
     private GameStage level;
 
     Controller() {
-        level = new Level1();
+        stage = 0;
+        level = new Welcome();
         level.addOrnament();
     }
 
@@ -20,7 +22,15 @@ public class Controller {
         gc.clearRect(0, 0, 1200, 900);
         level.draw(gc);
     }
-    public void update() { level.update();  }
+
+    public void update() {
+        level.update();
+        if (stage == 0 && ((Welcome) level).getStage() > 0) {
+            stage = 1;
+            level = new Level1();
+            level.addOrnament();
+        }
+    }
 
     void mouseController(Scene theScene) {
         theScene.setOnMouseClicked( new EventHandler<MouseEvent>() {

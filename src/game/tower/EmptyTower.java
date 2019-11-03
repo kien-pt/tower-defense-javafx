@@ -1,5 +1,6 @@
 package game.tower;
 
+import game.enemy.BaseEnemy;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
@@ -73,7 +74,8 @@ public class EmptyTower extends GameObject implements UpdatableObject, BaseTower
     }
 
     public void onClick(int mouseX, int mouseY) {
-        if (ring != null) for (Icon icon: icons) icon.onClick(mouseX, mouseY, this);
+        if (ring != null) for (Icon icon : icons)
+            if (icon.onClick(mouseX, mouseY) >= 0) this.setUpgradeRate(0);
 
         // Nếu Click vào tòa tháp sẽ hiện lên vòng tròn
         if (click(mouseX, mouseY)) {

@@ -2,45 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc">
-      <change afterPath="$PROJECT_DIR$/resources/Stage_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/range_circle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (0).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (10).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (11).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (12).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (13).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (14).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (15).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (16).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (17).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (18).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (19).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (2).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (20).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (21).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (22).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (23).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (24).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (3).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (4).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (5).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (6).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (7).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (8).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo (9).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/welcome/mainmenu_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/stage/Welcome.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/icon/icon_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/icon/icon_8_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/enemy/TankerEnemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/object/AnimateObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/object/Effect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/enemy/BaseEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/BaseEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/enemy/NormalEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/NormalEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/stage/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/GameStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/object/Icon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Icon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/object/Ring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Ring.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/stage/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stage/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Welcome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/tower/ActiveTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/ActiveTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/tower/BaseTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/BaseTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,9 +69,11 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/_cn/nam_2/_hdt/TaouaDiphenS/src/game/tower/NormalTower.java" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/The-Game" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
@@ -111,10 +100,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.Main" />
-      <module name="TaouaDiphenS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <module name="TowerDefense" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -184,11 +172,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
