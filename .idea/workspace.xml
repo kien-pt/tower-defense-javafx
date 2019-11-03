@@ -1,34 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc">
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/enemy/tanker_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/icon/icon_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/icon/icon_8_off.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/enemy/TankerEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/object/AnimateObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/object/Effect.java" afterDir="false" />
+    <list default="true" id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="ban dc r">
+      <change afterPath="$PROJECT_DIR$/src/game/tower/Attacker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/enemy/BaseEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/BaseEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/enemy/NormalEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/NormalEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/object/Icon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Icon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/object/Ring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Ring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/stage/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/stage/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Welcome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/tower/ActiveTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/ActiveTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stage/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/GameStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/tower/NormalTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/NormalTower.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,13 +44,14 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/_cn/nam_2/_hdt/TaouaDiphenS/src/game/tower/NormalTower.java" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/The-Game" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
@@ -100,9 +78,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.Main" />
-      <module name="TowerDefense" />
+      <module name="TaouaDiphenS" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -172,6 +150,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -219,28 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571632719324</updated>
     </task>
-    <task id="LOCAL-00006" summary="Thêm Lớp Enemy, thêm hình ảnh, chỉnh sửa">
-      <created>1571634204389</created>
+    <task id="LOCAL-00006" summary="ban dc r">
+      <created>1571823529510</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1571634204389</updated>
+      <updated>1571823529510</updated>
     </task>
-    <task id="LOCAL-00007" summary="Thêm Lớp Enemy, thêm hình ảnh, chỉnh sửa">
-      <created>1571634304474</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1571634304474</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc">
-      <created>1571634412969</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1571634412969</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -256,24 +225,6 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
-        <entry key="1">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="roots">
-                    <value>
-                      <list>
-                        <option value="$PROJECT_DIR$" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -283,41 +234,16 @@
         </entry>
       </map>
     </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/master" />
-                </option>
-              </RecentGroup>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="master" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="hihi hoho" />
     <MESSAGE value="files hierarchy reconstructed" />
     <MESSAGE value="Thêm Lớp Enemy, thêm hình ảnh, chỉnh sửa" />
     <MESSAGE value="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc" />
+    <MESSAGE value="ban dc r" />
+    <option name="LAST_COMMIT_MESSAGE" value="ban dc r" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

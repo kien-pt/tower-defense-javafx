@@ -1,7 +1,8 @@
 package game.stage;
 
 import game.enemy.BaseEnemy;
-import javafx.scene.Scene;
+import game.tower.Attacker;
+import game.tower.EmptyTower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import game.object.UpdatableObject;
@@ -9,6 +10,7 @@ import game.object.GameObject;
 import game.tower.BaseTower;
 import game.tower.NormalTower;
 
+import javax.naming.NoInitialContextException;
 import java.util.ArrayList;
 
 public abstract class GameStage {
@@ -58,6 +60,13 @@ public abstract class GameStage {
         for (int i = 0; i < enemies.size(); i++) {
             enemies.get(i).update();
             if (enemies.get(i).getPosX() < -30) enemies.remove(i);
+        }
+
+        for (BaseTower i : towers) {
+            if (i instanceof NormalTower) {
+                ((NormalTower) i).getAttacker().CreateTarget(enemies);
+                ((NormalTower) i).getAttacker().Shoot(enemies);
+            }
         }
     }
 
