@@ -4,8 +4,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class GameObject {
-    public double scale;
     protected int posX, posY;
+    double scale;
     private int height, width;
     private Image image;
 
@@ -48,9 +48,13 @@ public class GameObject {
         return this;
     }
 
-    public int getHeight() { return height; }
+    int getHeight() {
+        return height;
+    }
 
-    public int getWidth() { return width; }
+    int getWidth() {
+        return width;
+    }
 
     public Image getImage() {
         return image;

@@ -5,10 +5,24 @@ import game.object.Icon;
 import javafx.scene.image.Image;
 
 public class EmptyTower extends BaseTower {
+    /*
+        setUpgradeTo cho biết loại trụ mà emptyTower sẽ được nâng cấp thành
+        nó sẽ được thay đổi khi bấm vào icon tương ứng khi upgrade
+        lớp GameStage sẽ sử dụng giá trị của setUpgradeTo để biến emptyTower thành trụ tương ứng
+    */
+    public String upgradeTo = "?";
 
     public EmptyTower(int posX, int posY) {
         super(posX, posY, new Image("file:resources/tower/empty_tower.png"));
         icons = new Icon[4];
+    }
+
+    public String getUpgradeTo() {
+        return upgradeTo;
+    }
+
+    public void setUpgradeTo(String towerType) {
+        this.upgradeTo = towerType;
     }
 
     public void upgrade() {
@@ -31,13 +45,21 @@ public class EmptyTower extends BaseTower {
         if (upgradeRate >= 0) {
             Image tempImage = new Image("file:resources/buildBar.png", 54 * upgradeRate / 100, 8, false, false);
             buildBar = new GameObject(posX + 30, posY - 13, tempImage);
-//          Nếu nâng cấp đủ 100% thì dừng
             if ((upgradeRate += 2) > 100) {
                 upgradeRate = -1;
-
-//              xây trụ thực ra là đổi ảnh và tăng tầm bắn từ 0 lên x
-                setImage("file:resources/tower/archer_tower.png");
+                setUpgradeTo("archer");
             }
+        }
+    }
+
+    @Override
+    public void onClick(int mouseX, int mouseY) {
+        super.onClick(mouseX, mouseY);
+        if (click(mouseX, mouseY)) {
+            icons[0] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 0);
+            icons[1] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 1);
+            icons[2] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 2);
+            icons[3] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 3);
         }
     }
 

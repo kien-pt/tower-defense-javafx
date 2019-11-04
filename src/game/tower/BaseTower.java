@@ -8,14 +8,14 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public abstract class BaseTower extends GameObject implements UpdatableObject {
-    public final GameObject buildBarBg = new GameObject(posX + 28, posY - 15, new Image("file:resources/buildBar_bg.png"));
+    private final GameObject buildBarBg = new GameObject(posX + 28, posY - 15, new Image("file:resources/buildBar_bg.png"));
     public int attackRange;
     public GameObject watchman;
-    public Ring upgradeRing;
-    public GameObject buildBar;
-    public Icon[] icons;
+    Ring upgradeRing;
+    GameObject buildBar;
+    Icon[] icons;
 
-    public int upgradeRate = -1;
+    int upgradeRate = -1;
 
     BaseTower(int posX, int posY, Image image) {
         super(posX, posY, image);
@@ -42,10 +42,6 @@ public abstract class BaseTower extends GameObject implements UpdatableObject {
             int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
             int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
             upgradeRing = new Ring(x, y);
-            icons[0] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 0);
-            icons[1] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 1);
-            icons[2] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 2);
-            icons[3] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 3);
         } else upgradeRing = null;
     }
 

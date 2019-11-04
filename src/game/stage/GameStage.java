@@ -2,20 +2,22 @@ package game.stage;
 
 import game.enemy.BaseEnemy;
 import game.object.GameObject;
+import game.tower.ArcherTower;
 import game.tower.BaseTower;
+import game.tower.EmptyTower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
 public abstract class GameStage {
-    public ArrayList<GameObject> ornament = new ArrayList<>();
-    public ArrayList<BaseTower> baseTowers = new ArrayList<>();
-    public ArrayList<BaseEnemy> enemies = new ArrayList<>();
+    ArrayList<GameObject> ornament = new ArrayList<>();
+    ArrayList<BaseTower> baseTowers = new ArrayList<>();
+    ArrayList<BaseEnemy> enemies = new ArrayList<>();
     private Image map;
 
     // Load map của level tương ứng
-    public GameStage(int k) {
+    GameStage(int k) {
         map = new Image("file:resources/Stage_" + k + ".png");
     }
 
@@ -42,9 +44,13 @@ public abstract class GameStage {
      */
 
     public void update() {
-        for (BaseTower baseTower : baseTowers) {
-            baseTower.update();
-
+        for (int i = 0; i < baseTowers.size(); ++i) {
+            baseTowers.get(i).update();
+            if (baseTowers.get(i) instanceof EmptyTower) {
+                if (((EmptyTower) baseTowers.get(i)).getUpgradeTo().equals("archer")) {
+                    baseTowers.set(i, new ArcherTower(baseTowers.get(i).getPosX(), baseTowers.get(i).getPosY()));
+                }
+            }
         }
 
         for (int i = 0; i < enemies.size(); i++) {
