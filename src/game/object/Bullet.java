@@ -39,7 +39,8 @@ public class Bullet extends GameObject {
                 ImageView iv = new ImageView(new Image("file:resources/arrow.png"));
 
                 double cc = 0;
-                if (moveY / moveX < 0) cc = 180;
+                if (moveX < 0) cc = 180;
+                if (moveX == 0 && moveY < 0) cc = 180;
 
                 if (moveX != 0)
                     iv.setRotate(Math.toDegrees(Math.atan(moveY / moveX)) + cc);

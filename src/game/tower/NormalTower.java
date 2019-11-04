@@ -2,6 +2,8 @@ package game.tower;
 
 import game.enemy.BaseEnemy;
 import game.enemy.NormalEnemy;
+import game.object.Effect;
+import game.object.GameObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import game.troops.Bullet;
@@ -11,11 +13,15 @@ import java.util.ArrayList;
 public class NormalTower extends ActiveTower {
     private ArrayList<Bullet> bullets;
     private double range;
+    private GameObject soldier;
+    private Effect shootSoldier;
     private Attacker attacker;
 
     public NormalTower(int posX, int posY) {
         super(posX, posY, new Image("file:resources/tower/normal_tower.png"));
         this.range = 200;
+        soldierTag = "normal_";
+        soldier = new GameObject(posX + 52, posY - 5, new Image("file:resources/soldier/normal_idle.png"));
         this.attacker = new Attacker(this);
         this.bullets = new ArrayList<>();
     }
@@ -27,8 +33,24 @@ public class NormalTower extends ActiveTower {
     @Override
     public void draw(GraphicsContext gc) {
         super.draw(gc);
+        if (attacker.isShoot) {
+            if (shootSoldier == null)
+                shootSoldier = new Effect(posX + 52, posY - 10, "file:resources/soldier/normal_", 4, 24);
+            if (soldier != null) soldier = null;
+        } else if (shootSoldier == null)
+            soldier = new GameObject(posX + 52, posY - 5, new Image("file:resources/soldier/normal_idle.png"));
+        if (soldier != null) soldier.draw(gc);
+
+        if (shootSoldier != null && shootSoldier.isDestroyed()) shootSoldier = null;
+        if (shootSoldier != null) {
+            shootSoldier.draw(gc);
+            shootSoldier.update();
+        }
+
         for (Bullet i : bullets) {
-            if (i != null) i.draw(gc);
+            if (i != null) {
+                i.draw(gc);
+            }
         }
     }
 

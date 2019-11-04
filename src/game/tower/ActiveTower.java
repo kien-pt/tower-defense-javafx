@@ -10,6 +10,7 @@ import game.object.GameObject;
 
 public class ActiveTower extends GameObject implements UpdatableObject, BaseTower {
     private GameObject ring;
+    public String soldierTag;
     private Effect effect_buildSmoke;
 
     public ActiveTower(int posX, int posY, Image image) {
@@ -30,10 +31,7 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
     @Override
     public void draw(GraphicsContext gc) {
         super.draw(gc);
-        if (effect_buildSmoke != null) {
-            effect_buildSmoke.draw(gc);
-            System.out.println("ok");
-        }
+        if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
     }
 
     @Override
