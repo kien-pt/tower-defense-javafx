@@ -1,10 +1,9 @@
 package game.stage;
 
 import game.enemy.NormalEnemy;
-import javafx.scene.image.Image;
-
 import game.object.GameObject;
 import game.tower.EmptyTower;
+import javafx.scene.image.Image;
 
 public class Level1 extends GameStage {
     private Image hammerTower, cityTower, overWall;
@@ -28,16 +27,19 @@ public class Level1 extends GameStage {
         ornament.add(new GameObject(-49, 220, overWall));
 
         // Vẽ 10 cái tháp trống
-        towers.add(new EmptyTower(550, 650));
-        towers.add(new EmptyTower(260, 560));
-        towers.add(new EmptyTower(470, 480));
-        towers.add(new EmptyTower(625, 480));
-        towers.add(new EmptyTower(425, 390));
-        towers.add(new EmptyTower(670, 390));
-        towers.add(new EmptyTower(470, 315));
-        towers.add(new EmptyTower(620, 315));
-        towers.add(new EmptyTower(260, 210));
-        towers.add(new EmptyTower(550, 140));
+        int x_axis_offset = 10;
+        int y_axis_offset = 10;
+
+        towers.add(new EmptyTower(260 - y_axis_offset, 560 - x_axis_offset));
+        towers.add(new EmptyTower(550 - y_axis_offset, 650 - x_axis_offset));
+        towers.add(new EmptyTower(470 - y_axis_offset, 480 - x_axis_offset));
+        towers.add(new EmptyTower(625 - y_axis_offset, 480 - x_axis_offset));
+        towers.add(new EmptyTower(425 - y_axis_offset, 390 - x_axis_offset));
+        towers.add(new EmptyTower(670 - y_axis_offset, 390 - x_axis_offset));
+        towers.add(new EmptyTower(470 - y_axis_offset, 315 - x_axis_offset));
+        towers.add(new EmptyTower(620 - y_axis_offset, 315 - x_axis_offset));
+        towers.add(new EmptyTower(270 - y_axis_offset, 230 - x_axis_offset));
+        towers.add(new EmptyTower(550 - y_axis_offset, 140 - x_axis_offset));
     }
 
     @Override

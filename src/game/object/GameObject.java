@@ -37,6 +37,9 @@ public class GameObject {
     public void setImage(Image image) {
         this.image = image;
     }
+    public void setImage(String url) {
+        setImage(new Image(url));
+    }
 
     public int getPosX() {
         return posX;

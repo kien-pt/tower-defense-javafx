@@ -5,8 +5,6 @@ import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-import java.awt.font.ImageGraphicAttribute;
-
 public class BaseEnemy extends GameObject implements UpdatableObject {
     public Image frame[] = new Image[12];
     public String tag;
