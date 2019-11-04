@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="ban dc r">
-      <change afterPath="$PROJECT_DIR$/src/game/tower/Attacker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/object/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Bullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/stage/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/GameStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/tower/Attacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/Attacker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/tower/NormalTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/NormalTower.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -209,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571823529510</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ban dc r">
+      <created>1572683511686</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1572683511686</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

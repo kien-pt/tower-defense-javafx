@@ -64,7 +64,6 @@ public abstract class GameStage {
 
         for (BaseTower i : towers) {
             if (i instanceof NormalTower) {
-                ((NormalTower) i).getAttacker().CreateTarget(enemies);
                 ((NormalTower) i).getAttacker().Shoot(enemies);
             }
         }
