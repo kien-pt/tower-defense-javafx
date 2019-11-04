@@ -26,27 +26,26 @@ public class GameObject {
                 && getPosY() <= mouseY && mouseY <= getPosY() + getImage().getHeight());
     }
 
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-
-    public void setPosY(int posY) {
-        this.posY = posY;
-    }
-
     public void setImage(Image image) {
         this.image = image;
-    }
-    public void setImage(String url) {
-        setImage(new Image(url));
     }
 
     public int getPosX() {
         return posX;
     }
 
+    public GameObject setPosX(int posX) {
+        this.posX = posX;
+        return this;
+    }
+
     public int getPosY() {
         return posY;
+    }
+
+    public GameObject setPosY(int posY) {
+        this.posY = posY;
+        return this;
     }
 
     public int getHeight() { return height; }
@@ -55,5 +54,9 @@ public class GameObject {
 
     public Image getImage() {
         return image;
+    }
+
+    public void setImage(String url) {
+        setImage(new Image(url));
     }
 }

@@ -1,37 +1,18 @@
 package game.tower;
 
+import game.object.Icon;
 import javafx.scene.image.Image;
 
 public class ArcherTower extends BaseTower {
 
-    public ArcherTower(int posX, int posY, Image image) {
-        super(posX, posY, image);
+    public ArcherTower(int posX, int posY) {
+        super(posX, posY, new Image("file:resources/tower/archer_tower"));
+        icons = new Icon[2];
     }
-
-//    @Override
-//    public void draw(GraphicsContext gc) {
-//        super.draw(gc);
-////        if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
-//    }
-
-//    @Override
-//    public void drawLayout(GraphicsContext gc) {
-//        if (upgradeRing != null) upgradeRing.draw(gc);
-//    }
 
     @Override
     public void update() {
-        if (upgradeRing != null) upgradeRing.update();
-    }
-
-    @Override
-    public void setUpgradeRate(int rate) {
-
-    }
-
-    @Override
-    public void hover(int mouseX, int mouseY) {
-
+        // if (upgradeRing != null) upgradeRing.update();
     }
 
     @Override

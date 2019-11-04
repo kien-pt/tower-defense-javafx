@@ -6,35 +6,11 @@ import javafx.scene.image.Image;
 
 public class EmptyTower extends BaseTower {
 
-//    private GameObject buildBarBg, buildBar;
-//    private Icon[] icons = new Icon[4];
-//    private int upgradeRate = -1;
-//
-//    public EmptyTower(int posX, int posY) {
-//        super(posX, posY, new Image("file:resources/tower/empty_tower.png"));
-//        buildBarBg = new GameObject(posX + 28, posY - 15, new Image("file:resources/buildBar_bg.png"));
-//    }
+    public EmptyTower(int posX, int posY) {
+        super(posX, posY, new Image("file:resources/tower/empty_tower.png"));
+        icons = new Icon[4];
+    }
 
-    @Override
-//    public void draw(GraphicsContext gc) {
-//        super.draw(gc);
-//    }
-
-    //cài đặt từ interface BaseTower
-//    public void drawLayout(GraphicsContext gc) {
-//        // Vẽ vòng tròn chọn lựa
-//        if (upgradeRing != null) {
-//            upgradeRing.draw(gc);
-//            for (Icon i: icons) i.draw(gc);
-//        }
-//        // Vẽ thanh nâng cấp
-//        if (upgradeRate >= 0) {
-//            buildBarBg.draw(gc);
-//            buildBar.draw(gc);
-//        }
-//    }
-
-    //  kiểm tra liệu 1 tháp có thể nâng cấp, nếu có thì nâng cấp
     public void upgrade() {
         // hiển thị tùy chọn
         if (upgradeRing != null) {
@@ -46,14 +22,10 @@ public class EmptyTower extends BaseTower {
             int y_up = upgradeRing.getPosY();
             int y_down = upgradeRing.getPosY() + (int) upgradeRing.getImage().getHeight() - (int) icons[2].getImage().getHeight();
 
-            icons[0].setPosX(x_left);
-            icons[0].setPosY(y_up);
-            icons[1].setPosX(x_right);
-            icons[1].setPosY(y_up);
-            icons[2].setPosX(x_left);
-            icons[2].setPosY(y_down);
-            icons[3].setPosX(x_right);
-            icons[3].setPosY(y_down);
+            icons[0].setPosX(x_left).setPosY(y_up);
+            icons[1].setPosX(x_right).setPosY(y_up);
+            icons[2].setPosX(x_left).setPosY(y_down);
+            icons[3].setPosX(x_right).setPosY(y_down);
         }
 
         if (upgradeRate >= 0) {
@@ -64,22 +36,10 @@ public class EmptyTower extends BaseTower {
                 upgradeRate = -1;
 
 //              xây trụ thực ra là đổi ảnh và tăng tầm bắn từ 0 lên x
-                setImage("file:resources/tower/normal_tower.png");
+                setImage("file:resources/tower/archer_tower.png");
             }
         }
     }
-
-
-//    public void onClick(int mouseX, int mouseY) {
-//        if (upgradeRing != null) for (Icon icon : icons) icon.onClick(mouseX, mouseY, this);
-//        super.onClick(mouseX, mouseY);
-//        if (upgradeRing != null) {
-//            icons[0] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 0);
-//            icons[1] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 1);
-//            icons[2] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 2);
-//            icons[3] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 3);
-//        }
-//    }
 
     @Override
     public void attack() {
@@ -90,14 +50,5 @@ public class EmptyTower extends BaseTower {
     public void update() {
 //      do không thể tấn công nên update của emptytower chỉ là kiểm tra xem có nâng cấp hay không
         upgrade();
-    }
-
-    public void hover(int mouseX, int mouseY) {
-        if (upgradeRing != null) for (Icon icon : icons) icon.hover(mouseX, mouseY);
-    }
-
-    @Override
-    public void setUpgradeRate(int upgradeRate) {
-        this.upgradeRate = upgradeRate;
     }
 }

@@ -30,16 +30,16 @@ public class Level1 extends GameStage {
         int x_axis_offset = 10;
         int y_axis_offset = 10;
 
-        towers.add(new EmptyTower(260 - y_axis_offset, 560 - x_axis_offset));
-        towers.add(new EmptyTower(550 - y_axis_offset, 650 - x_axis_offset));
-        towers.add(new EmptyTower(470 - y_axis_offset, 480 - x_axis_offset));
-        towers.add(new EmptyTower(625 - y_axis_offset, 480 - x_axis_offset));
-        towers.add(new EmptyTower(425 - y_axis_offset, 390 - x_axis_offset));
-        towers.add(new EmptyTower(670 - y_axis_offset, 390 - x_axis_offset));
-        towers.add(new EmptyTower(470 - y_axis_offset, 315 - x_axis_offset));
-        towers.add(new EmptyTower(620 - y_axis_offset, 315 - x_axis_offset));
-        towers.add(new EmptyTower(270 - y_axis_offset, 230 - x_axis_offset));
-        towers.add(new EmptyTower(550 - y_axis_offset, 140 - x_axis_offset));
+        baseTowers.add(new EmptyTower(260 - y_axis_offset, 560 - x_axis_offset));
+        baseTowers.add(new EmptyTower(550 - y_axis_offset, 650 - x_axis_offset));
+        baseTowers.add(new EmptyTower(470 - y_axis_offset, 480 - x_axis_offset));
+        baseTowers.add(new EmptyTower(625 - y_axis_offset, 480 - x_axis_offset));
+        baseTowers.add(new EmptyTower(425 - y_axis_offset, 390 - x_axis_offset));
+        baseTowers.add(new EmptyTower(670 - y_axis_offset, 390 - x_axis_offset));
+        baseTowers.add(new EmptyTower(470 - y_axis_offset, 315 - x_axis_offset));
+        baseTowers.add(new EmptyTower(620 - y_axis_offset, 315 - x_axis_offset));
+        baseTowers.add(new EmptyTower(270 - y_axis_offset, 230 - x_axis_offset));
+        baseTowers.add(new EmptyTower(550 - y_axis_offset, 140 - x_axis_offset));
     }
 
     @Override

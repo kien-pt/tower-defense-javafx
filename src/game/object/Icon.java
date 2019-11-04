@@ -1,8 +1,8 @@
 package game.object;
 
+import game.tower.BaseTower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import game.tower.BaseTower;
 
 public class Icon extends GameObject implements UpdatableObject {
     private int tag;
@@ -18,8 +18,8 @@ public class Icon extends GameObject implements UpdatableObject {
         imageURL_off = "file:resources/icon/icon_" + tag + "_off.png";
     }
 
-    public void onClick(int mouseX, int mouseY, BaseTower tower) {
-        if (click(mouseX, mouseY)) tower.setUpgradeRate(0);
+    public void onClick(int mouseX, int mouseY, BaseTower baseTower) {
+        if (click(mouseX, mouseY)) baseTower.setUpgradeRate(0);
     }
 
     public void hover(int mouseX, int mouseY) {
