@@ -2,38 +2,37 @@ package game.tower;
 
 import game.object.GameObject;
 import game.object.Icon;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public class EmptyTower extends Tower {
+public class EmptyTower extends BaseTower {
 
-    private GameObject buildBarBg, buildBar;
-    private Icon[] icons = new Icon[4];
-    private int upgradeRate = -1;
-
-    public EmptyTower(int posX, int posY) {
-        super(posX, posY, new Image("file:resources/tower/empty_tower.png"));
-        buildBarBg = new GameObject(posX + 28, posY - 15, new Image("file:resources/buildBar_bg.png"));
-    }
+//    private GameObject buildBarBg, buildBar;
+//    private Icon[] icons = new Icon[4];
+//    private int upgradeRate = -1;
+//
+//    public EmptyTower(int posX, int posY) {
+//        super(posX, posY, new Image("file:resources/tower/empty_tower.png"));
+//        buildBarBg = new GameObject(posX + 28, posY - 15, new Image("file:resources/buildBar_bg.png"));
+//    }
 
     @Override
-    public void draw(GraphicsContext gc) {
-        super.draw(gc);
-    }
+//    public void draw(GraphicsContext gc) {
+//        super.draw(gc);
+//    }
 
     //cài đặt từ interface BaseTower
-    public void drawLayout(GraphicsContext gc) {
-        // Vẽ vòng tròn chọn lựa
-        if (upgradeRing != null) {
-            upgradeRing.draw(gc);
-            for (Icon i: icons) i.draw(gc);
-        }
-        // Vẽ thanh nâng cấp
-        if (upgradeRate >= 0) {
-            buildBarBg.draw(gc);
-            buildBar.draw(gc);
-        }
-    }
+//    public void drawLayout(GraphicsContext gc) {
+//        // Vẽ vòng tròn chọn lựa
+//        if (upgradeRing != null) {
+//            upgradeRing.draw(gc);
+//            for (Icon i: icons) i.draw(gc);
+//        }
+//        // Vẽ thanh nâng cấp
+//        if (upgradeRate >= 0) {
+//            buildBarBg.draw(gc);
+//            buildBar.draw(gc);
+//        }
+//    }
 
     //  kiểm tra liệu 1 tháp có thể nâng cấp, nếu có thì nâng cấp
     public void upgrade() {
@@ -71,16 +70,16 @@ public class EmptyTower extends Tower {
     }
 
 
-    public void onClick(int mouseX, int mouseY) {
-        if (upgradeRing != null) for (Icon icon : icons) icon.onClick(mouseX, mouseY, this);
-        super.onClick(mouseX, mouseY);
-        if (upgradeRing != null) {
-            icons[0] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 0);
-            icons[1] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 1);
-            icons[2] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 2);
-            icons[3] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 3);
-        }
-    }
+//    public void onClick(int mouseX, int mouseY) {
+//        if (upgradeRing != null) for (Icon icon : icons) icon.onClick(mouseX, mouseY, this);
+//        super.onClick(mouseX, mouseY);
+//        if (upgradeRing != null) {
+//            icons[0] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 0);
+//            icons[1] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 1);
+//            icons[2] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 2);
+//            icons[3] = new Icon(upgradeRing.getPosX(), upgradeRing.getPosY(), 3);
+//        }
+//    }
 
     @Override
     public void attack() {

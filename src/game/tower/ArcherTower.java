@@ -1,24 +1,23 @@
 package game.tower;
 
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public class ActiveTower extends Tower {
+public class ArcherTower extends BaseTower {
 
-    public ActiveTower(int posX, int posY, Image image) {
+    public ArcherTower(int posX, int posY, Image image) {
         super(posX, posY, image);
     }
 
-    @Override
-    public void draw(GraphicsContext gc) {
-        super.draw(gc);
-//        if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
-    }
+//    @Override
+//    public void draw(GraphicsContext gc) {
+//        super.draw(gc);
+////        if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
+//    }
 
-    @Override
-    public void drawLayout(GraphicsContext gc) {
-        if (upgradeRing != null) upgradeRing.draw(gc);
-    }
+//    @Override
+//    public void drawLayout(GraphicsContext gc) {
+//        if (upgradeRing != null) upgradeRing.draw(gc);
+//    }
 
     @Override
     public void update() {
