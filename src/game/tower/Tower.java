@@ -6,11 +6,7 @@ import game.object.UpdatableObject;
 import javafx.scene.image.Image;
 
 public abstract class Tower extends GameObject implements UpdatableObject, BaseTower {
-//    protected int attackRange;
     protected Ring upgradeRing;
-
-//    protected int nEffect_buildSmoke;
-//    protected GameObject effect_buildSmoke;
 
     Tower(int posX, int posY, Image image) {
         super(posX, posY, image);
@@ -23,10 +19,4 @@ public abstract class Tower extends GameObject implements UpdatableObject, BaseT
             upgradeRing = new Ring(x, y);
         } else upgradeRing = null;
     }
-
-//    public void draw(GraphicsContext gc) {
-//        super.draw(gc);
-//    }
-
-    //public abstract void drawLayout(GraphicsContext gc);
 }

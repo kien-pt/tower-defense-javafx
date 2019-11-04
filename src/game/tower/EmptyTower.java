@@ -8,26 +8,17 @@ import javafx.scene.image.Image;
 public class EmptyTower extends Tower {
 
     private GameObject buildBarBg, buildBar;
-//    private int nEffect_buildSmoke;
-    //private GameObject ring;
-    //ring ke thua tu upgradeRing của Tower
-//    private GameObject effect_buildSmoke;
-
     private Icon[] icons = new Icon[4];
-    //private boolean upgrade;
     private int upgradeRate = -1;
 
     public EmptyTower(int posX, int posY) {
         super(posX, posY, new Image("file:resources/tower/empty_tower.png"));
-//        attackRange = 0;
-        //this.upgrade = false;
         buildBarBg = new GameObject(posX + 28, posY - 15, new Image("file:resources/buildBar_bg.png"));
     }
 
     @Override
     public void draw(GraphicsContext gc) {
         super.draw(gc);
-//        if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
     }
 
     //cài đặt từ interface BaseTower
@@ -75,14 +66,8 @@ public class EmptyTower extends Tower {
 
 //              xây trụ thực ra là đổi ảnh và tăng tầm bắn từ 0 lên x
                 setImage("file:resources/tower/normal_tower.png");
-//                khói
-//                Image img = new Image("file:resources/smoke/buildSmoke_0.png");
-//                effect_buildSmoke = new GameObject(posX + 25, posY + 30, img);
-
             }
         }
-
-
     }
 
 
@@ -116,16 +101,4 @@ public class EmptyTower extends Tower {
     public void setUpgradeRate(int upgradeRate) {
         this.upgradeRate = upgradeRate;
     }
-
-
-//    dư thừa phần này vì getPosX và getPosY được kế thừa sẵn
-//    @Override
-//    public int getPosX() {
-//        return super.getPosX();
-//    }
-//
-//    @Override
-//    public int getPosY() {
-//        return super.getPosY();
-//    }
 }
