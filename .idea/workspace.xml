@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="Thêm chức năng bắn">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/enemy/BaseEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/BaseEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/enemy/NormalEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/NormalEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/enemy/TankerEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/TankerEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/gui/Icon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Icon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/gui/Ring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Ring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/gui/UpdateBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/UpdateBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/object/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/object/ClickableObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/ClickableObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/object/Effect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Effect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/object/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/stage/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/GameStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/stage/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/stage/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Welcome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/tower/BaseTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/BaseTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/tower/NormalTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/NormalTower.java" afterDir="false" />
-    </list>
+    <list default="true" id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="Bản chuẩn !" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +234,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572955092506</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Bản chuẩn !">
+      <created>1572956723478</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1572956723478</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Bản chuẩn !">
+      <created>1572956792265</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1572956792265</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -289,7 +283,8 @@
     <MESSAGE value="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc" />
     <MESSAGE value="ban dc r" />
     <MESSAGE value="Thêm chức năng bắn" />
-    <option name="LAST_COMMIT_MESSAGE" value="Thêm chức năng bắn" />
+    <MESSAGE value="Bản chuẩn !" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bản chuẩn !" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
