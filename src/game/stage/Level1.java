@@ -31,20 +31,16 @@ public class Level1 extends GameStage {
         ornament.add(new GameObject(-49, 220, overWall));
 
         // Vẽ 10 cái tháp trống
-        int x_axis_factor = 10;
-        int y_axis_factor = 10;
-        //tiện cho việc dịch đồng thời 10 tháp 1 cách nhất quán
-
-        towers.add(new EmptyTower(260-y_axis_factor, 560-x_axis_factor));
-        towers.add(new EmptyTower(550-y_axis_factor, 650-x_axis_factor));
-        towers.add(new EmptyTower(470-y_axis_factor, 480-x_axis_factor));
-        towers.add(new EmptyTower(625-y_axis_factor, 480-x_axis_factor));
-        towers.add(new EmptyTower(425-y_axis_factor, 390-x_axis_factor));
-        towers.add(new EmptyTower(670-y_axis_factor, 390-x_axis_factor));
-        towers.add(new EmptyTower(470-y_axis_factor, 315-x_axis_factor));
-        towers.add(new EmptyTower(620-y_axis_factor, 315-x_axis_factor));
-        towers.add(new EmptyTower(270-y_axis_factor, 230-x_axis_factor));
-        towers.add(new EmptyTower(550-y_axis_factor, 140-x_axis_factor));
+        towers.add(new EmptyTower(550, 650));
+        towers.add(new EmptyTower(260, 560));
+        towers.add(new EmptyTower(470, 480));
+        towers.add(new EmptyTower(625, 480));
+        towers.add(new EmptyTower(425, 390));
+        towers.add(new EmptyTower(670, 390));
+        towers.add(new EmptyTower(470, 315));
+        towers.add(new EmptyTower(620, 315));
+        towers.add(new EmptyTower(260, 210));
+        towers.add(new EmptyTower(550, 140));
     }
 
     @Override

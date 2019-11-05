@@ -1,19 +1,19 @@
 package game.stage;
 
-import game.enemy.BaseEnemy;
-import game.object.GameObject;
-import game.tower.BaseTower;
-import game.tower.NormalTower;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-
 import java.util.ArrayList;
 
+import game.tower.BaseTower;
+import game.enemy.BaseEnemy;
+import game.object.GameObject;
+import game.tower.NormalTower;
+import javafx.scene.image.Image;
+import javafx.scene.canvas.GraphicsContext;
+
 public abstract class GameStage {
+    private Image map;
     public ArrayList<GameObject> ornament = new ArrayList<>();
     public ArrayList<BaseTower> towers = new ArrayList<>();
     public ArrayList<BaseEnemy> enemies = new ArrayList<>();
-    private Image map;
 
     // Load map của level tương ứng
     public GameStage(int k) {
@@ -32,8 +32,8 @@ public abstract class GameStage {
      */
     public void draw(GraphicsContext gc) {
         gc.drawImage(map, 0, -50);
-        for (BaseEnemy enemy : enemies) enemy.draw(gc);
-        for (BaseTower tower : towers) tower.draw(gc);
+        for (BaseEnemy enemy : enemies) ((GameObject) enemy).draw(gc);
+        for (BaseTower tower : towers) ((GameObject) tower).draw(gc);
         for (GameObject i : ornament) i.draw(gc);
         for (BaseTower tower: towers) tower.drawLayout(gc);
     }
@@ -47,8 +47,8 @@ public abstract class GameStage {
             towers.get(i).update();
             // Nêu tháp được nâng cấp thì set 1 tháp mới thay vào
             if (towers.get(i).getUpgrade() >= 0) {
-                int newPosX = towers.get(i).getPosX();
-                int newPosY = towers.get(i).getPosY();
+                int newPosX = towers.get(i).getPosX() - 10;
+                int newPosY = towers.get(i).getPosY() - 10;
                 towers.set(i, new NormalTower(newPosX, newPosY));
             }
         }

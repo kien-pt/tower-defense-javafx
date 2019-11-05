@@ -1,10 +1,8 @@
-package game.troops;
+package game.object;
 
 import game.enemy.BaseEnemy;
-import game.object.GameObject;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import game.object.UpdatableObject;
 import javafx.scene.image.ImageView;
 import javafx.scene.SnapshotParameters;
 
