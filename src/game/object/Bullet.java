@@ -35,8 +35,7 @@ public class Bullet extends GameObject implements UpdatableObject {
 
             ImageView iv = new ImageView(new Image("file:resources/arrow.png"));
             double cc = 0;
-            if (posX < targetX) cc = 180;
-            //if (moveX == 0 && moveY < 0) cc = 180;
+            if (posX >= targetX) cc = 180;
             if (moveX != 0) iv.setRotate(Math.toDegrees(Math.atan(moveY / moveX)) + cc);
             else iv.setRotate(90 + cc);
 

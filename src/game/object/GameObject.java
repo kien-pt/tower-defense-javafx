@@ -26,31 +26,29 @@ public class GameObject {
                 && getPosY() <= mouseY && mouseY <= getPosY() + getImage().getHeight());
     }
 
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-
-    public void setPosY(int posY) {
-        this.posY = posY;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
-    }
-
     public int getPosX() {
         return posX;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
     }
 
     public int getPosY() {
         return posY;
     }
 
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
     public int getHeight() { return height; }
-
     public int getWidth() { return width; }
 
     public Image getImage() {
         return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

@@ -50,7 +50,7 @@ public abstract class GameStage {
             // Update tháp
             towers.get(i).update();
             // Nêu tháp được nâng cấp thì set 1 tháp mới thay vào
-            if (towers.get(i).isUpgrade()) {
+            if (towers.get(i).getUpgrade() >= 0) {
                 int newPosX = towers.get(i).getPosX() - 10;
                 int newPosY = towers.get(i).getPosY() - 10;
                 towers.set(i, new NormalTower(newPosX, newPosY));
@@ -62,9 +62,7 @@ public abstract class GameStage {
             if (enemies.get(i).getPosX() < -30) enemies.remove(i);
         }
 
-        for (BaseTower i : towers) {
-            if (i instanceof NormalTower) ((NormalTower) i).attack(enemies);
-        }
+        for (BaseTower i : towers) i.attack(enemies);
     }
 
     /** Đọc các sự kiện bàn phím chuột
