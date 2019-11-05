@@ -64,6 +64,11 @@ public class EmptyTower extends BaseTower {
     }
 
     @Override
+    public void findTargets() {
+
+    }
+
+    @Override
     public void attack() {
         //trụ trống không thể tấn công
     }

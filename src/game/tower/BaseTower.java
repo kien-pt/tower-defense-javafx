@@ -1,5 +1,6 @@
 package game.tower;
 
+import game.enemy.BaseEnemy;
 import game.object.GameObject;
 import game.object.Icon;
 import game.object.Ring;
@@ -7,29 +8,22 @@ import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public abstract class BaseTower extends GameObject implements UpdatableObject {
-    private final GameObject buildBarBg = new GameObject(posX + 28, posY - 15, new Image("file:resources/buildBar_bg.png"));
-    public int attackRange;
-    public GameObject watchman;
-    Ring upgradeRing;
-    GameObject buildBar;
-    Icon[] icons;
+import java.util.ArrayList;
 
-    int upgradeRate = -1;
+public abstract class BaseTower extends GameObject implements UpdatableObject, ClickableObject {
+    public int attackRange;
+    public GameObject soldier;
+    public Icon[] icons;
+    Ring upgradeRing;
+    ArrayList<BaseEnemy> targets = new ArrayList<>();
+    private Ring ring;
 
     BaseTower(int posX, int posY, Image image) {
         super(posX, posY, image);
     }
 
     public void drawLayout(GraphicsContext gc) {
-        if (upgradeRing != null) {
-            upgradeRing.draw(gc);
-            for (Icon i : icons) i.draw(gc);
-        }
-        if (upgradeRate >= 0) {
-            buildBarBg.draw(gc);
-            buildBar.draw(gc);
-        }
+
     }
 
     public void draw(GraphicsContext gc) {
@@ -49,13 +43,15 @@ public abstract class BaseTower extends GameObject implements UpdatableObject {
         if (upgradeRing != null) for (Icon icon : icons) icon.hover(mouseX, mouseY);
     }
 
-    public void attack() {
+    public abstract void findTargets();
+//        cập nhật targets[];
 
-    }
+    public abstract void attack();
+//        tấn công dựa trên targets[]
 
     public abstract void upgrade();
 
-    public void setUpgradeRate(int upgradeRate) {
-        this.upgradeRate = upgradeRate;
-    }
+//    public void setUpgradeRate(int upgradeRate) {
+//        this.upgradeRate = upgradeRate;
+//    }
 }
