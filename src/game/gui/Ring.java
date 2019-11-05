@@ -1,4 +1,4 @@
-package gui;
+package game.gui;
 
 import game.object.GameObject;
 import game.object.UpdatableObject;
@@ -27,8 +27,8 @@ public class Ring extends GameObject implements UpdatableObject {
         }
     }
 
-    public void hover(int mouseX, int mouseY) {
-        for (Icon icon : icons) icon.hover(mouseX, mouseY);
+    public void onHover(int mouseX, int mouseY) {
+        for (Icon icon : icons) icon.onHover(mouseX, mouseY);
     }
 
     @Override

@@ -4,7 +4,7 @@ import game.object.Effect;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import game.object.UpdatableObject;
-import gui.Ring;
+import game.gui.Ring;
 import game.object.GameObject;
 
 public class ActiveTower extends GameObject implements UpdatableObject, BaseTower {
@@ -20,7 +20,7 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
 
     @Override
     public void onClick(int mouseX, int mouseY) {
-        if (click(mouseX, mouseY)) {
+        if (hover(mouseX, mouseY)) {
             int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
             int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
             ring = new Ring(x, y, 0);
@@ -31,6 +31,11 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
     public void draw(GraphicsContext gc) {
         super.draw(gc);
         if (effect_buildSmoke != null) effect_buildSmoke.draw(gc);
+    }
+
+    @Override
+    public void onHover(int mouseX, int mouseY) {
+
     }
 
     @Override
@@ -54,10 +59,5 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
     @Override
     public boolean isUpgrade() {
         return false;
-    }
-
-    @Override
-    public void hover(int mouseX, int mouseY) {
-
     }
 }

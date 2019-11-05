@@ -1,11 +1,9 @@
 package game.tower;
 
-import gui.Ring;
+import game.gui.Ring;
 
-import java.util.ArrayList;
-import game.enemy.BaseEnemy;
 import game.object.GameObject;
-import gui.UpdateBar;
+import game.gui.UpdateBar;
 import javafx.scene.image.Image;
 import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
@@ -46,16 +44,16 @@ public class EmptyTower extends GameObject implements UpdatableObject, BaseTower
             }
         }
         // Nếu Click vào tòa tháp sẽ hiện lên vòng tròn
-        if (click(mouseX, mouseY)) {
+        if (hover(mouseX, mouseY)) {
             int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
             int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
             ring = new Ring(x, y, 0);
         } else ring = null;
     }
 
-    public void hover(int mouseX, int mouseY) {
+    public void onHover(int mouseX, int mouseY) {
 
-        if (ring != null) ring.hover(mouseX, mouseY);
+        if (ring != null) ring.onHover(mouseX, mouseY);
     }
 
 

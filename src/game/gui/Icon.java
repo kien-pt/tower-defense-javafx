@@ -1,10 +1,9 @@
-package gui;
+package game.gui;
 
 import game.object.GameObject;
 import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import game.tower.BaseTower;
 
 public class Icon extends GameObject implements UpdatableObject {
     private int tag;
@@ -21,12 +20,12 @@ public class Icon extends GameObject implements UpdatableObject {
     }
 
     public int onClick(int mouseX, int mouseY) {
-        if (click(mouseX, mouseY)) return tag;
+        if (hover(mouseX, mouseY)) return tag;
         return -1;
     }
 
-    public void hover(int mouseX, int mouseY) {
-        if (click(mouseX, mouseY)) {
+    public void onHover(int mouseX, int mouseY) {
+        if (hover(mouseX, mouseY)) {
             if (!isOn) setImage(new Image(imageOn, getWidth() * scale, getHeight() * scale, false, true));
             isOn = true;
         } else {

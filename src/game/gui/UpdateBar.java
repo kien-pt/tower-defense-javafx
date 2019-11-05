@@ -1,4 +1,4 @@
-package gui;
+package game.gui;
 
 import game.object.GameObject;
 import game.object.UpdatableObject;

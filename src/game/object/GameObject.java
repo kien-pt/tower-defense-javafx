@@ -21,7 +21,7 @@ public class GameObject {
         gc.drawImage(getImage(), getPosX(), getPosY());
     }
 
-    protected boolean click(int mouseX, int mouseY) {
+    protected boolean hover(int mouseX, int mouseY) {
         return (getPosX() <= mouseX && mouseX <= getPosX() + getImage().getWidth()
                 && getPosY() <= mouseY && mouseY <= getPosY() + getImage().getHeight());
     }
