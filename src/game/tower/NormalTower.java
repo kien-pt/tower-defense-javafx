@@ -10,6 +10,7 @@ public class NormalTower extends BaseTower {
         super(posX, posY, "normal");
         setRange(150);
         setShoot(false);
+        setActive(true);
         buildSmoke = new Effect(posX + 25, posY + 30, "file:resources/Effect/effect_buildSmoke_", 35, 60);
     }
 

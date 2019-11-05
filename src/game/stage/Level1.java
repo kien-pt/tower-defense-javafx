@@ -1,11 +1,10 @@
 package game.stage;
 
+import game.tower.EmptyTower;
 import game.enemy.NormalEnemy;
 import game.enemy.TankerEnemy;
-import javafx.scene.image.Image;
-
 import game.object.GameObject;
-import game.tower.EmptyTower;
+import javafx.scene.image.Image;
 
 public class Level1 extends GameStage {
     private Image hammerTower, cityTower, overWall;

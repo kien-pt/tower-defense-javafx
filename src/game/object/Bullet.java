@@ -2,11 +2,11 @@ package game.troops;
 
 import game.enemy.BaseEnemy;
 import game.object.GameObject;
-import game.object.UpdatableObject;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import game.object.UpdatableObject;
+import javafx.scene.image.ImageView;
+import javafx.scene.SnapshotParameters;
 
 public class Bullet extends GameObject implements UpdatableObject {
     private BaseEnemy target;

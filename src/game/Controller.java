@@ -1,12 +1,12 @@
 package game;
 
-import game.stage.Welcome;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.MouseEvent;
-import game.stage.GameStage;
 import game.stage.Level1;
+import game.stage.Welcome;
+import javafx.scene.Scene;
+import game.stage.GameStage;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.canvas.GraphicsContext;
 
 public class Controller {
     private int stage;

@@ -17,6 +17,9 @@ public class GameObject {
         width = (int) image.getWidth();
     }
 
+    public GameObject() {
+    }
+
     public void draw(GraphicsContext gc) {
         gc.drawImage(getImage(), getPosX(), getPosY());
     }

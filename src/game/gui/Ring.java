@@ -7,17 +7,16 @@ import javafx.scene.image.Image;
 
 public class Ring extends GameObject implements UpdatableObject {
     private Icon[] icons;
-    private int upgrade;
+    private int upgrade, iconAmount;
 
     public Ring(int posX, int posY, int tag) {
         super(posX, posY, new Image("file:resources/gui_ring.png"));
         scale = 0;
         upgrade = -1;
-        int iconAmount;
         if (tag == 0) iconAmount = 4;
         else iconAmount = 2;
         icons = new Icon[iconAmount];
-        for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(0, 0, i);
+        for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
     }
 
     public void onClick(int mouseX, int mouseY) {
@@ -50,18 +49,22 @@ public class Ring extends GameObject implements UpdatableObject {
 
         for (Icon icon : icons) icon.update();
 
-        int x_left = getPosX();
-        int x_right = getPosX() + (int) getImage().getWidth() - (int) icons[1].getImage().getWidth();
-        int y_up = getPosY();
-        int y_down = getPosY() + (int) getImage().getHeight() - (int) icons[2].getImage().getHeight();
-        icons[0].setPosX(x_left);
-        icons[0].setPosY(y_up);
-        icons[1].setPosX(x_right);
-        icons[1].setPosY(y_up);
-        icons[2].setPosX(x_left);
-        icons[2].setPosY(y_down);
-        icons[3].setPosX(x_right);
-        icons[3].setPosY(y_down);
+        if (iconAmount == 2) {
+
+        } else {
+            int x_left = getPosX();
+            int x_right = getPosX() + (int) getImage().getWidth() - (int) icons[1].getImage().getWidth();
+            int y_up = getPosY();
+            int y_down = getPosY() + (int) getImage().getHeight() - (int) icons[2].getImage().getHeight();
+            icons[0].setPosX(x_left);
+            icons[0].setPosY(y_up);
+            icons[1].setPosX(x_right);
+            icons[1].setPosY(y_up);
+            icons[2].setPosX(x_left);
+            icons[2].setPosY(y_down);
+            icons[3].setPosX(x_right);
+            icons[3].setPosY(y_down);
+        }
     }
 
     public int getUpgrade() {

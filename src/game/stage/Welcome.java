@@ -1,9 +1,9 @@
 package game.stage;
 
-import game.object.GameObject;
 import game.gui.Icon;
-import javafx.scene.canvas.GraphicsContext;
+import game.object.GameObject;
 import javafx.scene.image.Image;
+import javafx.scene.canvas.GraphicsContext;
 
 public class Welcome extends GameStage {
     private Image mainMenuImage;

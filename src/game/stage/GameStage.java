@@ -1,17 +1,13 @@
 package game.stage;
 
-import game.enemy.BaseEnemy;
-import game.enemy.NormalEnemy;
-import game.tower.EmptyTower;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-import game.object.UpdatableObject;
-import game.object.GameObject;
-import game.tower.BaseTower;
-import game.tower.NormalTower;
-
-import javax.naming.NoInitialContextException;
 import java.util.ArrayList;
+
+import game.tower.BaseTower;
+import game.enemy.BaseEnemy;
+import game.object.GameObject;
+import game.tower.NormalTower;
+import javafx.scene.image.Image;
+import javafx.scene.canvas.GraphicsContext;
 
 public abstract class GameStage {
     private Image map;

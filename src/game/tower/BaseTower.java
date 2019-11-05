@@ -18,9 +18,9 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     private Ring ring;
     private String tag;
     private double range;
-    private boolean shoot;
     private long lastShootTime;
     private Effect shootSoldier;
+    private boolean shoot, active;
     private int upgrade, tempUpgrade;
     private ArrayList<Bullet> bullets;
     private GameObject soldier, tempSoldier;
@@ -29,6 +29,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public BaseTower(int posX, int posY, String tag) {
         super(posX, posY, new Image("file:resources/tower/" + tag + "_tower.png"));
         upgrade = -1;
+        active = false;
         this.tag = tag;
         bullets = new ArrayList<Bullet>();
         lastShootTime = System.currentTimeMillis();
@@ -50,7 +51,8 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         if (hover(mouseX, mouseY)) {
             int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
             int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
-            ring = new Ring(x, y, 0);
+            if (active) ring = new Ring(x, y, 1);
+            else ring = new Ring(x, y, 0);
         } else {
             if (ring != null && ring.getUpgrade() >= 0) {
                 updateBar = tempUpdateBar;
@@ -147,5 +149,9 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
 
     public void setUpgrade(int upgrade) {
         this.upgrade = upgrade;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

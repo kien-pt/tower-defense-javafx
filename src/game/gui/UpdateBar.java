@@ -1,9 +1,9 @@
 package game.gui;
 
 import game.object.GameObject;
+import javafx.scene.image.Image;
 import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 
 public class UpdateBar extends GameObject implements UpdatableObject {
     private GameObject updateBar;

@@ -1,6 +1,5 @@
 package game.object;
 
-
 import javafx.scene.image.Image;
 
 public class Effect extends GameObject implements UpdatableObject, AnimateObject {

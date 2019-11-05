@@ -1,12 +1,12 @@
 package game;
 
-import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
+import javafx.scene.canvas.Canvas;
+import javafx.application.Application;
+import javafx.animation.AnimationTimer;
+import javafx.scene.canvas.GraphicsContext;
 
 public class Main extends Application {
     private static Controller controller;

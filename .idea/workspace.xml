@@ -3,12 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="Thêm chức năng bắn">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/enemy/BaseEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/BaseEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/enemy/NormalEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/NormalEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/enemy/TankerEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemy/TankerEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/Icon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Icon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/Ring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/Ring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/gui/UpdateBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/gui/UpdateBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/object/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Bullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/object/ClickableObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/ClickableObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/object/Effect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Effect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/object/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/stage/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/GameStage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/tower/ActiveTower.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stage/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stage/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Welcome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/tower/BaseTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/BaseTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/tower/NormalTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/NormalTower.java" afterDir="false" />
@@ -238,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572939541769</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Thêm chức năng bắn">
+      <created>1572955092506</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1572955092506</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
