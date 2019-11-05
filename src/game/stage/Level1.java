@@ -1,9 +1,9 @@
 package game.stage;
 
-import game.tower.EmptyTower;
 import game.enemy.NormalEnemy;
 import game.enemy.TankerEnemy;
 import game.object.GameObject;
+import game.tower.EmptyTower;
 import javafx.scene.image.Image;
 
 public class Level1 extends GameStage {
@@ -31,16 +31,16 @@ public class Level1 extends GameStage {
         ornament.add(new GameObject(-49, 220, overWall));
 
         // Vẽ 10 cái tháp trống
-        towers.add(new EmptyTower(550, 650));
-        towers.add(new EmptyTower(260, 560));
-        towers.add(new EmptyTower(470, 480));
-        towers.add(new EmptyTower(625, 480));
-        towers.add(new EmptyTower(425, 390));
-        towers.add(new EmptyTower(670, 390));
-        towers.add(new EmptyTower(470, 315));
-        towers.add(new EmptyTower(620, 315));
-        towers.add(new EmptyTower(260, 210));
-        towers.add(new EmptyTower(550, 140));
+        towers.add(new EmptyTower(540, 640));
+        towers.add(new EmptyTower(250, 550));
+        towers.add(new EmptyTower(460, 470));
+        towers.add(new EmptyTower(615, 470));
+        towers.add(new EmptyTower(415, 380));
+        towers.add(new EmptyTower(665, 380));
+        towers.add(new EmptyTower(460, 297));
+        towers.add(new EmptyTower(610, 297));
+        towers.add(new EmptyTower(250, 200));
+        towers.add(new EmptyTower(540, 130));
     }
 
     @Override
