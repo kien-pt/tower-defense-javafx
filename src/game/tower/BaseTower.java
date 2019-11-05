@@ -1,18 +1,17 @@
 package game.tower;
 
+import game.enemy.BaseEnemy;
 import game.gui.Ring;
 import game.gui.UpdateBar;
+import game.object.ClickableObject;
 import game.object.Effect;
+import game.object.GameObject;
+import game.object.UpdatableObject;
 import game.troops.Bullet;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 import java.util.ArrayList;
-
-import game.enemy.BaseEnemy;
-import game.object.GameObject;
-import javafx.scene.image.Image;
-import game.object.UpdatableObject;
-import game.object.ClickableObject;
-import javafx.scene.canvas.GraphicsContext;
 
 public class BaseTower extends GameObject implements UpdatableObject, ClickableObject {
     private Ring ring;
@@ -33,8 +32,8 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         this.tag = tag;
         bullets = new ArrayList<Bullet>();
         lastShootTime = System.currentTimeMillis();
-        tempUpdateBar = new UpdateBar(posX + 20, posY - 13);
-        tempSoldier = new GameObject(posX + 52, posY - 5, new Image("file:resources/soldier/" + tag + "_idle.png"));
+        tempUpdateBar = new UpdateBar(posX + 28, posY - 15);
+        tempSoldier = new GameObject(posX + 49, posY - 5, new Image("file:resources/soldier/" + tag + "_idle.png"));
         soldier = tempSoldier;
     }
 
@@ -75,7 +74,6 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
             soldier = null;
             if (shootSoldier == null)
                 shootSoldier = new Effect(posX + 52, posY - 10, "file:resources/soldier/" + tag + "_", 4, 24);
-            ;
         } else if (shootSoldier == null) soldier = tempSoldier;
 
         if (updateBar != null && updateBar.isDone()) {
