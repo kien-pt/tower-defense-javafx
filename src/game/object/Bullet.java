@@ -1,66 +1,53 @@
 package game.troops;
 
+import game.enemy.BaseEnemy;
 import game.object.GameObject;
+import game.object.UpdatableObject;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
-/**
- * Created by Khiem472 on 17/10/19.
- */
-public class Bullet extends GameObject {
-    private int xVal;
-    private int yVal;
-    private boolean isFired;
+public class Bullet extends GameObject implements UpdatableObject {
+    private BaseEnemy target;
+    private boolean destroyed;
 
-    public Bullet(int posX, int posY, int xVal, int yVal, boolean isFired) {
+    public Bullet(int posX, int posY, BaseEnemy target) {
         super(posX, posY, new Image("file:resources/arrow.png"));
-        this.xVal = xVal;
-        this.yVal = yVal;
-        this.isFired = isFired;
+        this.target = target;
+        destroyed = false;
     }
 
-    public void MoveBullet(int targetX, int targetY) {
-        int distance = (int) Math.sqrt(Math.pow((double) targetX - posX, 2) + Math.pow((double) targetY - posY, 2));
-        distance /= 5;
+    @Override
+    public void update() {
+        int targetX = target.getPosX();
+        int targetY = target.getPosY() - target.getHeight() / 2;
+        int distance = (int) Math.sqrt(Math.pow(targetX - posX, 2) + Math.pow(targetY - posY, 2));
+        distance /= 8;
 
+        if (distance != 0) {
+            double moveX = 0, moveY = 0;
+            moveX = (targetX - posX) / distance;
+            moveY = (targetY - posY) / distance;
 
-        if (this.IsFired()) {
-            if (distance != 0) {
-                double moveX = 0, moveY = 0;
-                moveX = (targetX - posX) / distance;
-                moveY = (targetY - posY) / distance;
+            setPosX(posX + (int) moveX);
+            setPosY(posY + (int) moveY);
 
-                setPosX(posX + (int) moveX);
-                setPosY(posY + (int) moveY);
+            ImageView iv = new ImageView(new Image("file:resources/arrow.png"));
+            double cc = 0;
+            if (posX < targetX) cc = 180;
+            //if (moveX == 0 && moveY < 0) cc = 180;
+            if (moveX != 0) iv.setRotate(Math.toDegrees(Math.atan(moveY / moveX)) + cc);
+            else iv.setRotate(90 + cc);
 
-
-                ImageView iv = new ImageView(new Image("file:resources/arrow.png"));
-
-                double cc = 0;
-                if (moveX < 0) cc = 180;
-                if (moveX == 0 && moveY < 0) cc = 180;
-
-                if (moveX != 0)
-                    iv.setRotate(Math.toDegrees(Math.atan(moveY / moveX)) + cc);
-                else iv.setRotate(90 + cc);
-
-                SnapshotParameters params = new SnapshotParameters();
-                params.setFill(Color.TRANSPARENT);
-                Image rotatedImage = iv.snapshot(params, null);
-                setImage(rotatedImage);
-
-
-            }
-        }
+            SnapshotParameters params = new SnapshotParameters();
+            params.setFill(Color.TRANSPARENT);
+            Image rotatedImage = iv.snapshot(params, null);
+            setImage(rotatedImage);
+        } else destroyed = true;
     }
 
-    public void setFired(boolean isFired) {
-        this.isFired = isFired;
-    }
-
-    public boolean IsFired() {
-        return this.isFired;
+    public boolean isDestroyed() {
+        return destroyed;
     }
 }

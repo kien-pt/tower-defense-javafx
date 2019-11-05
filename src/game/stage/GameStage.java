@@ -1,7 +1,7 @@
 package game.stage;
 
 import game.enemy.BaseEnemy;
-import game.tower.Attacker;
+import game.enemy.NormalEnemy;
 import game.tower.EmptyTower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -63,9 +63,7 @@ public abstract class GameStage {
         }
 
         for (BaseTower i : towers) {
-            if (i instanceof NormalTower) {
-                ((NormalTower) i).getAttacker().Shoot(enemies);
-            }
+            if (i instanceof NormalTower) ((NormalTower) i).attack(enemies);
         }
     }
 

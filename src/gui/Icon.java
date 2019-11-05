@@ -1,5 +1,7 @@
-package game.object;
+package gui;
 
+import game.object.GameObject;
+import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import game.tower.BaseTower;
@@ -7,30 +9,28 @@ import game.tower.BaseTower;
 public class Icon extends GameObject implements UpdatableObject {
     private int tag;
     private boolean isOn;
-    private String imageURL_on, imageURL_off;
+    private String imageOn, imageOff;
 
     public Icon(int posX, int posY, int tag) {
         super(posX, posY, new Image("file:resources/icon/icon_" + tag + "_off.png"));
         this.tag = tag;
         scale = 0;
         isOn = false;
-        imageURL_on = "file:resources/icon/icon_" + tag + ".png";
-        imageURL_off = "file:resources/icon/icon_" + tag + "_off.png";
+        imageOn = "file:resources/icon/icon_" + tag + ".png";
+        imageOff = "file:resources/icon/icon_" + tag + "_off.png";
     }
 
     public int onClick(int mouseX, int mouseY) {
-        if (click(mouseX, mouseY)) {
-            return tag;
-        }
+        if (click(mouseX, mouseY)) return tag;
         return -1;
     }
 
     public void hover(int mouseX, int mouseY) {
         if (click(mouseX, mouseY)) {
-            if (!isOn) setImage(new Image(imageURL_on, getWidth() * scale, getHeight() * scale, false, true));
+            if (!isOn) setImage(new Image(imageOn, getWidth() * scale, getHeight() * scale, false, true));
             isOn = true;
         } else {
-            setImage(new Image(imageURL_off, getWidth() * scale, getHeight() * scale, false, true));
+            setImage(new Image(imageOff, getWidth() * scale, getHeight() * scale, false, true));
             isOn = false;
         }
     }
@@ -38,7 +38,7 @@ public class Icon extends GameObject implements UpdatableObject {
     public void update() {
         if (scale < 1) {
             scale += 0.05;
-            setImage(new Image(imageURL_off, getWidth() * scale, getHeight() * scale, false, true));
+            setImage(new Image(imageOff, getWidth() * scale, getHeight() * scale, false, true));
         }
     }
 

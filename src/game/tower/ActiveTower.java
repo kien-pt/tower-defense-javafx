@@ -1,11 +1,10 @@
 package game.tower;
 
 import game.object.Effect;
-import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import game.object.UpdatableObject;
-import game.object.Ring;
+import gui.Ring;
 import game.object.GameObject;
 
 public class ActiveTower extends GameObject implements UpdatableObject, BaseTower {
@@ -24,7 +23,7 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
         if (click(mouseX, mouseY)) {
             int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
             int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
-            ring = new Ring(x, y);
+            ring = new Ring(x, y, 0);
         } else ring = null;
     }
 
@@ -48,7 +47,6 @@ public class ActiveTower extends GameObject implements UpdatableObject, BaseTowe
         if (ring != null) ((Ring) ring).update();
     }
 
-    @Override
     public void setUpgradeRate(int rate) {
 
     }

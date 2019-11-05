@@ -15,15 +15,17 @@ public class NormalTower extends ActiveTower {
     private double range;
     private GameObject soldier;
     private Effect shootSoldier;
-    private Attacker attacker;
+    private boolean isShoot;
+    private long lastShootTime;
 
     public NormalTower(int posX, int posY) {
         super(posX, posY, new Image("file:resources/tower/normal_tower.png"));
         this.range = 200;
+        isShoot = false;
         soldierTag = "normal_";
         soldier = new GameObject(posX + 52, posY - 5, new Image("file:resources/soldier/normal_idle.png"));
-        this.attacker = new Attacker(this);
         this.bullets = new ArrayList<>();
+        lastShootTime = System.currentTimeMillis();
     }
 
     public double getRange() {
@@ -33,7 +35,7 @@ public class NormalTower extends ActiveTower {
     @Override
     public void draw(GraphicsContext gc) {
         super.draw(gc);
-        if (attacker.isShoot) {
+        if (isShoot) {
             if (shootSoldier == null)
                 shootSoldier = new Effect(posX + 52, posY - 10, "file:resources/soldier/normal_", 4, 24);
             if (soldier != null) soldier = null;
@@ -54,11 +56,25 @@ public class NormalTower extends ActiveTower {
         }
     }
 
-    public ArrayList<Bullet> getBullets() {
-        return this.bullets;
+    public void attack(ArrayList<BaseEnemy> enemies) {
+        isShoot = false;
+        while (!bullets.isEmpty() && bullets.get(0).isDestroyed()) bullets.remove(0);
+        if (lastShootTime + 1000 < System.currentTimeMillis()) {
+            for (BaseEnemy enemy : enemies) {
+                double dis = Math.pow(posX - enemy.getPosX(), 2) + Math.pow(posY - enemy.getPosY(), 2);
+                if (dis <= range * range) {
+                    bullets.add(new Bullet(posX + getWidth() / 2, posY - 10, enemy));
+                    isShoot = true;
+                    break;
+                }
+            }
+            lastShootTime = System.currentTimeMillis();
+        }
     }
 
-    public Attacker getAttacker() {
-        return attacker;
+    @Override
+    public void update() {
+        super.update();
+        for (Bullet bullet : bullets) bullet.update();
     }
 }

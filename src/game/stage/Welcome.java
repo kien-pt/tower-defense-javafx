@@ -1,7 +1,7 @@
 package game.stage;
 
 import game.object.GameObject;
-import game.object.Icon;
+import gui.Icon;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 

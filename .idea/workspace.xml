@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc5691ef-4682-43d8-b3e9-bdf1f33c17a0" name="Default" comment="Thêm lớp enemy, thêm hình ảnh, chỉnh sửa cấu trúc">
+      <change afterPath="$PROJECT_DIR$/src/gui/UpdateBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/soldier/normal_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/soldier/normal_0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/soldier/normal_0_behind.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/soldier/normal_0_behind.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/soldier/normal_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/soldier/normal_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/soldier/normal_1_behind.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/soldier/normal_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/soldier/normal_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/soldier/normal_2_behind.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/soldier/normal_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/soldier/normal_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/soldier/normal_3_behind.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/object/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/object/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/stage/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/object/Icon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Icon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/object/Ring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Ring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stage/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/GameStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/stage/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/stage/Welcome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/tower/ActiveTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/ActiveTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/tower/Attacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/Attacker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/tower/Attacker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/tower/BaseTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/BaseTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/EmptyTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/tower/NormalTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/tower/NormalTower.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,6 +49,7 @@
   </component>
   <component name="ProjectId" id="1SUfHT1VDSrcV5NcDRyLvybvHKw" />
   <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
