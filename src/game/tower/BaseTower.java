@@ -46,11 +46,9 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         if (ring != null) ring.onClick(mouseX, mouseY);
 
         if (hover(mouseX, mouseY)) {
-            int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
-            int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
-            if (active) ring = new Ring(x, y, 1);
-            else ring = new Ring(x, y, 0);
-            rangeCircle = new RangeCircle(x, y);
+            if (active) ring = new Ring(getXcenter(), getYcenter(), 1);
+            else ring = new Ring(getXcenter(), getYcenter(), 0);
+            rangeCircle = new RangeCircle(getXcenter(), getYcenter());
         } else {
             if (ring != null && ring.getUpgrade() >= 0) {
                 updateBar = tempUpdateBar;
@@ -91,10 +89,8 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         while (!bullets.isEmpty() && bullets.get(0).isDestroyed()) bullets.remove(0);   // Xóa bớt đạn thừa
         if (lastShootTime + 1000 < System.currentTimeMillis()) {
             lastShootTime = System.currentTimeMillis();
-            int towerCenterX = posX + getWidth() / 2;   // Tọa độ tâm X của tháp
-            int towerCenterY = posY + getHeight() / 2;  // Tọa độ tâm Y của tháp
             for (BaseEnemy enemy : enemies) {
-                double dis = Math.pow(towerCenterX - enemy.getPosX(), 2) + Math.pow(towerCenterY - enemy.getPosY(), 2);
+                double dis = Math.pow(getXcenter() - enemy.getPosX(), 2) + Math.pow(getYcenter() - enemy.getPosY(), 2);
                 if (dis <= range * range) {
                     bullets.add(new Bullet(posX + getWidth() / 2, posY - 10, enemy));
                     shoot = true;
@@ -125,7 +121,6 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public boolean isShoot() {
         return shoot;
     }
-
     public void setShoot(boolean shoot) {
         this.shoot = shoot;
     }
@@ -137,7 +132,6 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public double getRange() {
         return range;
     }
-
     public void setRange(double range) {
         this.range = range;
     }
@@ -145,7 +139,6 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public int getUpgrade() {
         return upgrade;
     }
-
     public void setUpgrade(int upgrade) {
         this.upgrade = upgrade;
     }

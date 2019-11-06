@@ -9,8 +9,21 @@ public class Ring extends GameObject implements UpdatableObject {
     private Icon[] icons;
     private int upgrade, iconAmount;
 
-    public Ring(int posX, int posY, int tag) {
-        super(posX, posY, new Image("file:resources/gui_ring.png"));
+//    public Ring(int posX, int posY, int tag) {
+//        super(posX, posY, new Image("file:resources/gui_ring.png"));
+//        scale = 0;
+//        upgrade = -1;
+//        if (tag == 0) iconAmount = 4;
+//        else iconAmount = 2;
+//        icons = new Icon[iconAmount];
+//        for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
+//    }
+
+
+    public Ring(int xCenter, int yCenter, int tag) {
+        super(new Image("file:resources/gui_ring.png"));
+        setXcenter(xCenter);
+        setYcenter(yCenter);
         scale = 0;
         upgrade = -1;
         if (tag == 0) iconAmount = 4;

@@ -17,7 +17,12 @@ public class GameObject {
         width = (int) image.getWidth();
     }
 
-    public GameObject() {
+    public GameObject(Image image) {
+        this.image = image;
+        posX = 0;
+        posY = 0;
+        height = (int) image.getHeight();
+        width = (int) image.getWidth();
     }
 
     public void draw(GraphicsContext gc) {
@@ -32,7 +37,6 @@ public class GameObject {
     public int getPosX() {
         return posX;
     }
-
     public void setPosX(int posX) {
         this.posX = posX;
     }
@@ -40,7 +44,6 @@ public class GameObject {
     public int getPosY() {
         return posY;
     }
-
     public void setPosY(int posY) {
         this.posY = posY;
     }
@@ -51,8 +54,23 @@ public class GameObject {
     public Image getImage() {
         return image;
     }
-
     public void setImage(Image image) {
         this.image = image;
+    }
+
+    protected int getXcenter() {
+        return getPosX() + getWidth() / 2;
+    }
+
+    protected void setXcenter(int x) {
+        setPosX(x - getWidth() / 2);
+    }
+
+    protected int getYcenter() {
+        return getPosY() + getHeight() / 2;
+    }
+
+    protected void setYcenter(int y) {
+        setPosY(y - getHeight() / 2);
     }
 }
