@@ -1,9 +1,9 @@
 package game.gui;
 
 import game.object.GameObject;
-import javafx.scene.image.Image;
 import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 public class Icon extends GameObject implements UpdatableObject {
     private int tag;
@@ -35,7 +35,7 @@ public class Icon extends GameObject implements UpdatableObject {
     }
 
     public void update() {
-        if (scale < 1) {
+        if (scale < 0.65) {
             scale += 0.05;
             setImage(new Image(imageOff, getWidth() * scale, getHeight() * scale, false, true));
         }

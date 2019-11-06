@@ -38,7 +38,7 @@ public class Ring extends GameObject implements UpdatableObject {
 
     // Zoom vào cái vòng tròn chọn Icon
     public void update() {
-        if (scale < 1) {
+        if (scale < 0.7) {
             scale += 0.1;
             setPosX(getPosX() + (int) getImage().getWidth() / 2);
             setPosY(getPosY() + (int) getImage().getHeight() / 2);

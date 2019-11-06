@@ -44,6 +44,7 @@ public class GameObject {
     public void setPosY(int posY) {
         this.posY = posY;
     }
+
     public int getHeight() { return height; }
     public int getWidth() { return width; }
 
