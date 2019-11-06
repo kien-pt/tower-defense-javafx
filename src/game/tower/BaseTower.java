@@ -1,6 +1,7 @@
 package game.tower;
 
 import game.enemy.BaseEnemy;
+import game.gui.RangeCircle;
 import game.gui.Ring;
 import game.gui.UpdateBar;
 import game.object.*;
@@ -13,6 +14,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     private Ring ring;
     private String tag;
     private double range;
+    private RangeCircle rangeCircle;
     private long lastShootTime;
     private Effect shootSoldier;
     private boolean shoot, active;
@@ -48,12 +50,14 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
             int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
             if (active) ring = new Ring(x, y, 1);
             else ring = new Ring(x, y, 0);
+            rangeCircle = new RangeCircle(x, y);
         } else {
             if (ring != null && ring.getUpgrade() >= 0) {
                 updateBar = tempUpdateBar;
                 tempUpgrade = ring.getUpgrade();
             }
             ring = null;
+            rangeCircle = null;
         }
     }
 
@@ -106,6 +110,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         if (soldier != null) soldier.draw(gc);
         if (shootSoldier != null) shootSoldier.draw(gc);
         if (updateBar != null) updateBar.draw(gc);
+        if (rangeCircle != null) rangeCircle.draw(gc);
     }
 
     public void drawLayout(GraphicsContext gc) {
