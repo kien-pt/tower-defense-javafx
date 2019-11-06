@@ -48,7 +48,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         if (hover(mouseX, mouseY)) {
             if (active) ring = new Ring(getXcenter(), getYcenter(), 1);
             else ring = new Ring(getXcenter(), getYcenter(), 0);
-            rangeCircle = new RangeCircle(getXcenter(), getYcenter());
+            rangeCircle = new RangeCircle(getXcenter(), getYcenter() - getHeight() / 2 + 19);
         } else {
             if (ring != null && ring.getUpgrade() >= 0) {
                 updateBar = tempUpdateBar;
