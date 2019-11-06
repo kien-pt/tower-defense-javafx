@@ -23,7 +23,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     private GameObject soldier, tempSoldier;
     private UpdateBar updateBar, tempUpdateBar;
 
-    public BaseTower(int posX, int posY, String tag) {
+    BaseTower(int posX, int posY, String tag) {
         super(posX, posY, new Image("file:resources/tower/" + tag + "_tower.png"));
         upgrade = -1;
         active = false;
@@ -48,7 +48,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         if (hover(mouseX, mouseY)) {
             if (active) ring = new Ring(getXcenter(), getYcenter(), 1);
             else ring = new Ring(getXcenter(), getYcenter(), 0);
-            rangeCircle = new RangeCircle(getXcenter(), getYcenter() - getHeight() / 2 + 19);
+            rangeCircle = new RangeCircle(getXcenter(), getYcenter() - getHeight() / 2 + 19, getRange());
         } else {
             if (ring != null && ring.getUpgrade() >= 0) {
                 updateBar = tempUpdateBar;

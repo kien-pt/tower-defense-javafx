@@ -6,8 +6,11 @@ import javafx.scene.image.Image;
 public class GameObject {
     public double scale;
     protected int posX, posY;
-    private int height, width;
     private Image image;
+    private int height, width;
+
+    public GameObject() {
+    }
 
     public GameObject(int posX, int posY, Image image) {
         this.posX = posX;
@@ -19,10 +22,10 @@ public class GameObject {
 
     public GameObject(Image image) {
         this.image = image;
-        posX = 0;
-        posY = 0;
         height = (int) image.getHeight();
         width = (int) image.getWidth();
+        this.posX = 0;
+        this.posY = 0;
     }
 
     public void draw(GraphicsContext gc) {
@@ -61,16 +64,14 @@ public class GameObject {
     protected int getXcenter() {
         return getPosX() + getWidth() / 2;
     }
-
     protected void setXcenter(int x) {
-        setPosX(x - getWidth() / 2);
+        setPosX(x - (int) getImage().getWidth() / 2);
     }
 
     protected int getYcenter() {
         return getPosY() + getHeight() / 2;
     }
-
     protected void setYcenter(int y) {
-        setPosY(y - getHeight() / 2);
+        setPosY(y - (int) getImage().getHeight() / 2);
     }
 }
