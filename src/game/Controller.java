@@ -1,11 +1,9 @@
 package game;
 
+import game.stage.GameStage;
 import game.stage.Level1;
 import game.stage.Welcome;
 import javafx.scene.Scene;
-import game.stage.GameStage;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.canvas.GraphicsContext;
 
 public class Controller {
@@ -33,16 +31,7 @@ public class Controller {
     }
 
     void mouseController(Scene theScene) {
-        theScene.setOnMouseClicked( new EventHandler<MouseEvent>() {
-            public void handle(MouseEvent e) {
-                level.input(0, e.getX(), e.getY());
-            }
-        });
-        theScene.setOnMouseMoved(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                level.input(1, event.getX(), event.getY());
-            }
-        });
+        theScene.setOnMouseClicked(e -> level.input(0, e.getX(), e.getY()));
+        theScene.setOnMouseMoved(event -> level.input(1, event.getX(), event.getY()));
     }
 }

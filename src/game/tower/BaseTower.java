@@ -11,10 +11,10 @@ import javafx.scene.image.Image;
 import java.util.ArrayList;
 
 public class BaseTower extends GameObject implements UpdatableObject, ClickableObject {
+    public RangeCircle rangeCircle;
     private Ring ring;
     private String tag;
     private double range;
-    private RangeCircle rangeCircle;
     private long lastShootTime;
     private Effect shootSoldier;
     private boolean shoot, active;

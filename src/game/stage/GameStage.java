@@ -32,8 +32,8 @@ public abstract class GameStage {
      */
     public void draw(GraphicsContext gc) {
         gc.drawImage(map, 0, -50);
-        for (GameObject i : ornament) i.draw(gc);
         for (BaseEnemy enemy : enemies) enemy.draw(gc);
+        for (GameObject i : ornament) i.draw(gc);
         for (BaseTower tower : towers) tower.draw(gc);
         for (BaseTower tower: towers) tower.drawLayout(gc);
     }
