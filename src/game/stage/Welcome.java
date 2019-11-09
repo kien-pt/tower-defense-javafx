@@ -2,8 +2,8 @@ package game.stage;
 
 import game.gui.Icon;
 import game.object.GameObject;
-import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 public class Welcome extends GameStage {
     private Image mainMenuImage;
@@ -48,8 +48,8 @@ public class Welcome extends GameStage {
 
     @Override
     public void input(int key, double mouseX, double mouseY) {
-        if (key == 1) startIcon.onHover((int) mouseX, (int) mouseY);
-        if (key == 0) if (startIcon.onClick((int) mouseX, (int) mouseY) > 0) stage = 1;
+        if (key == 1) startIcon.onHover((int) mouseX, (int) mouseY, this);
+        if (key == 0) if (startIcon.onClick((int) mouseX, (int) mouseY, this) > 0) stage = 1;
     }
 
     @Override

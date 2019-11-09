@@ -32,15 +32,15 @@ public class Ring extends GameObject implements UpdatableObject {
         for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
     }
 
-    public void onClick(int mouseX, int mouseY) {
+    public void onClick(int mouseX, int mouseY, Object caller) {
         for (Icon icon : icons) {
-            upgrade = icon.onClick(mouseX, mouseY);
+            upgrade = icon.onClick(mouseX, mouseY, caller);
             if (upgrade >= 0) break;
         }
     }
 
-    public void onHover(int mouseX, int mouseY) {
-        for (Icon icon : icons) icon.onHover(mouseX, mouseY);
+    public void onHover(int mouseX, int mouseY, Object caller) {
+        for (Icon icon : icons) icon.onHover(mouseX, mouseY, caller);
     }
 
     @Override

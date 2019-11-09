@@ -36,14 +36,14 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     }
 
     @Override
-    public void onHover(int mouseX, int mouseY) {
+    public void onHover(int mouseX, int mouseY, Object caller) {
         // Show Range
-        if (ring != null) ring.onHover(mouseX, mouseY);
+        if (ring != null) ring.onHover(mouseX, mouseY, this);
     }
 
     @Override
-    public void onClick(int mouseX, int mouseY) {
-        if (ring != null) ring.onClick(mouseX, mouseY);
+    public void onClick(int mouseX, int mouseY, Object caller) {
+        if (ring != null) ring.onClick(mouseX, mouseY, this);
 
         if (hover(mouseX, mouseY)) {
             if (active) ring = new Ring(getXcenter(), getYcenter(), 1);

@@ -19,12 +19,12 @@ public class Icon extends GameObject implements UpdatableObject {
         imageOff = "file:resources/icon/icon_" + tag + "_off.png";
     }
 
-    public int onClick(int mouseX, int mouseY) {
+    public int onClick(int mouseX, int mouseY, Object caller) {
         if (hover(mouseX, mouseY)) return tag;
         return -1;
     }
 
-    public void onHover(int mouseX, int mouseY) {
+    public void onHover(int mouseX, int mouseY, Object caller) {
         if (hover(mouseX, mouseY)) {
             if (!isOn) setImage(new Image(imageOn, getWidth() * scale, getHeight() * scale, false, true));
             isOn = true;
