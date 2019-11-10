@@ -4,6 +4,7 @@ import game.enemy.BaseEnemy;
 import game.object.GameObject;
 import game.tower.BaseTower;
 import game.tower.NormalTower;
+import game.tower.SniperTower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -47,11 +48,11 @@ public abstract class GameStage {
             // Update tháp
             towers.get(i).update();
             // Nêu tháp được nâng cấp thì set 1 tháp mới thay vào
-            if (towers.get(i).getUpgrade() >= 0) {
-                int newPosX = towers.get(i).getPosX();
-                int newPosY = towers.get(i).getPosY();
-                towers.set(i, new NormalTower(newPosX, newPosY));
-            }
+            if (towers.get(i).getUpgrade() == 0)
+                towers.set(i, new NormalTower(towers.get(i).getPosX(), towers.get(i).getPosY()));
+            if (towers.get(i).getUpgrade() == 1)
+                towers.set(i, new SniperTower(towers.get(i).getPosX(), towers.get(i).getPosY()));
+
         }
 
         for (int i = 0; i < enemies.size(); i++) {

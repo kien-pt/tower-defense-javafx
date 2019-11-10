@@ -23,8 +23,8 @@ public class Level1 extends GameStage {
         enemies.add(new NormalEnemy(1350, 400, -1));
         enemies.add(new NormalEnemy(1375, 420, 1));
         enemies.add(new TankerEnemy(1200, 410, -1));
-        enemies.add(new SmallerEnemy(1400, 370, 1));
-        enemies.add(new SmallerEnemy(1400, 430, -1));
+        enemies.add(new SmallerEnemy(1400, 380, 1));
+        enemies.add(new SmallerEnemy(1400, 420, -1));
         enemies.add(new BossEnemy(1225, 350, 1));
     }
 

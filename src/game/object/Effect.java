@@ -40,4 +40,8 @@ public class Effect extends GameObject implements UpdatableObject, AnimateObject
     public boolean isDestroyed() {
         return destroyed;
     }
+
+    public int getCurrentFrame() {
+        return currentFrame;
+    }
 }
