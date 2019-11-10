@@ -18,15 +18,15 @@ public class Bullet extends GameObject implements UpdatableObject {
 
     @Override
     public void update() {
-        int targetX = target.getPosX();
-        int targetY = target.getPosY() - target.getHeight() / 2;
+        int targetX = target.getPosX() + target.getWidth() / 2 - getWidth() / 2;
+        int targetY = target.getPosY() + target.getHeight() / 2 - getHeight() / 2;
         int distance = (int) Math.sqrt(Math.pow(targetX - posX, 2) + Math.pow(targetY - posY, 2));
         distance /= 8;
 
         if (distance != 0) {
             double moveX = 0, moveY = 0;
-            moveX = (targetX - posX) / distance;
-            moveY = (targetY - posY) / distance;
+            moveX = (double) (targetX - posX) / distance;
+            moveY = (double) (targetY - posY) / distance;
 
             setPosX(posX + (int) moveX);
             setPosY(posY + (int) moveY);

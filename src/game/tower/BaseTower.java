@@ -14,8 +14,8 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     private RangeCircle rangeCircle;
     private Ring ring;
     private String tag;
-    private double range;
     private long lastShootTime;
+    private double range, speed;
     private Effect shootSoldier;
     private boolean shoot, active;
     private int upgrade, tempUpgrade;
@@ -38,9 +38,6 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     @Override
     public void onHover(int mouseX, int mouseY, Object caller) {
         // Show Range
-//        if (hover(mouseX, mouseY))
-//            rangeCircle = new RangeCircle(getXcenter(), getYcenter() - getHeight() / 2 + 19, getRange());
-//        else rangeCircle = null;
         if (ring != null) ring.onHover(mouseX, mouseY, this);
     }
 
@@ -90,7 +87,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         if (range == 0) return; // Không bắn
         shoot = false;
         while (!bullets.isEmpty() && bullets.get(0).isDestroyed()) bullets.remove(0);   // Xóa bớt đạn thừa
-        if (lastShootTime + 1000 < System.currentTimeMillis()) {
+        if (lastShootTime + 1000 * speed < System.currentTimeMillis()) {
             lastShootTime = System.currentTimeMillis();
             for (BaseEnemy enemy : enemies) {
                 double dis = Math.pow(getXcenter() - enemy.getPosX(), 2) + Math.pow(getYcenter() - enemy.getPosY(), 2);
@@ -117,44 +114,16 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         for (Bullet bullet : bullets) bullet.draw(gc);
     }
 
-    public Ring getRing() {
-        return ring;
-    }
-
-    public RangeCircle getRangeCircle() {
-        return rangeCircle;
-    }
-
-    public void setRangeCircle(RangeCircle rangeCircle) {
-        this.rangeCircle = rangeCircle;
-    }
-
-    public boolean isShoot() {
-        return shoot;
-    }
-    public void setShoot(boolean shoot) {
-        this.shoot = shoot;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public double getRange() {
-        return range;
-    }
-    public void setRange(double range) {
-        this.range = range;
-    }
-
-    public int getUpgrade() {
-        return upgrade;
-    }
-    public void setUpgrade(int upgrade) {
-        this.upgrade = upgrade;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
+    public Ring getRing() { return ring; }
+    public RangeCircle getRangeCircle() { return rangeCircle; }
+    public void setRangeCircle(RangeCircle rangeCircle) { this.rangeCircle = rangeCircle; }
+    public boolean isShoot() { return shoot; }
+    public void setShoot(boolean shoot) { this.shoot = shoot; }
+    public String getTag() { return tag; }
+    public double getRange() { return range; }
+    public void setRange(double range) { this.range = range; }
+    public int getUpgrade() { return upgrade; }
+    public void setUpgrade(int upgrade) { this.upgrade = upgrade; }
+    public void setActive(boolean active) { this.active = active; }
+    public void setSpeed(long speed) { this.speed = speed; }
 }

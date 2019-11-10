@@ -32,9 +32,10 @@ public abstract class GameStage {
      */
     public void draw(GraphicsContext gc) {
         gc.drawImage(map, 0, -50);
+        for (BaseTower tower : towers) tower.draw(gc);
+        sortEnemies(false); // Thằng nào thấp hơn thì vẽ sau, tránh bị đè lên nhau
         for (BaseEnemy enemy : enemies) enemy.draw(gc);
         for (GameObject i : ornament) i.draw(gc);
-        for (BaseTower tower : towers) tower.draw(gc);
         for (BaseTower tower: towers) tower.drawLayout(gc);
     }
 
@@ -58,6 +59,7 @@ public abstract class GameStage {
             if (enemies.get(i).getPosX() < -30) enemies.remove(i);
         }
 
+        sortEnemies(true);  // Bắn thằng đang đi nhanh nhất
         for (BaseTower i : towers) i.attack(enemies);
     }
 
@@ -68,5 +70,20 @@ public abstract class GameStage {
     public void input(int key, double mouseX, double mouseY) {
         if (key == 0) for (BaseTower tower : towers) tower.onClick((int) mouseX, (int) mouseY, this);
         if (key == 1) for (BaseTower tower : towers) tower.onHover((int) mouseX, (int) mouseY, this);
+    }
+
+    private boolean cmp(int i, int j, boolean X) {
+        if (X && enemies.get(i).getPosX() + enemies.get(i).getWidth() <= enemies.get(j).getPosX() + enemies.get(j).getWidth()) return true;
+        if (!X && enemies.get(i).getPosY() + enemies.get(i).getHeight() <= enemies.get(j).getPosY() + enemies.get(j).getHeight()) return true;
+        return false;
+    }
+
+    private void sortEnemies(boolean X) {
+        for (int  i = 1; i < enemies.size(); i++)
+            for (int j = 0; j < i; j++) if (cmp(i, j, X)) {
+                BaseEnemy tempEnemy = enemies.get(i);
+                enemies.set(i, enemies.get(j));
+                enemies.set(j, tempEnemy);
+            }
     }
 }

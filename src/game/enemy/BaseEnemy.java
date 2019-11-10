@@ -8,10 +8,11 @@ import javafx.scene.image.Image;
 
 public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObject {
     private String tag;
-    private int currentFrame, hp, path;
     private Image frame[] = new Image[12];
     private long lastAniTime, lastMoveTime;
     private double speed, doublePosX, doublePosY;
+    private int currentFrame, hp, path, frameAmount;
+
 
     public BaseEnemy(int posX, int posY, String tag, int path) {
         super(posX, posY, new Image("file:resources/enemy/" + tag + "_0.png"));
@@ -33,7 +34,7 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
 
     @Override
     public void update() {
-        animateUpdate(12);
+        animateUpdate(16);
         if (lastMoveTime + 10 / speed < System.currentTimeMillis()) {
             //Chia ra các checkpoint để enemy di chuyển
             if (getPosX() >= 850) move(-0.9, 0);
@@ -50,22 +51,14 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
     }
 
     @Override
-    public void draw(GraphicsContext gc) {
-        int width = (int) getImage().getWidth();
-        int height = (int) getImage().getHeight();
-        gc.drawImage(getImage(), 0, 0, width, height, getPosX() + width, getPosY() - height, -width, height);
-    }
-
-    @Override
     public void animateUpdate(int FPS) {
         if (lastAniTime + 1000 / FPS < System.currentTimeMillis()) {
             lastAniTime = System.currentTimeMillis();
-            currentFrame = (currentFrame + 1) % 12;
+            currentFrame = (currentFrame + 1) % frameAmount;
             setImage(frame[currentFrame]);
         }
     }
 
-    public void setSpeed(double speed) {
-        this.speed = speed;
-    }
+    public void setSpeed(double speed) { this.speed = speed; }
+    public void setFrameAmount(int frameAmount) { this.frameAmount = frameAmount; }
 }
