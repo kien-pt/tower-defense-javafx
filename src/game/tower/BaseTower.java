@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
 import java.util.ArrayList;
 
 public class BaseTower extends GameObject implements UpdatableObject, ClickableObject {
-    public RangeCircle rangeCircle;
+    private RangeCircle rangeCircle;
     private Ring ring;
     private String tag;
     private double range;
@@ -38,24 +38,27 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     @Override
     public void onHover(int mouseX, int mouseY, Object caller) {
         // Show Range
+//        if (hover(mouseX, mouseY))
+//            rangeCircle = new RangeCircle(getXcenter(), getYcenter() - getHeight() / 2 + 19, getRange());
+//        else rangeCircle = null;
         if (ring != null) ring.onHover(mouseX, mouseY, this);
     }
 
     @Override
     public void onClick(int mouseX, int mouseY, Object caller) {
         if (ring != null) ring.onClick(mouseX, mouseY, this);
+        rangeCircle = new RangeCircle(getXcenter(), getYcenter() - getHeight() / 2 + 19, getRange());
 
         if (hover(mouseX, mouseY)) {
             if (active) ring = new Ring(getXcenter(), getYcenter(), 1);
             else ring = new Ring(getXcenter(), getYcenter(), 0);
-            rangeCircle = new RangeCircle(getXcenter(), getYcenter() - getHeight() / 2 + 19, getRange());
         } else {
             if (ring != null && ring.getUpgrade() >= 0) {
                 updateBar = tempUpdateBar;
                 tempUpgrade = ring.getUpgrade();
             }
             ring = null;
-            rangeCircle = null;
+//            rangeCircle = null;
         }
     }
 
@@ -116,6 +119,14 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
 
     public Ring getRing() {
         return ring;
+    }
+
+    public RangeCircle getRangeCircle() {
+        return rangeCircle;
+    }
+
+    public void setRangeCircle(RangeCircle rangeCircle) {
+        this.rangeCircle = rangeCircle;
     }
 
     public boolean isShoot() {

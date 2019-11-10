@@ -61,14 +61,14 @@ public class GameObject {
         this.image = image;
     }
 
-    protected int getXcenter() {
+    public int getXcenter() {
         return getPosX() + getWidth() / 2;
     }
     protected void setXcenter(int x) {
         setPosX(x - (int) getImage().getWidth() / 2);
     }
 
-    protected int getYcenter() {
+    public int getYcenter() {
         return getPosY() + getHeight() / 2;
     }
     protected void setYcenter(int y) {

@@ -9,17 +9,6 @@ public class Ring extends GameObject implements UpdatableObject {
     private Icon[] icons;
     private int upgrade, iconAmount;
 
-//    public Ring(int posX, int posY, int tag) {
-//        super(posX, posY, new Image("file:resources/gui_ring.png"));
-//        scale = 0;
-//        upgrade = -1;
-//        if (tag == 0) iconAmount = 4;
-//        else iconAmount = 2;
-//        icons = new Icon[iconAmount];
-//        for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
-//    }
-
-
     public Ring(int xCenter, int yCenter, int tag) {
         super(new Image("file:resources/gui_ring.png"));
         setXcenter(xCenter);
@@ -29,7 +18,8 @@ public class Ring extends GameObject implements UpdatableObject {
         if (tag == 0) iconAmount = 4;
         else iconAmount = 2;
         icons = new Icon[iconAmount];
-        for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
+        if (iconAmount == 4) for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
+        else for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i + 4);
     }
 
     public void onClick(int mouseX, int mouseY, Object caller) {
@@ -63,7 +53,13 @@ public class Ring extends GameObject implements UpdatableObject {
         for (Icon icon : icons) icon.update();
 
         if (iconAmount == 2) {
-
+            int x_l = getPosX() - (int) icons[0].getImage().getWidth() / 2 + 10;
+            int y = getPosY() + (int) getImage().getWidth() / 2 - (int) icons[0].getImage().getHeight() / 2;
+            int x_r = getPosX() + (int) getImage().getWidth() - (int) icons[0].getImage().getWidth() / 2 - 10;
+            icons[0].setPosX(x_r);
+            icons[0].setPosY(y);
+            icons[1].setPosX(x_l);
+            icons[1].setPosY(y);
         } else {
             int x_left = getPosX();
             int x_right = getPosX() + (int) getImage().getWidth() - (int) icons[1].getImage().getWidth();
