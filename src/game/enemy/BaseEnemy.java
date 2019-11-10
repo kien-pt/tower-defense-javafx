@@ -61,4 +61,8 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
 
     public void setSpeed(double speed) { this.speed = speed; }
     public void setFrameAmount(int frameAmount) { this.frameAmount = frameAmount; }
+    public long getLastAniTime() { return lastAniTime; }
+    public long getLastMoveTime() { return lastMoveTime; }
+    public void setLastAniTime(long lastAniTime) { this.lastAniTime = lastAniTime; }
+    public void setLastMoveTime(long lastMoveTime) { this.lastMoveTime = lastMoveTime; }
 }

@@ -1,7 +1,6 @@
 package game.tower;
 
 import game.object.Effect;
-import game.soldier.NormalSoldier;
 import game.soldier.SniperSoldier;
 import javafx.scene.canvas.GraphicsContext;
 
@@ -13,7 +12,7 @@ public class SniperTower extends BaseTower {
         setRange(200);
         setShoot(false);
         setActive(true);
-        setSpeed(1.5);
+        setSpeed(1);
         setSoldier(new SniperSoldier(posX + 38, posY - 20));
         buildSmoke = new Effect(posX + 25, posY + 30, "file:resources/Effect/effect_buildSmoke_", 35, 60);
     }

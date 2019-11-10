@@ -1,11 +1,13 @@
 package game.stage;
 
 import game.enemy.BaseEnemy;
+import game.gui.Icon;
 import game.object.GameObject;
 import game.tower.BaseTower;
 import game.tower.NormalTower;
 import game.tower.SniperTower;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
@@ -15,10 +17,20 @@ public abstract class GameStage {
     public ArrayList<BaseTower> towers = new ArrayList<>();
     public ArrayList<BaseEnemy> enemies = new ArrayList<>();
     private Image map;
+    private double brightness;
+    private ColorAdjust colorAdjust;
+
+    private Icon pause;
+    private boolean isPause;
+    private long pauseTime;
 
     // Load map của level tương ứng
     public GameStage(int k) {
         map = new Image("file:resources/Stage_" + k + ".png");
+        brightness = -1;
+        colorAdjust = new ColorAdjust();
+        isPause = false;
+        pause = new Icon(1118, 30, 9);
     }
 
     // Thêm vật trang trí
@@ -32,7 +44,10 @@ public abstract class GameStage {
      * Vẽ các layout
      */
     public void draw(GraphicsContext gc) {
+        gc.setEffect(colorAdjust);
         gc.drawImage(map, 0, -50);
+        gc.drawImage(map, 0, -50);
+        pause.draw(gc);
         for (BaseTower tower : towers) tower.draw(gc);
         sortEnemies(false); // Thằng nào thấp hơn thì vẽ sau, tránh bị đè lên nhau
         for (BaseEnemy enemy : enemies) enemy.draw(gc);
@@ -44,6 +59,10 @@ public abstract class GameStage {
      * Cập nhật màn chơi
      */
     public void update() {
+        if (!isPause && brightness < 0) brightness += 0.05;
+        colorAdjust.setBrightness(brightness);
+        if (isPause) return;
+
         for (int i = 0; i < towers.size(); i++) {
             // Update tháp
             towers.get(i).update();
@@ -69,7 +88,25 @@ public abstract class GameStage {
      *  key = 1: Mouse Position
      */
     public void input(int key, double mouseX, double mouseY) {
-        if (key == 0) for (BaseTower tower : towers) tower.onClick((int) mouseX, (int) mouseY, this);
+        if (key == 0) {
+            if (isPause) {
+                isPause = false;
+                brightness = 0;
+                pauseTime = System.currentTimeMillis() - pauseTime;
+                for (BaseEnemy enemy: enemies) enemy.setLastAniTime(enemy.getLastAniTime() + pauseTime);
+                for (BaseEnemy enemy: enemies) enemy.setLastMoveTime(enemy.getLastMoveTime() + pauseTime);
+                for (BaseTower tower: towers) tower.setLastShootTime(tower.getLastShootTime() + pauseTime);
+            }
+            if (pause.onClick((int) mouseX, (int) mouseY, null) > 0) {
+                isPause = true;
+                brightness = -0.5;
+                pauseTime = System.currentTimeMillis();
+            }
+            for (BaseTower tower : towers) {
+                pause.onHover((int) mouseX, (int) mouseY, null);
+                tower.onClick((int) mouseX, (int) mouseY, this);
+            }
+        }
         if (key == 1) for (BaseTower tower : towers) tower.onHover((int) mouseX, (int) mouseY, this);
     }
 

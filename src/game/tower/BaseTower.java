@@ -141,4 +141,6 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public void setActive(boolean active) { this.active = active; }
     public void setSpeed(double speed) { this.speed = speed; }
     public void setSoldier(BaseSoldier soldier) { this.soldier = soldier; }
+    public long getLastShootTime() { return lastShootTime; }
+    public void setLastShootTime(long lastShootTime) { this.lastShootTime = lastShootTime; }
 }
