@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 
 public class Icon extends GameObject implements UpdatableObject {
     private int tag;
-    private int range;
+    private double range;
     private boolean isOn;
     private String imageOn, imageOff;
 
@@ -31,7 +31,7 @@ public class Icon extends GameObject implements UpdatableObject {
             BaseTower tower = (BaseTower) caller;
             if (hover(mouseX, mouseY)) {
                 tower.setRangeCircle(new RangeCircle(tower.getXcenter(), tower.getYcenter(), getRange()));
-            } else tower.setRangeCircle(new RangeCircle(tower.getXcenter(), tower.getYcenter(), tower.getRange()));
+            }
         }
 
         if (hover(mouseX, mouseY)) {
@@ -40,18 +40,14 @@ public class Icon extends GameObject implements UpdatableObject {
         } else {
             setImage(new Image(imageOff, getWidth() * scale, getHeight() * scale, false, true));
             isOn = false;
-//            if (caller != null) {
-//                tower = (BaseTower) caller;
-//                tower.setRangeCircle(null);
-//            }
         }
     }
 
-    public int getRange() {
+    public double getRange() {
         return range;
     }
 
-    public void setRange(int range) {
+    public void setRange(double range) {
         this.range = range;
     }
 

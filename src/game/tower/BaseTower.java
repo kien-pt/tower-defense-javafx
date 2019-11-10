@@ -58,7 +58,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
                 tempUpgrade = ring.getUpgrade();
             }
             ring = null;
-//            rangeCircle = null;
+            rangeCircle = null;
         }
     }
 

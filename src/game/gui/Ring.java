@@ -2,6 +2,7 @@ package game.gui;
 
 import game.object.GameObject;
 import game.object.UpdatableObject;
+import game.tower.BaseTower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -18,8 +19,17 @@ public class Ring extends GameObject implements UpdatableObject {
         if (tag == 0) iconAmount = 4;
         else iconAmount = 2;
         icons = new Icon[iconAmount];
-        if (iconAmount == 4) for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
-        else for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i + 4);
+        if (iconAmount == 4) {
+            for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
+//            trụ bắn cung có tầm bắn 150
+            icons[0].setRange(150);
+//            trụ phép có tầm bắn 200
+            icons[1].setRange(200);
+//            trụ ??? có tầm bắn ngắn
+            icons[2].setRange(100);
+        } else {
+            for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i + 4);
+        }
     }
 
     public void onClick(int mouseX, int mouseY, Object caller) {
@@ -30,6 +40,9 @@ public class Ring extends GameObject implements UpdatableObject {
     }
 
     public void onHover(int mouseX, int mouseY, Object caller) {
+        if (iconAmount == 2) {
+            icons[1].setRange((int) ((BaseTower) caller).getRange() + 50);
+        }
         for (Icon icon : icons) icon.onHover(mouseX, mouseY, caller);
     }
 
