@@ -33,8 +33,8 @@ public abstract class GameStage {
     public void draw(GraphicsContext gc) {
         gc.drawImage(map, 0, -50);
         for (BaseEnemy enemy : enemies) enemy.draw(gc);
-        for (BaseTower tower : towers) tower.draw(gc);
         for (GameObject i : ornament) i.draw(gc);
+        for (BaseTower tower : towers) tower.draw(gc);
         for (BaseTower tower: towers) tower.drawLayout(gc);
     }
 
@@ -66,7 +66,7 @@ public abstract class GameStage {
      *  key = 1: Mouse Position
      */
     public void input(int key, double mouseX, double mouseY) {
-        if (key == 0) for (BaseTower tower: towers) tower.onClick((int) mouseX, (int) mouseY);
-        if (key == 1) for (BaseTower tower : towers) tower.onHover((int) mouseX, (int) mouseY);
+        if (key == 0) for (BaseTower tower : towers) tower.onClick((int) mouseX, (int) mouseY, this);
+        if (key == 1) for (BaseTower tower : towers) tower.onHover((int) mouseX, (int) mouseY, this);
     }
 }

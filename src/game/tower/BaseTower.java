@@ -1,6 +1,7 @@
 package game.tower;
 
 import game.enemy.BaseEnemy;
+import game.gui.RangeCircle;
 import game.gui.Ring;
 import game.gui.UpdateBar;
 import game.object.*;
@@ -10,6 +11,7 @@ import javafx.scene.image.Image;
 import java.util.ArrayList;
 
 public class BaseTower extends GameObject implements UpdatableObject, ClickableObject {
+    private RangeCircle rangeCircle;
     private Ring ring;
     private String tag;
     private double range;
@@ -21,7 +23,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     private GameObject soldier, tempSoldier;
     private UpdateBar updateBar, tempUpdateBar;
 
-    public BaseTower(int posX, int posY, String tag) {
+    BaseTower(int posX, int posY, String tag) {
         super(posX, posY, new Image("file:resources/tower/" + tag + "_tower.png"));
         upgrade = -1;
         active = false;
@@ -34,26 +36,29 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     }
 
     @Override
-    public void onHover(int mouseX, int mouseY) {
+    public void onHover(int mouseX, int mouseY, Object caller) {
         // Show Range
-        if (ring != null) ring.onHover(mouseX, mouseY);
+//        if (hover(mouseX, mouseY))
+//            rangeCircle = new RangeCircle(getXcenter(), getYcenter() - getHeight() / 2 + 19, getRange());
+//        else rangeCircle = null;
+        if (ring != null) ring.onHover(mouseX, mouseY, this);
     }
 
     @Override
-    public void onClick(int mouseX, int mouseY) {
-        if (ring != null) ring.onClick(mouseX, mouseY);
+    public void onClick(int mouseX, int mouseY, Object caller) {
+        if (ring != null) ring.onClick(mouseX, mouseY, this);
+        rangeCircle = new RangeCircle(getXcenter(), getYcenter() - getHeight() / 2 + 19, getRange());
 
         if (hover(mouseX, mouseY)) {
-            int x = getPosX() + (int) getImage().getWidth() / 2 - 121;
-            int y = getPosY() + (int) getImage().getHeight() / 2 - 121;
-            if (active) ring = new Ring(x, y, 1);
-            else ring = new Ring(x, y, 0);
+            if (active) ring = new Ring(getXcenter(), getYcenter(), 1);
+            else ring = new Ring(getXcenter(), getYcenter(), 0);
         } else {
             if (ring != null && ring.getUpgrade() >= 0) {
                 updateBar = tempUpdateBar;
                 tempUpgrade = ring.getUpgrade();
             }
             ring = null;
+            rangeCircle = null;
         }
     }
 
@@ -87,10 +92,8 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         while (!bullets.isEmpty() && bullets.get(0).isDestroyed()) bullets.remove(0);   // Xóa bớt đạn thừa
         if (lastShootTime + 1000 < System.currentTimeMillis()) {
             lastShootTime = System.currentTimeMillis();
-            int towerCenterX = posX + getWidth() / 2;   // Tọa độ tâm X của tháp
-            int towerCenterY = posY + getHeight() / 2;  // Tọa độ tâm Y của tháp
             for (BaseEnemy enemy : enemies) {
-                double dis = Math.pow(towerCenterX - enemy.getPosX(), 2) + Math.pow(towerCenterY - enemy.getPosY(), 2);
+                double dis = Math.pow(getXcenter() - enemy.getPosX(), 2) + Math.pow(getYcenter() - enemy.getPosY(), 2);
                 if (dis <= range * range) {
                     bullets.add(new Bullet(posX + getWidth() / 2, posY - 10, enemy));
                     shoot = true;
@@ -106,6 +109,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         if (soldier != null) soldier.draw(gc);
         if (shootSoldier != null) shootSoldier.draw(gc);
         if (updateBar != null) updateBar.draw(gc);
+        if (rangeCircle != null) rangeCircle.draw(gc);
     }
 
     public void drawLayout(GraphicsContext gc) {
@@ -117,10 +121,17 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         return ring;
     }
 
+    public RangeCircle getRangeCircle() {
+        return rangeCircle;
+    }
+
+    public void setRangeCircle(RangeCircle rangeCircle) {
+        this.rangeCircle = rangeCircle;
+    }
+
     public boolean isShoot() {
         return shoot;
     }
-
     public void setShoot(boolean shoot) {
         this.shoot = shoot;
     }
@@ -132,7 +143,6 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public double getRange() {
         return range;
     }
-
     public void setRange(double range) {
         this.range = range;
     }
@@ -140,7 +150,6 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public int getUpgrade() {
         return upgrade;
     }
-
     public void setUpgrade(int upgrade) {
         this.upgrade = upgrade;
     }
