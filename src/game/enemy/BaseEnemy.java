@@ -42,17 +42,17 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
     @Override
     public void update() {
         animateUpdate(16);
-        if (lastMoveTime + 10 / speed < System.currentTimeMillis()) {
+        if (lastMoveTime + 10 < System.currentTimeMillis()) {
             //Chia ra các checkpoint để enemy di chuyển
-            if (getPosX() >= 850) move(-0.9, 0);
-            if (790 <= getPosX() && getPosX() <= 850) move(-0.5, -0.75 * path);
-            if (750 <= getPosX() && getPosX() <= 790) move(-0.6364, -0.6364 * path);
-            if (670 <= getPosX() && getPosX() <= 750) move(-0.75, -0.5 * path);
-            if (480 <= getPosX() && getPosX() <= 670) move(-0.9, 0);
-            if (440 <= getPosX() && getPosX() <= 480) move(-0.75, 0.5 * path);
-            if (400 <= getPosX() && getPosX() <= 440) move(-0.6364, 0.6364 * path);
-            if (320 <= getPosX() && getPosX() <= 400) move(-0.5, 0.75 * path);
-            if (getPosX() <= 320) move(-0.9, 0);
+            if (getPosX() >= 850) move(-0.9 * speed, 0);
+            if (790 <= getPosX() && getPosX() <= 850) move(-0.5 * speed, -0.75 * speed * path);
+            if (750 <= getPosX() && getPosX() <= 790) move(-0.6364 * speed, -0.6364 * speed * path);
+            if (670 <= getPosX() && getPosX() <= 750) move(-0.75 * speed, -0.5 * speed * path);
+            if (480 <= getPosX() && getPosX() <= 670) move(-0.9 * speed, 0);
+            if (440 <= getPosX() && getPosX() <= 480) move(-0.75 * speed, 0.5 * speed * path);
+            if (400 <= getPosX() && getPosX() <= 440) move(-0.6364 * speed, 0.6364 * speed * path);
+            if (320 <= getPosX() && getPosX() <= 400) move(-0.5 * speed, 0.75 * speed * path);
+            if (getPosX() <= 320) move(-0.9 * speed, 0);
             healthBar.setPosX(getPosX() + getWidth() / 2 - 15);
             healthBar.setPosY(getPosY() - 10);
             setHealthBar(getHealthBar());
@@ -94,11 +94,9 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
     public void setHp(int hp) {
         this.hp = hp;
     }
-
     public int getCurrentHp() {
         return currentHp;
     }
-
     public void setCurrentHp(int currentHp) {
         this.currentHp = currentHp;
     }

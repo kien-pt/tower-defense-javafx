@@ -48,7 +48,7 @@ public class Bullet extends GameObject implements UpdatableObject {
         } else {
             destroyed = true;
             target.getHealthBar().setHealth(target.getHealthBar().getHealth() - dame*target.getHealthBar().getTempHealth()/target.getHp());
-            target.setCurrentHp(target.getCurrentHp()-dame);
+            target.setCurrentHp(target.getCurrentHp() - dame);
         }
     }
 

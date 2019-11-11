@@ -23,8 +23,8 @@ public class Ring extends GameObject implements UpdatableObject {
             for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
 //            trụ bắn cung có tầm bắn 150
             icons[0].setRange(150);
-//            trụ phép có tầm bắn 200
-            icons[1].setRange(200);
+//            trụ phép có tầm bắn 250
+            icons[1].setRange(250);
 //            trụ ??? có tầm bắn ngắn
             icons[2].setRange(100);
         } else {
@@ -41,7 +41,7 @@ public class Ring extends GameObject implements UpdatableObject {
 
     public void onHover(int mouseX, int mouseY, Object caller) {
         if (iconAmount == 2) {
-            icons[1].setRange((int) ((BaseTower) caller).getRange() + 50);
+            icons[0].setRange((int) ((BaseTower) caller).getRange() + 50);
         }
         for (Icon icon : icons) icon.onHover(mouseX, mouseY, caller);
     }

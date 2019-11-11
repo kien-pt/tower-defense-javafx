@@ -9,7 +9,7 @@ public class SniperTower extends BaseTower {
 
     public SniperTower(int posX, int posY) {
         super(posX, posY, "sniper");
-        setRange(200);
+        setRange(250);
         setShoot(false);
         setActive(true);
         setSpeed(1);

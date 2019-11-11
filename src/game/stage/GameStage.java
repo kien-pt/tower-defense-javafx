@@ -79,6 +79,10 @@ public abstract class GameStage {
             if (enemies.get(i).getPosX() < -30) enemies.remove(i);
         }
 
+        // Xoá bớt mấy thằng hết máu
+        for (int i = 0; i < enemies.size(); i++)
+            while (i < enemies.size() && enemies.get(i).getHealthBar().getHealth() <= 0) enemies.remove(i);
+
         sortEnemies(true);  // Bắn thằng đang đi nhanh nhất
         for (BaseTower i : towers) i.attack(enemies);
     }

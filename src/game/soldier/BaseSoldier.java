@@ -16,7 +16,6 @@ public class BaseSoldier extends GameObject implements UpdatableObject {
         super(posX, posY, new Image("file:resources/soldier/" + tag + "_idle.png"));
         shooting = false;
         this.tag = tag;
-        //shootingSolier = new Effect(posX, posY, "file:resources/soldier/" + tag + direction + "_", frameAmount, 24);
     }
 
     @Override
@@ -30,8 +29,6 @@ public class BaseSoldier extends GameObject implements UpdatableObject {
             }
         }
         if (shooting && shootingSoldier == null) {
-            System.out.println(frameAmount);
-
             shootingSoldier = new Effect(posX, posY, "file:resources/soldier/" + tag + "_" + direction + "_", frameAmount, 24);
         }
     }
