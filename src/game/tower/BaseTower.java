@@ -105,8 +105,6 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
                         if (tag.equals("normal")) if (soldier.getPosX() <= enemy.getPosX()) soldier.setDirection("I"); else soldier.setDirection("II");
                         if (tag.equals("sniper")) soldier.setDirection("behind");
                     }
-
-
                     shoot = true;
                     break;
                 }

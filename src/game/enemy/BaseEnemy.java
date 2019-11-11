@@ -14,17 +14,17 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
     private Image frame[] = new Image[12];
     private long lastAniTime, lastMoveTime;
     private double speed, doublePosX, doublePosY;
-    private int currentFrame, hp, path, frameAmount;
+    private int currentFrame, hp, path, frameAmount, currentHp;
     private HealthBar healthBar;
 
 
-    public BaseEnemy(int posX, int posY, String tag, int path) {
+    public BaseEnemy(int posX, int posY, String tag, int path, int hp) {
         super(posX, posY, new Image("file:resources/enemy/" + tag + "_0.png"));
         this.tag = tag;
         this.path = path;
+        this.hp = hp;
+        this.currentHp = hp;
         this.healthBar = new HealthBar(posX + getWidth() / 2 - 15, posY - 10);
-        healthBar.setTempHealth(30);
-        healthBar.setHealth(30);
         currentFrame = 0;
         doublePosX = getPosX();
         doublePosY = getPosY();
@@ -82,12 +82,24 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
     public long getLastMoveTime() { return lastMoveTime; }
     public void setLastAniTime(long lastAniTime) { this.lastAniTime = lastAniTime; }
     public void setLastMoveTime(long lastMoveTime) { this.lastMoveTime = lastMoveTime; }
-
     public void setHealthBar(HealthBar healthBar) {
         this.healthBar = healthBar;
     }
-
     public HealthBar getHealthBar() {
         return healthBar;
+    }
+    public int getHp() {
+        return hp;
+    }
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public int getCurrentHp() {
+        return currentHp;
+    }
+
+    public void setCurrentHp(int currentHp) {
+        this.currentHp = currentHp;
     }
 }

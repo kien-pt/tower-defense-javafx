@@ -14,8 +14,8 @@ public class HealthBar extends GameObject implements UpdatableObject {
     public HealthBar(int posX, int posY) {
         this.posX = posX;
         this.posY = posY;
-        health = 0;
-        tempHealth = health;
+        health = 30;
+        tempHealth = 30;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class HealthBar extends GameObject implements UpdatableObject {
         this.health = health;
     }
 
-    public void setTempHealth(int health) {
-        this.tempHealth = health;
+    public int getTempHealth() {
+        return tempHealth;
     }
 }
