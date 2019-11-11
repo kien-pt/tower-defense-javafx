@@ -9,9 +9,11 @@ import javafx.scene.SnapshotParameters;
 public class Bullet extends GameObject implements UpdatableObject {
     private BaseEnemy target;
     private boolean destroyed;
+    private String path;
 
-    public Bullet(int posX, int posY, BaseEnemy target) {
-        super(posX, posY, new Image("file:resources/arrow.png"));
+    public Bullet(int posX, int posY, BaseEnemy target, String path) {
+        super(posX, posY, new Image("file:resources/"+path+".png"));
+        this.path = path;
         this.target = target;
         destroyed = false;
     }
@@ -31,7 +33,7 @@ public class Bullet extends GameObject implements UpdatableObject {
             setPosX(posX + (int) moveX);
             setPosY(posY + (int) moveY);
 
-            ImageView iv = new ImageView(new Image("file:resources/arrow.png"));
+            ImageView iv = new ImageView(new Image("file:resources/" + path + ".png"));
             double cc = 0;
             if (posX >= targetX) cc = 180;
             if (moveX != 0) iv.setRotate(Math.toDegrees(Math.atan(moveY / moveX)) + cc);
@@ -41,10 +43,17 @@ public class Bullet extends GameObject implements UpdatableObject {
             params.setFill(Color.TRANSPARENT);
             Image rotatedImage = iv.snapshot(params, null);
             setImage(rotatedImage);
-        } else destroyed = true;
+        } else {
+            destroyed = true;
+            target.getHealthBar().setHealth(target.getHealthBar().getHealth() - 1);
+        }
     }
 
     public boolean isDestroyed() {
         return destroyed;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

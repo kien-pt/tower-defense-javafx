@@ -1,10 +1,13 @@
 package game.enemy;
 
+import game.gui.HealthBar;
 import game.object.AnimateObject;
 import game.object.GameObject;
 import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+
+import java.awt.*;
 
 public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObject {
     private String tag;
@@ -12,12 +15,16 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
     private long lastAniTime, lastMoveTime;
     private double speed, doublePosX, doublePosY;
     private int currentFrame, hp, path, frameAmount;
+    private HealthBar healthBar;
 
 
     public BaseEnemy(int posX, int posY, String tag, int path) {
         super(posX, posY, new Image("file:resources/enemy/" + tag + "_0.png"));
         this.tag = tag;
         this.path = path;
+        this.healthBar = new HealthBar(posX + getWidth() / 2 - 15, posY - 10);
+        healthBar.setTempHealth(30);
+        healthBar.setHealth(30);
         currentFrame = 0;
         doublePosX = getPosX();
         doublePosY = getPosY();
@@ -46,8 +53,18 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
             if (400 <= getPosX() && getPosX() <= 440) move(-0.6364, 0.6364 * path);
             if (320 <= getPosX() && getPosX() <= 400) move(-0.5, 0.75 * path);
             if (getPosX() <= 320) move(-0.9, 0);
+            healthBar.setPosX(getPosX() + getWidth() / 2 - 15);
+            healthBar.setPosY(getPosY() - 10);
+            setHealthBar(getHealthBar());
             lastMoveTime = System.currentTimeMillis();
         }
+    }
+
+    @Override
+    public void draw(GraphicsContext gc) {
+        super.draw(gc);
+        if (healthBar !=null)
+            healthBar.draw(gc);
     }
 
     @Override
@@ -65,4 +82,12 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
     public long getLastMoveTime() { return lastMoveTime; }
     public void setLastAniTime(long lastAniTime) { this.lastAniTime = lastAniTime; }
     public void setLastMoveTime(long lastMoveTime) { this.lastMoveTime = lastMoveTime; }
+
+    public void setHealthBar(HealthBar healthBar) {
+        this.healthBar = healthBar;
+    }
+
+    public HealthBar getHealthBar() {
+        return healthBar;
+    }
 }

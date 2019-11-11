@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class BaseTower extends GameObject implements UpdatableObject, ClickableObject {
     private RangeCircle rangeCircle;
     private Ring ring;
-    private String tag;
+    private String tag, path;
     private long lastShootTime;
     private double range, speed;
     //private Effect shootSoldier;
@@ -96,7 +96,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
             for (BaseEnemy enemy : enemies) {
                 double dis = Math.pow(getXcenter() - enemy.getPosX(), 2) + Math.pow(getYcenter() - enemy.getPosY(), 2);
                 if (dis <= range * range) {
-                    bullets.add(new Bullet(posX + getWidth() / 2, posY - 10, enemy));
+                    bullets.add(new Bullet(posX + getWidth() / 2, posY - 10, enemy,path));
                     soldier.setShooting(true);
                     if (soldier.getPosY() <= enemy.getPosY()) {
                         if (tag.equals("normal")) if (soldier.getPosX() <= enemy.getPosX()) soldier.setDirection("IV"); else soldier.setDirection("III");
@@ -105,6 +105,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
                         if (tag.equals("normal")) if (soldier.getPosX() <= enemy.getPosX()) soldier.setDirection("I"); else soldier.setDirection("II");
                         if (tag.equals("sniper")) soldier.setDirection("behind");
                     }
+
 
                     shoot = true;
                     break;
@@ -143,4 +144,8 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public void setSoldier(BaseSoldier soldier) { this.soldier = soldier; }
     public long getLastShootTime() { return lastShootTime; }
     public void setLastShootTime(long lastShootTime) { this.lastShootTime = lastShootTime; }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 }

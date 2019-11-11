@@ -13,6 +13,7 @@ public class SniperTower extends BaseTower {
         setShoot(false);
         setActive(true);
         setSpeed(1);
+        setPath("magebolt");
         setSoldier(new SniperSoldier(posX + 38, posY - 20));
         buildSmoke = new Effect(posX + 25, posY + 30, "file:resources/Effect/effect_buildSmoke_", 35, 60);
     }

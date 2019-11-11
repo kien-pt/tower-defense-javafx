@@ -13,6 +13,7 @@ public class NormalTower extends BaseTower {
         setShoot(false);
         setActive(true);
         setSpeed(0.75);
+        setPath("arrow");
         setSoldier(new NormalSoldier(posX + 36, posY - 11));
         buildSmoke = new Effect(posX + 25, posY + 30, "file:resources/Effect/effect_buildSmoke_", 35, 60);
     }
