@@ -13,6 +13,6 @@ public class NormalTower extends BaseTower {
         setActive(true);
         setSpeed(0.75);
         setPath("arrow");
-        setSoldier(new NormalSoldier(posX + 36, posY - 11));
+        setSoldier(new NormalSoldier(posX + 36, posY - 10));
     }
 }

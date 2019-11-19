@@ -13,6 +13,6 @@ public class SniperTower extends BaseTower {
         setActive(true);
         setSpeed(1);
         setPath("magebolt");
-        setSoldier(new SniperSoldier(posX + 38, posY - 20));
+        setSoldier(new SniperSoldier(posX + 38, posY - 17));
     }
 }

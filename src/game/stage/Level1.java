@@ -16,15 +16,15 @@ public class Level1 extends GameStage {
         hammerTower = new Image("file:resources/stage1/Stage1_Hammer.png");
         cityTower = new Image("file:resources/stage1/city_tower.png");
         overWall = new Image("file:resources/stage1/Stage1_overWall.png");
-//        enemies.add(new NormalEnemy(1250, 400, -1));
-//        enemies.add(new NormalEnemy(1275, 400, -1));
-//        enemies.add(new NormalEnemy(1300, 420, 1));
-//        enemies.add(new NormalEnemy(1325, 420, 1));
-//        enemies.add(new NormalEnemy(1350, 400, -1));
-//        enemies.add(new NormalEnemy(1375, 420, 1));
-//        enemies.add(new TankerEnemy(1200, 410, -1));
-//        enemies.add(new SmallerEnemy(1400, 380, 1));
-//        enemies.add(new SmallerEnemy(1400, 420, -1));
+        enemies.add(new NormalEnemy(1250, 400, -1));
+        enemies.add(new NormalEnemy(1275, 400, -1));
+        enemies.add(new NormalEnemy(1300, 420, 1));
+        enemies.add(new NormalEnemy(1325, 420, 1));
+        enemies.add(new NormalEnemy(1350, 400, -1));
+        enemies.add(new NormalEnemy(1375, 420, 1));
+        enemies.add(new TankerEnemy(1200, 410, -1));
+        enemies.add(new SmallerEnemy(1400, 380, 1));
+        enemies.add(new SmallerEnemy(1400, 420, -1));
         enemies.add(new BossEnemy(1225, 350, 1));
     }
 

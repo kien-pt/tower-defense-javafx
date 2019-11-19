@@ -37,7 +37,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         this.tag = tag;
         bullets = new ArrayList<Bullet>();
         lastShootTime = System.currentTimeMillis();
-        tempUpdateBar = new UpdateBar(posX + 28, posY - 12);
+        tempUpdateBar = new UpdateBar(posX + 30, posY - 22);
         buildSmoke = new Effect(posX + 25, posY + 30, "file:resources/Effect/effect_buildSmoke_", 35, 60);
         this.price = price;
         this.strength = strength;
