@@ -8,8 +8,8 @@ import javafx.scene.paint.Color;
 import java.awt.*;
 
 public class HealthBar extends GameObject implements UpdatableObject {
-    private int health;
-    private int tempHealth;
+    private double health;
+    private double tempHealth;
 
     public HealthBar(int posX, int posY) {
         this.posX = posX;
@@ -50,15 +50,15 @@ public class HealthBar extends GameObject implements UpdatableObject {
         gc.fillRect(posX, posY, health, 3);
     }
 
-    public int getHealth() {
+    public double getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.health = health;
     }
 
-    public int getTempHealth() {
+    public double getTempHealth() {
         return tempHealth;
     }
 }

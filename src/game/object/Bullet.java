@@ -12,12 +12,12 @@ public class Bullet extends GameObject implements UpdatableObject {
     private String path;
     private int dame;
 
-    public Bullet(int posX, int posY, BaseEnemy target, String path) {
+    public Bullet(int posX, int posY, BaseEnemy target, String path, int dame) {
         super(posX, posY, new Image("file:resources/"+path+".png"));
         this.path = path;
         this.target = target;
         destroyed = false;
-        dame = 10;
+        this.dame = dame;
     }
 
     @Override
@@ -48,7 +48,9 @@ public class Bullet extends GameObject implements UpdatableObject {
         } else {
             destroyed = true;
             target.getHealthBar().setHealth(target.getHealthBar().getHealth() - dame*target.getHealthBar().getTempHealth()/target.getHp());
-            target.setCurrentHp(target.getCurrentHp()-dame);
+            if (target.getCurrentHp() <= dame)
+                target.setCurrentHp(0);
+            else target.setCurrentHp(target.getCurrentHp() - dame);
         }
     }
 

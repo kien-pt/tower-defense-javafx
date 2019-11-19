@@ -3,14 +3,20 @@ package game.gui;
 import game.object.GameObject;
 import game.object.UpdatableObject;
 import game.tower.BaseTower;
+import game.tower.NormalTower;
+import game.tower.SniperTower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 public class Icon extends GameObject implements UpdatableObject {
     private int tag;
     private double range;
     private boolean isOn;
     private String imageOn, imageOff;
+    Text text1 = new Text();
 
     public Icon(int posX, int posY, int tag) {
         super(posX, posY, new Image("file:resources/icon/icon_" + tag + "_off.png"));
@@ -58,8 +64,18 @@ public class Icon extends GameObject implements UpdatableObject {
         }
     }
 
+
     @Override
     public void draw(GraphicsContext gc) {
         super.draw(gc);
+        Font myFont = Font.loadFont("file:resources/fast_99/fast99.ttf", 13);
+        gc.setFont(myFont);
+        gc.setFill(Color.WHITE);
+        gc.fillText(text1.getText(),posX+20,posY+65);
+
+    }
+
+    public void setText1(String text) {
+        this.text1.setText(text);
     }
 }

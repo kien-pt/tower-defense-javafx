@@ -17,24 +17,32 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     private String tag, path;
     private long lastShootTime;
     private double range, speed;
-    //private Effect shootSoldier;
     private boolean shoot, active;
     private int upgrade, tempUpgrade;
     private ArrayList<Bullet> bullets;
-    //private GameObject soldier, tempSoldier;
     private BaseSoldier soldier;
     private UpdateBar updateBar, tempUpdateBar;
+    private Effect buildSmoke;
+    private int price;
+    private int strength;
+    private int upgradeprice;
+    private int sellprice;
 
-    BaseTower(int posX, int posY, String tag) {
-        super(posX, posY, new Image("file:resources/tower/" + tag + "_tower.png"));
+    private int rank = 1;
+
+    BaseTower(int posX, int posY, String tag, int price, int strength, int upgradeprice,int sellprice) {
+        super(posX, posY, new Image("file:resources/tower/" + tag + "_tower_" + 1 + ".png"));
         upgrade = -1;
         active = false;
         this.tag = tag;
         bullets = new ArrayList<Bullet>();
         lastShootTime = System.currentTimeMillis();
         tempUpdateBar = new UpdateBar(posX + 28, posY - 12);
-        //tempSoldier = new GameObject(posX + 49, posY - 5, new Image("file:resources/soldier/" + tag + "_idle.png"));
-        //soldier = tempSoldier;
+        buildSmoke = new Effect(posX + 25, posY + 30, "file:resources/Effect/effect_buildSmoke_", 35, 60);
+        this.price = price;
+        this.strength = strength;
+        this.upgradeprice = upgradeprice;
+        this.sellprice = sellprice;
     }
 
     @Override
@@ -67,17 +75,6 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
 
         if (soldier != null) soldier.update();
 
-        //if (shootSoldier != null) {
-        //    shootSoldier.update();
-        //    if (shootSoldier.isDestroyed()) shootSoldier = null;
-        //}
-
-        //if (shoot) {
-        //    soldier = null;
-        //    if (shootSoldier == null)
-        //        shootSoldier = new Effect(posX + 52, posY - 10, "file:resources/soldier/" + tag + "_", 4, 24);
-        //} else if (shootSoldier == null) soldier = tempSoldier;
-
         if (updateBar != null && updateBar.isDone()) {
             updateBar = null;
             upgrade = tempUpgrade;
@@ -85,6 +82,11 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         if (updateBar != null) updateBar.update();
 
         for (Bullet bullet : bullets) bullet.update();
+
+        if (buildSmoke != null) {
+            buildSmoke.update();
+            if (buildSmoke.isDestroyed()) buildSmoke = null;
+        }
     }
 
     public void attack(ArrayList<BaseEnemy> enemies) {
@@ -96,7 +98,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
             for (BaseEnemy enemy : enemies) {
                 double dis = Math.pow(getXcenter() - enemy.getPosX(), 2) + Math.pow(getYcenter() - enemy.getPosY(), 2);
                 if (dis <= range * range) {
-                    bullets.add(new Bullet(posX + getWidth() / 2, posY - 10, enemy,path));
+                    bullets.add(new Bullet(posX + getWidth() / 2, posY - 10, enemy,path,strength));
                     soldier.setShooting(true);
                     if (soldier.getPosY() <= enemy.getPosY()) {
                         if (tag.equals("normal")) if (soldier.getPosX() <= enemy.getPosX()) soldier.setDirection("IV"); else soldier.setDirection("III");
@@ -116,8 +118,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public void draw(GraphicsContext gc) {
         super.draw(gc);
         if (soldier != null) soldier.draw(gc);
-        //if (soldier != null) soldier.draw(gc);
-        //if (shootSoldier != null) shootSoldier.draw(gc);
+        if (buildSmoke != null) buildSmoke.draw(gc);
         if (updateBar != null) updateBar.draw(gc);
         if (rangeCircle != null) rangeCircle.draw(gc);
     }
@@ -125,6 +126,18 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public void drawLayout(GraphicsContext gc) {
         if (ring != null) ring.draw(gc);
         for (Bullet bullet : bullets) bullet.draw(gc);
+    }
+
+    public int increaseRank() {
+        if (rank >= 3)
+            rank = 3;
+        else rank++;
+        return rank;
+    }
+
+    public void upgrade(Image image) {
+        super.setImage(image);
+        buildSmoke = new Effect(posX + 25, posY + 30, "file:resources/Effect/effect_buildSmoke_", 35, 60);
     }
 
     public Ring getRing() { return ring; }
@@ -142,8 +155,39 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public void setSoldier(BaseSoldier soldier) { this.soldier = soldier; }
     public long getLastShootTime() { return lastShootTime; }
     public void setLastShootTime(long lastShootTime) { this.lastShootTime = lastShootTime; }
-
+    public int getPrice() {
+        return price;
+    }
+    public void setPrice(int price) {
+        this.price = price;
+    }
     public void setPath(String path) {
         this.path = path;
+    }
+    public int getStrength() {
+        return strength;
+    }
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public int getUpgradeprice() {
+        return upgradeprice;
+    }
+
+    public void setUpgradeprice(int upgradeprice) {
+        this.upgradeprice = upgradeprice;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public int getSellprice() {
+        return sellprice;
+    }
+
+    public void setSellprice(int sellprice) {
+        this.sellprice = sellprice;
     }
 }
