@@ -3,8 +3,12 @@ package game.gui;
 import game.object.GameObject;
 import game.object.UpdatableObject;
 import game.tower.BaseTower;
+import game.tower.NormalTower;
+import game.tower.SniperTower;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.text.Text;
+
 
 public class Ring extends GameObject implements UpdatableObject {
     private Icon[] icons;
@@ -23,8 +27,8 @@ public class Ring extends GameObject implements UpdatableObject {
             for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
 //            trụ bắn cung có tầm bắn 150
             icons[0].setRange(150);
-//            trụ phép có tầm bắn 250
-            icons[1].setRange(250);
+//            trụ phép có tầm bắn 200
+            icons[1].setRange(200);
 //            trụ ??? có tầm bắn ngắn
             icons[2].setRange(100);
         } else {
@@ -42,6 +46,14 @@ public class Ring extends GameObject implements UpdatableObject {
     public void onHover(int mouseX, int mouseY, Object caller) {
         if (iconAmount == 2) {
             icons[0].setRange((int) ((BaseTower) caller).getRange() + 50);
+            if (caller instanceof NormalTower){
+                icons[0].setText1(String.valueOf(((NormalTower) caller).getUpgradeprice()));
+                icons[1].setText1(String.valueOf(((NormalTower) caller).getSellprice()));
+            }
+            else if (caller instanceof SniperTower){
+                icons[0].setText1(String.valueOf(((SniperTower) caller).getUpgradeprice()));
+                icons[1].setText1(String.valueOf(((SniperTower) caller).getSellprice()));
+            }
         }
         for (Icon icon : icons) icon.onHover(mouseX, mouseY, caller);
     }
@@ -73,6 +85,7 @@ public class Ring extends GameObject implements UpdatableObject {
             icons[0].setPosY(y);
             icons[1].setPosX(x_l);
             icons[1].setPosY(y);
+
         } else {
             int x_left = getPosX();
             int x_right = getPosX() + (int) getImage().getWidth() - (int) icons[1].getImage().getWidth();
@@ -80,10 +93,16 @@ public class Ring extends GameObject implements UpdatableObject {
             int y_down = getPosY() + (int) getImage().getHeight() - (int) icons[2].getImage().getHeight();
             icons[0].setPosX(x_left);
             icons[0].setPosY(y_up);
+            icons[0].setText1("200");
+
             icons[1].setPosX(x_right);
             icons[1].setPosY(y_up);
+            icons[1].setText1("300");
+
             icons[2].setPosX(x_left);
             icons[2].setPosY(y_down);
+            icons[2].setText1(null);
+
             icons[3].setPosX(x_right);
             icons[3].setPosY(y_down);
         }

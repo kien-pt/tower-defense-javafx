@@ -16,12 +16,15 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
     private double speed, doublePosX, doublePosY;
     private int currentFrame, hp, path, frameAmount, currentHp;
     private HealthBar healthBar;
+    private int reward;
+    private boolean died;
 
 
-    public BaseEnemy(int posX, int posY, String tag, int path, int hp) {
+    public BaseEnemy(int posX, int posY, String tag, int path, int hp, int reward) {
         super(posX, posY, new Image("file:resources/enemy/" + tag + "_0.png"));
         this.tag = tag;
         this.path = path;
+        this.died = false;
         this.hp = hp;
         this.currentHp = hp;
         this.healthBar = new HealthBar(posX + getWidth() / 2 - 15, posY - 10);
@@ -30,6 +33,7 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
         doublePosY = getPosY();
         lastAniTime = lastMoveTime = System.currentTimeMillis();
         for (int i = 0; i < 12; i++) frame[i] = new Image("file:resources/enemy/" + tag + "_" + i + ".png");
+        this.reward = reward;
     }
 
     private void move(double x, double y) {
@@ -99,5 +103,19 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
     }
     public void setCurrentHp(int currentHp) {
         this.currentHp = currentHp;
+    }
+    public int getReward() {
+        return reward;
+    }
+    public void setReward(int reward) {
+        this.reward = reward;
+    }
+
+    public void setDied(boolean died) {
+        this.died = died;
+    }
+
+    public boolean isDied() {
+        return died;
     }
 }
