@@ -35,7 +35,7 @@ public abstract class GameStage {
         colorAdjust = new ColorAdjust();
         isPause = false;
         pause = new Icon(1118, 30, 9);
-        hud = new HUD(0,0);
+        hud = new HUD(30,30);
     }
 
     // Thêm vật trang trí

@@ -64,11 +64,11 @@ public class HUD extends GameObject {
         text3.setText(String.valueOf(wave));
 
         gc.clearRect(45,25,10,10);
-        gc.fillText(text1.getText(),45,25);
+        gc.fillText(text1.getText(),75,55);
         gc.clearRect(125,25,40,10);
-        gc.fillText(text2.getText(),150,25);
+        gc.fillText(text2.getText(),180,55);
         gc.clearRect(60,60,5,10);
-        gc.fillText("WAVE "+ text3.getText(),45,65);
+        gc.fillText("WAVE "+ text3.getText(),75,95);
 
 
     }
