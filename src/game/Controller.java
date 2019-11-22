@@ -24,10 +24,12 @@ public class Controller {
     public void update() {
         level.update();
         if (stage == 0 && ((Welcome) level).getStage() > 0) {
+            level.getTheme().stop();
             stage = 1;
             level = new Level1();
             level.addOrnament();
-        } else if (level.getHud().getWave() > 9) {
+        } else if (stage == 1 && level.getHud().getWave() > 9) {
+            level.getTheme().stop();
             stage = 0;
             level = new Welcome();
             level.addOrnament();

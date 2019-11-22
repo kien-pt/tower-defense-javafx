@@ -20,6 +20,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     private BaseSoldier soldier;
     private RangeCircle rangeCircle;
     private ArrayList<Bullet> bullets;
+    private Sound startSound, attackSound;
     private boolean shoot, active, showRange;
     private int upgrade, tempUpgrade, price, upgradeprice, sellprice, strength, rank;
 
@@ -32,6 +33,9 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         showRange = false;
         bullets = new ArrayList<>();
         lastShootTime = System.currentTimeMillis();
+        startSound = new Sound("resources/sound/start_" + tag + ".wav");
+        attackSound = new Sound("resources/sound/attack_" + tag + ".wav");
+        if (!tag.equals("empty")) startSound.play();
         buildSmoke = new Effect(posX + 25, posY + 30, "file:resources/Effect/effect_buildSmoke_", 35, 60);
     }
 
@@ -92,6 +96,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
             for (BaseEnemy enemy : enemies) {
                 double dis = Math.pow(getXcenter() - enemy.getPosX(), 2) + Math.pow(posY - 10 - enemy.getPosY(), 2);
                 if (dis <= range * range && enemy.getHealthBar().getHealth() > 0) {
+                    attackSound.play();
                     bullets.add(new Bullet(posX + getWidth() / 2, posY - 10, enemy, path, strength));
                     soldier.setShooting(true);
                     // Xoay soldier theo hướng bắn
@@ -148,6 +153,7 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     void setPrice(int price) { this.price = price; }
     void setSpeed(double speed) { this.speed = speed; }
     void setRange(double range) { this.range = range; }
+    public Sound getStartSound() { return startSound; }
     void setShoot(boolean shoot) { this.shoot = shoot; }
     public int getUpgradeprice() { return upgradeprice; }
     void setActive(boolean active) { this.active = active; }
@@ -159,11 +165,4 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     void setRangeCircle(RangeCircle rangeCircle) { this.rangeCircle = rangeCircle; }
     public void setUpgradeprice(int upgradeprice) { this.upgradeprice = upgradeprice; }
     public void setLastShootTime(long lastShootTime) { this.lastShootTime = lastShootTime; }
-
-
-
-
-
-
-
 }

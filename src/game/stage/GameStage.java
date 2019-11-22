@@ -2,6 +2,7 @@ package game.stage;
 
 import game.enemy.*;
 import game.gui.HUD;
+import game.object.Sound;
 import game.tower.*;
 import java.io.File;
 import game.gui.Icon;
@@ -12,7 +13,6 @@ import game.object.GameObject;
 import javafx.scene.image.Image;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.canvas.GraphicsContext;
-
 
 public abstract class GameStage {
     private HUD hud;
@@ -26,6 +26,7 @@ public abstract class GameStage {
     private ColorAdjust colorAdjust;
     private ArrayList<BaseEnemy> enemies;
     private long pauseTime, readDataTime;
+    private Sound theme;
 
     /**
      * Load Map của Level tương ứng
@@ -34,6 +35,7 @@ public abstract class GameStage {
      */
     GameStage(int k) {
         map = new Image("file:resources/Stage_" + k + ".png");
+        theme = new Sound("resources/sound/theme_" + k + ".wav");
 
         try {
             File file = new File("resources/lvl" + k + ".dat");
@@ -76,6 +78,7 @@ public abstract class GameStage {
     }
 
     public void update() {
+        theme.loop();
         if (!isPause && brightness < 0) brightness += 0.05;
         colorAdjust.setBrightness(brightness);
         if (isPause) return;
@@ -114,6 +117,7 @@ public abstract class GameStage {
                     tower.setStrength(tower.getStrength() + 5);
                     tower.setUpgrade(-1);
                     if (tower.getRank() < 3) {
+                        tower.getStartSound().play();
                         hud.setCoins(hud.getCoins() - tower.getUpgradeprice());
                         tower.setUpgradeprice(tower.getUpgradeprice() + 50);
                         tower.setSellprice(tower.getSellprice() + 50);
@@ -153,6 +157,7 @@ public abstract class GameStage {
             if (isPause) {
                 isPause = false;
                 brightness = 0;
+                theme.continuePlay();
                 pauseTime = System.currentTimeMillis() - pauseTime;
                 for (BaseEnemy enemy: enemies) enemy.setLastAniTime(enemy.getLastAniTime() + pauseTime);
                 for (BaseEnemy enemy: enemies) enemy.setLastMoveTime(enemy.getLastMoveTime() + pauseTime);
@@ -161,14 +166,15 @@ public abstract class GameStage {
             if (pause.onClick((int) mouseX, (int) mouseY, null) > 0) {
                 isPause = true;
                 brightness = -0.5;
+                theme.pause();
                 pauseTime = System.currentTimeMillis();
             }
-            for (BaseTower tower : towers) {
-                pause.onHover((int) mouseX, (int) mouseY, null);
-                tower.onClick((int) mouseX, (int) mouseY, this);
-            }
+            for (BaseTower tower : towers) tower.onClick((int) mouseX, (int) mouseY, this);
         }
-        if (key == 1) for (BaseTower tower : towers) tower.onHover((int) mouseX, (int) mouseY, this);
+        if (key == 1) {
+            pause.onHover((int) mouseX, (int) mouseY, null);
+            for (BaseTower tower : towers) tower.onHover((int) mouseX, (int) mouseY, this);
+        }
     }
 
     private boolean cmp(int i, int j, boolean X) {
@@ -190,4 +196,5 @@ public abstract class GameStage {
     }
 
     public HUD getHud() { return hud; }
+    public Sound getTheme() { return theme; }
 }

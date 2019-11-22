@@ -1,5 +1,8 @@
 package game.gui;
 
+import java.io.File;
+
+import game.object.Sound;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import game.object.GameObject;
@@ -12,6 +15,7 @@ public class Icon extends GameObject implements UpdatableObject {
     private int tag;
     private Text text1;
     private boolean isOn;
+    private Sound soundHover, soundClick;
     private String imageOn, imageOff;
 
     public Icon(int posX, int posY, int tag) {
@@ -20,24 +24,29 @@ public class Icon extends GameObject implements UpdatableObject {
         isOn = false;
         this.tag = tag;
         text1 = new Text();
+        soundHover = new Sound("resources/sound/icon_hover.wav");
+        soundClick= new Sound("resources/sound/icon_click.wav");
         imageOn = "file:resources/icon/icon_" + tag + ".png";
         imageOff = "file:resources/icon/icon_" + tag + "_off.png";
     }
     public int onClick(int mouseX, int mouseY, Object caller) {
+        soundClick.play();
         if (tag == 3 || !hover(mouseX, mouseY)) return -1;
         return tag;
     }
 
     public void onHover(int mouseX, int mouseY, Object caller) {
         if (hover(mouseX, mouseY)) {
-            if (!isOn) setImage(new Image(imageOn, getWidth() * scale, getHeight() * scale, false, true));
+            if (!isOn) {
+                soundHover.play();
+                setImage(new Image(imageOn, getWidth() * scale, getHeight() * scale, false, true));
+            }
             isOn = true;
         } else {
             setImage(new Image(imageOff, getWidth() * scale, getHeight() * scale, false, true));
             isOn = false;
         }
     }
-
 
     public void update() {
         if (scale < 0.7) {
