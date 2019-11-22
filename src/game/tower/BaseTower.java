@@ -1,71 +1,60 @@
 package game.tower;
 
+import game.gui.Ring;
+import game.object.*;
+import game.gui.UpdateBar;
+import java.util.ArrayList;
 import game.enemy.BaseEnemy;
 import game.gui.RangeCircle;
-import game.gui.Ring;
-import game.gui.UpdateBar;
-import game.object.*;
 import game.soldier.BaseSoldier;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-
-import java.util.ArrayList;
+import javafx.scene.canvas.GraphicsContext;
 
 public class BaseTower extends GameObject implements UpdatableObject, ClickableObject {
-    private RangeCircle rangeCircle;
     private Ring ring;
     private String tag, path;
-    private long lastShootTime;
-    private double range, speed;
-    private boolean shoot, active;
-    private int upgrade, tempUpgrade;
-    private ArrayList<Bullet> bullets;
-    private BaseSoldier soldier;
-    private UpdateBar updateBar, tempUpdateBar;
     private Effect buildSmoke;
-    private int price;
-    private int strength;
-    private int upgradeprice;
-    private int sellprice;
+    private long lastShootTime;
+    private UpdateBar updateBar;
+    private double range, speed;
+    private BaseSoldier soldier;
+    private RangeCircle rangeCircle;
+    private ArrayList<Bullet> bullets;
+    private boolean shoot, active, showRange;
+    private int upgrade, tempUpgrade, price, upgradeprice, sellprice, strength, rank;
 
-    private int rank = 1;
-
-    BaseTower(int posX, int posY, String tag, int price, int strength, int upgradeprice,int sellprice) {
+    BaseTower(int posX, int posY, String tag) {
         super(posX, posY, new Image("file:resources/tower/" + tag + "_tower_" + 1 + ".png"));
+        rank = 1;
         upgrade = -1;
         active = false;
         this.tag = tag;
-        bullets = new ArrayList<Bullet>();
+        showRange = false;
+        bullets = new ArrayList<>();
         lastShootTime = System.currentTimeMillis();
-        tempUpdateBar = new UpdateBar(posX + 30, posY - 22);
         buildSmoke = new Effect(posX + 25, posY + 30, "file:resources/Effect/effect_buildSmoke_", 35, 60);
-        this.price = price;
-        this.strength = strength;
-        this.upgradeprice = upgradeprice;
-        this.sellprice = sellprice;
     }
 
     @Override
     public void onHover(int mouseX, int mouseY, Object caller) {
-        // Show Range
         if (ring != null) ring.onHover(mouseX, mouseY, this);
+        // Show Range
+        showRange = hover(mouseX, mouseY);
     }
 
     @Override
     public void onClick(int mouseX, int mouseY, Object caller) {
         if (ring != null) ring.onClick(mouseX, mouseY, this);
-        rangeCircle = new RangeCircle(getXcenter(), getYcenter() - getHeight() / 2 + 19, getRange());
 
         if (hover(mouseX, mouseY)) {
-            if (active) ring = new Ring(getXcenter(), getYcenter(), 1);
-            else ring = new Ring(getXcenter(), getYcenter(), 0);
+            if (active) ring = new Ring(getXcenter(), getYcenter(), 1, this);
+            else ring = new Ring(getXcenter(), getYcenter(), 0, this);
         } else {
             if (ring != null && ring.getUpgrade() >= 0) {
-                updateBar = tempUpdateBar;
+                updateBar = new UpdateBar(posX + 30, posY - 22);
                 tempUpgrade = ring.getUpgrade();
             }
             ring = null;
-            rangeCircle = null;
         }
     }
 
@@ -89,6 +78,11 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         }
     }
 
+    /**
+     * Đống này khá phức tạp, chủ yếu là toán thôi
+     * Gặp enemy nào trong tầm là bắn 1 viên đạn
+     * Viên đạn sẽ đuổi theo target chọn trước đó
+     */
     public void attack(ArrayList<BaseEnemy> enemies) {
         if (range == 0) return; // Không bắn
         shoot = false;
@@ -96,16 +90,17 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         if (lastShootTime + 1000 * speed < System.currentTimeMillis()) {
             lastShootTime = System.currentTimeMillis();
             for (BaseEnemy enemy : enemies) {
-                double dis = Math.pow(getXcenter() - enemy.getPosX(), 2) + Math.pow(getYcenter() - enemy.getPosY(), 2);
-                if (dis <= range * range) {
-                    bullets.add(new Bullet(posX + getWidth() / 2, posY - 10, enemy,path,strength));
+                double dis = Math.pow(getXcenter() - enemy.getPosX(), 2) + Math.pow(posY - 10 - enemy.getPosY(), 2);
+                if (dis <= range * range && enemy.getHealthBar().getHealth() > 0) {
+                    bullets.add(new Bullet(posX + getWidth() / 2, posY - 10, enemy, path, strength));
                     soldier.setShooting(true);
+                    // Xoay soldier theo hướng bắn
                     if (soldier.getPosY() <= enemy.getPosY()) {
-                        if (tag.equals("normal")) if (soldier.getPosX() <= enemy.getPosX()) soldier.setDirection("IV"); else soldier.setDirection("III");
                         if (tag.equals("sniper")) soldier.setDirection("front");
+                        else if (soldier.getPosX() <= enemy.getPosX()) soldier.setDirection("IV"); else soldier.setDirection("III");
                     } else {
-                        if (tag.equals("normal")) if (soldier.getPosX() <= enemy.getPosX()) soldier.setDirection("I"); else soldier.setDirection("II");
                         if (tag.equals("sniper")) soldier.setDirection("behind");
+                        else if (soldier.getPosX() <= enemy.getPosX()) soldier.setDirection("I"); else soldier.setDirection("II");
                     }
                     shoot = true;
                     break;
@@ -118,20 +113,18 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
     public void draw(GraphicsContext gc) {
         super.draw(gc);
         if (soldier != null) soldier.draw(gc);
-        if (buildSmoke != null) buildSmoke.draw(gc);
         if (updateBar != null) updateBar.draw(gc);
-        if (rangeCircle != null) rangeCircle.draw(gc);
+        if (buildSmoke != null) buildSmoke.draw(gc);
     }
 
     public void drawLayout(GraphicsContext gc) {
         if (ring != null) ring.draw(gc);
         for (Bullet bullet : bullets) bullet.draw(gc);
+        if (showRange) rangeCircle.draw(gc);
     }
 
     public int increaseRank() {
-        if (rank >= 3)
-            rank = 3;
-        else rank++;
+        if (rank < 3) rank++;
         return rank;
     }
 
@@ -140,54 +133,37 @@ public class BaseTower extends GameObject implements UpdatableObject, ClickableO
         buildSmoke = new Effect(posX + 25, posY + 30, "file:resources/Effect/effect_buildSmoke_", 35, 60);
     }
 
-    public Ring getRing() { return ring; }
-    public RangeCircle getRangeCircle() { return rangeCircle; }
-    public void setRangeCircle(RangeCircle rangeCircle) { this.rangeCircle = rangeCircle; }
-    public boolean isShoot() { return shoot; }
-    public void setShoot(boolean shoot) { this.shoot = shoot; }
+    /**
+     * Rất lắm getter, setter
+     * Nhưng sẽ tiện việc cài đặt sau này
+     */
+    double getRange() { return range; }
+    public int getRank() { return rank; }
     public String getTag() { return tag; }
-    public double getRange() { return range; }
-    public void setRange(double range) { this.range = range; }
+    public int getPrice() { return price; }
     public int getUpgrade() { return upgrade; }
-    public void setUpgrade(int upgrade) { this.upgrade = upgrade; }
-    public void setActive(boolean active) { this.active = active; }
-    public void setSpeed(double speed) { this.speed = speed; }
-    public void setSoldier(BaseSoldier soldier) { this.soldier = soldier; }
+    public int getStrength() { return strength; }
+    void setPath(String path) { this.path = path; }
+    public int getSellprice() { return sellprice; }
+    void setPrice(int price) { this.price = price; }
+    void setSpeed(double speed) { this.speed = speed; }
+    void setRange(double range) { this.range = range; }
+    void setShoot(boolean shoot) { this.shoot = shoot; }
+    public int getUpgradeprice() { return upgradeprice; }
+    void setActive(boolean active) { this.active = active; }
     public long getLastShootTime() { return lastShootTime; }
+    public void setUpgrade(int upgrade) { this.upgrade = upgrade; }
+    void setSoldier(BaseSoldier soldier) { this.soldier = soldier; }
+    public void setStrength(int strength) { this.strength = strength; }
+    public void setSellprice(int sellprice) { this.sellprice = sellprice; }
+    void setRangeCircle(RangeCircle rangeCircle) { this.rangeCircle = rangeCircle; }
+    public void setUpgradeprice(int upgradeprice) { this.upgradeprice = upgradeprice; }
     public void setLastShootTime(long lastShootTime) { this.lastShootTime = lastShootTime; }
-    public int getPrice() {
-        return price;
-    }
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    public void setPath(String path) {
-        this.path = path;
-    }
-    public int getStrength() {
-        return strength;
-    }
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
 
-    public int getUpgradeprice() {
-        return upgradeprice;
-    }
 
-    public void setUpgradeprice(int upgradeprice) {
-        this.upgradeprice = upgradeprice;
-    }
 
-    public int getRank() {
-        return rank;
-    }
 
-    public int getSellprice() {
-        return sellprice;
-    }
 
-    public void setSellprice(int sellprice) {
-        this.sellprice = sellprice;
-    }
+
+
 }

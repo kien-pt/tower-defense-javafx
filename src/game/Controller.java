@@ -1,9 +1,9 @@
 package game;
 
-import game.stage.GameStage;
 import game.stage.Level1;
 import game.stage.Welcome;
 import javafx.scene.Scene;
+import game.stage.GameStage;
 import javafx.scene.canvas.GraphicsContext;
 
 public class Controller {
@@ -26,6 +26,10 @@ public class Controller {
         if (stage == 0 && ((Welcome) level).getStage() > 0) {
             stage = 1;
             level = new Level1();
+            level.addOrnament();
+        } else if (level.getHud().getWave() > 9) {
+            stage = 0;
+            level = new Welcome();
             level.addOrnament();
         }
     }

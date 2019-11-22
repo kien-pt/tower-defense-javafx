@@ -28,7 +28,5 @@ public class UpdateBar extends GameObject implements UpdatableObject {
         updateBar.draw(gc);
     }
 
-    public boolean isDone() {
-        return done;
-    }
+    public boolean isDone() { return done; }
 }

@@ -1,18 +1,21 @@
 package game.tower;
 
-import game.object.Effect;
+import game.gui.RangeCircle;
 import game.soldier.NormalSoldier;
-import javafx.scene.canvas.GraphicsContext;
 
 public class NormalTower extends BaseTower {
-
     public NormalTower(int posX, int posY) {
-        super(posX, posY, "normal",200,10,100,150);
-        setRange(150);
+        super(posX, posY, "normal");
+        setRange(180);
+        setPrice(200);
+        setSpeed(0.75);
         setShoot(false);
         setActive(true);
-        setSpeed(0.75);
+        setStrength(10);
         setPath("arrow");
+        setSellprice(150);
+        setUpgradeprice(100);
         setSoldier(new NormalSoldier(posX + 36, posY - 10));
+        setRangeCircle(new RangeCircle(getXcenter(), posY - 10, getRange()));
     }
 }

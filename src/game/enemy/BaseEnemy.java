@@ -1,39 +1,37 @@
 package game.enemy;
 
 import game.gui.HealthBar;
-import game.object.AnimateObject;
+import game.object.Effect;
 import game.object.GameObject;
+import javafx.scene.image.Image;
+import game.object.AnimateObject;
 import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
-
-import java.awt.*;
 
 public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObject {
-    private String tag;
-    private Image frame[] = new Image[12];
+    private Effect dying;
+    private Image[] frame;
+    private boolean detroyed;
+    private HealthBar healthBar;
     private long lastAniTime, lastMoveTime;
     private double speed, doublePosX, doublePosY;
-    private int currentFrame, hp, path, frameAmount, currentHp;
-    private HealthBar healthBar;
-    private int reward;
-    private boolean died;
+    private int currentFrame, hp, path, reward, frameAmount, currentHp;
 
 
-    public BaseEnemy(int posX, int posY, String tag, int path, int hp, int reward) {
+    BaseEnemy(int posX, int posY, String tag, int path, int hp, int reward) {
         super(posX, posY, new Image("file:resources/enemy/" + tag + "_0.png"));
-        this.tag = tag;
-        this.path = path;
-        this.died = false;
         this.hp = hp;
-        this.currentHp = hp;
-        this.healthBar = new HealthBar(posX + getWidth() / 2 - 15, posY - 10);
         currentFrame = 0;
+        this.path = path;
+        this.currentHp = hp;
+        this.reward = reward;
+        frame = new Image[12];
+        this.detroyed = false;
         doublePosX = getPosX();
         doublePosY = getPosY();
         lastAniTime = lastMoveTime = System.currentTimeMillis();
+        this.healthBar = new HealthBar(posX + getWidth() / 2 - 15, posY - 10);
         for (int i = 0; i < 12; i++) frame[i] = new Image("file:resources/enemy/" + tag + "_" + i + ".png");
-        this.reward = reward;
     }
 
     private void move(double x, double y) {
@@ -59,63 +57,42 @@ public class BaseEnemy extends GameObject implements UpdatableObject, AnimateObj
             if (getPosX() <= 320) move(-0.9 * speed, 0);
             healthBar.setPosX(getPosX() + getWidth() / 2 - 15);
             healthBar.setPosY(getPosY() - 10);
-            setHealthBar(getHealthBar());
             lastMoveTime = System.currentTimeMillis();
         }
     }
 
     @Override
     public void draw(GraphicsContext gc) {
-        super.draw(gc);
-        if (healthBar !=null)
-            healthBar.draw(gc);
+        if (getCurrentHp() > 0) super.draw(gc);
+        else if (dying == null) dying = getTempDying(); else if (dying.isDestroyed()) detroyed = true;
+        if (dying == null) healthBar.draw(gc);
+        else {
+            dying.draw(gc);
+            dying.update();
+        }
     }
 
     @Override
     public void animateUpdate(int FPS) {
         if (lastAniTime + 1000 / FPS < System.currentTimeMillis()) {
-            lastAniTime = System.currentTimeMillis();
             currentFrame = (currentFrame + 1) % frameAmount;
+            lastAniTime = System.currentTimeMillis();
             setImage(frame[currentFrame]);
         }
     }
 
-    public void setSpeed(double speed) { this.speed = speed; }
-    public void setFrameAmount(int frameAmount) { this.frameAmount = frameAmount; }
+
+    public int getHp() { return hp; }
+    public int getReward() { return reward; }
+    public Effect getTempDying() { return null; }
+    public int getCurrentHp() { return currentHp; }
+    public boolean isDetroyed() { return detroyed; }
+    void setSpeed(double speed) { this.speed = speed; }
     public long getLastAniTime() { return lastAniTime; }
+    public HealthBar getHealthBar() { return healthBar; }
     public long getLastMoveTime() { return lastMoveTime; }
+    public void setCurrentHp(int currentHp) { this.currentHp = currentHp; }
+    void setFrameAmount(int frameAmount) { this.frameAmount = frameAmount; }
     public void setLastAniTime(long lastAniTime) { this.lastAniTime = lastAniTime; }
     public void setLastMoveTime(long lastMoveTime) { this.lastMoveTime = lastMoveTime; }
-    public void setHealthBar(HealthBar healthBar) {
-        this.healthBar = healthBar;
-    }
-    public HealthBar getHealthBar() {
-        return healthBar;
-    }
-    public int getHp() {
-        return hp;
-    }
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-    public int getCurrentHp() {
-        return currentHp;
-    }
-    public void setCurrentHp(int currentHp) {
-        this.currentHp = currentHp;
-    }
-    public int getReward() {
-        return reward;
-    }
-    public void setReward(int reward) {
-        this.reward = reward;
-    }
-
-    public void setDied(boolean died) {
-        this.died = died;
-    }
-
-    public boolean isDied() {
-        return died;
-    }
 }

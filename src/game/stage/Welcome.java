@@ -2,8 +2,8 @@ package game.stage;
 
 import game.gui.Icon;
 import game.object.GameObject;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.canvas.GraphicsContext;
 
 public class Welcome extends GameStage {
     private Image mainMenuImage;
@@ -12,6 +12,10 @@ public class Welcome extends GameStage {
     private int k = 0, stage;
     private long lastBlinkTime, waitTime;
 
+    /**
+     * Phần này rắc rối chủ yếu là animation của cái logo
+     * Biết sao được, phải đầu tư thôi
+     */
     public Welcome() {
         super(0);
         stage = 0;
@@ -58,15 +62,13 @@ public class Welcome extends GameStage {
         startIcon.draw(gc);
         logoBlink[k].draw(gc);
         if (lastBlinkTime + waitTime < System.currentTimeMillis()) {
-            k = (k + 1) % 19;
             waitTime -= 5;
+            k = (k + 1) % 19;
             if (k == 0) waitTime = 45;
             if (k == 18) waitTime = 2000;
             lastBlinkTime = System.currentTimeMillis();
         }
     }
 
-    public int getStage() {
-        return stage;
-    }
+    public int getStage() { return stage; }
 }

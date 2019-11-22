@@ -1,18 +1,21 @@
 package game.tower;
 
-import game.object.Effect;
+import game.gui.RangeCircle;
 import game.soldier.SniperSoldier;
-import javafx.scene.canvas.GraphicsContext;
 
 public class SniperTower extends BaseTower {
-
     public SniperTower(int posX, int posY) {
-        super(posX, posY, "sniper",300,20,150,200);
+        super(posX, posY, "sniper");
+        setSpeed(1);
+        setPrice(300);
         setRange(200);
         setShoot(false);
         setActive(true);
-        setSpeed(1);
+        setStrength(12);
+        setSellprice(200);
         setPath("magebolt");
+        setUpgradeprice(150);
         setSoldier(new SniperSoldier(posX + 38, posY - 17));
+        setRangeCircle(new RangeCircle(getXcenter(), posY - 10, getRange()));
     }
 }

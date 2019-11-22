@@ -2,17 +2,17 @@ package game.soldier;
 
 import game.object.Effect;
 import game.object.GameObject;
+import javafx.scene.image.Image;
 import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 
 public class BaseSoldier extends GameObject implements UpdatableObject {
-    private Effect shootingSoldier;
     private int frameAmount;
     private boolean shooting;
     private String tag, direction;
+    private Effect shootingSoldier;
 
-    public BaseSoldier(int posX, int posY, String tag) {
+    BaseSoldier(int posX, int posY, String tag) {
         super(posX, posY, new Image("file:resources/soldier/" + tag + "_idle.png"));
         shooting = false;
         this.tag = tag;
@@ -29,7 +29,7 @@ public class BaseSoldier extends GameObject implements UpdatableObject {
             }
         }
         if (shooting && shootingSoldier == null) {
-            shootingSoldier = new Effect(posX, posY, "file:resources/soldier/" + tag + "_" + direction + "_", frameAmount, 24);
+            shootingSoldier = new Effect(posX, posY, "file:resources/soldier/" + tag + "_" + direction + "_", frameAmount, 6 * frameAmount);
         }
     }
 
@@ -38,8 +38,7 @@ public class BaseSoldier extends GameObject implements UpdatableObject {
         if (shootingSoldier != null) shootingSoldier.draw(gc); else super.draw(gc);
     }
 
-    public void setFrameAmount(int frameAmount) { this.frameAmount = frameAmount; }
     public void setShooting(boolean shooting) { this.shooting = shooting; }
-    public boolean isShooting() { return shooting; }
+    void setFrameAmount(int frameAmount) { this.frameAmount = frameAmount; }
     public void setDirection(String direction) { this.direction = direction; }
 }

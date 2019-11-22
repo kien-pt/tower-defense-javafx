@@ -1,28 +1,22 @@
 package game.gui;
 
 import game.object.GameObject;
+import javafx.scene.paint.Color;
 import game.object.UpdatableObject;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
-
-import java.awt.*;
 
 public class HealthBar extends GameObject implements UpdatableObject {
-    private double health;
-    private double tempHealth;
+    private double health, tempHealth;
 
     public HealthBar(int posX, int posY) {
+        health = 30;
         this.posX = posX;
         this.posY = posY;
-        health = 30;
         tempHealth = 30;
     }
 
     @Override
-    public void update() {
-
-
-    }
+    public void update() { }
 
     @Override
     public void draw(GraphicsContext gc) {
@@ -50,15 +44,7 @@ public class HealthBar extends GameObject implements UpdatableObject {
         gc.fillRect(posX, posY, health, 3);
     }
 
-    public double getHealth() {
-        return health;
-    }
-
-    public void setHealth(double health) {
-        this.health = health;
-    }
-
-    public double getTempHealth() {
-        return tempHealth;
-    }
+    public double getHealth() { return health; }
+    public double getTempHealth() { return tempHealth; }
+    public void setHealth(double health) { this.health = health; }
 }

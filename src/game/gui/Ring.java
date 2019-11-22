@@ -1,38 +1,31 @@
 package game.gui;
 
+import game.tower.*;
 import game.object.GameObject;
-import game.object.UpdatableObject;
-import game.tower.BaseTower;
-import game.tower.NormalTower;
-import game.tower.SniperTower;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.text.Text;
+import game.object.UpdatableObject;
+import javafx.scene.canvas.GraphicsContext;
 
 
 public class Ring extends GameObject implements UpdatableObject {
     private Icon[] icons;
     private int upgrade, iconAmount;
 
-    public Ring(int xCenter, int yCenter, int tag) {
+    public Ring(int xCenter, int yCenter, int tag, Object caller) {
         super(new Image("file:resources/gui_ring.png"));
-        setXcenter(xCenter);
-        setYcenter(yCenter);
         scale = 0;
         upgrade = -1;
-        if (tag == 0) iconAmount = 4;
-        else iconAmount = 2;
+        setXcenter(xCenter);
+        setYcenter(yCenter);
+        if (tag == 0) iconAmount = 4; else iconAmount = 2;
         icons = new Icon[iconAmount];
-        if (iconAmount == 4) {
-            for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
-//            trụ bắn cung có tầm bắn 150
-            icons[0].setRange(150);
-//            trụ phép có tầm bắn 200
-            icons[1].setRange(200);
-//            trụ ??? có tầm bắn ngắn
-            icons[2].setRange(100);
-        } else {
+        if (iconAmount == 4) for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i);
+        else {
             for (int i = 0; i < iconAmount; i++) icons[i] = new Icon(-100, -100, i + 4);
+            if (((BaseTower) caller).getRank() == 3 || ((caller instanceof GunMachineTower)))
+                icons[0] = new Icon(-100, -100, 3);
+            else icons[0].setText1(String.valueOf(((BaseTower) caller).getUpgradeprice()));
+            icons[1].setText1(String.valueOf(((BaseTower) caller).getSellprice()));
         }
     }
 
@@ -45,15 +38,8 @@ public class Ring extends GameObject implements UpdatableObject {
 
     public void onHover(int mouseX, int mouseY, Object caller) {
         if (iconAmount == 2) {
-            icons[0].setRange((int) ((BaseTower) caller).getRange() + 50);
-            if (caller instanceof NormalTower){
-                icons[0].setText1(String.valueOf(((NormalTower) caller).getUpgradeprice()));
-                icons[1].setText1(String.valueOf(((NormalTower) caller).getSellprice()));
-            }
-            else if (caller instanceof SniperTower){
-                icons[0].setText1(String.valueOf(((SniperTower) caller).getUpgradeprice()));
-                icons[1].setText1(String.valueOf(((SniperTower) caller).getSellprice()));
-            }
+            icons[0].setText1(String.valueOf(((BaseTower) caller).getUpgradeprice()));
+            icons[1].setText1(String.valueOf(((BaseTower) caller).getSellprice()));
         }
         for (Icon icon : icons) icon.onHover(mouseX, mouseY, caller);
     }
@@ -101,14 +87,12 @@ public class Ring extends GameObject implements UpdatableObject {
 
             icons[2].setPosX(x_left);
             icons[2].setPosY(y_down);
-            icons[2].setText1(null);
+            icons[2].setText1("500");
 
             icons[3].setPosX(x_right);
             icons[3].setPosY(y_down);
         }
     }
 
-    public int getUpgrade() {
-        return upgrade;
-    }
+    public int getUpgrade() { return upgrade; }
 }
