@@ -1,15 +1,13 @@
-# *Tao Ùa Đì Phen S*
+# *Tao-ùa Đì-phen-s*
 
-<div>
-<img src="https://github.com/kieniron/TaouaDiphenS/blob/master/resources/welcome/logo.png" alt="logo">
-</div>
-## *Bài tập lớn môn OOP của nhóm 11 N1 CA-CLC1* ##
+<img src="https://steamcdn-a.akamaihd.net/steam/apps/458710/ss_fb23fa99a8e19d92d1f1917575eb88faacbc4968.1920x1080.jpg?t=1560522460g" alt="logo">
 
-Tác giả:
+## *Bài tập lớn môn OOP của nhóm 11 N1 CA-CLC1* 
 
- - Phạm Trung Kiên
- - Nguyễn Văn Khiêm
- - Nguyễn Quốc Khánh
+#### Tác giả: 
+ 
+ - <a href="https://www.facebook.com/kien.chuyengia"> Phạm Trung Kiên </a> 
+ - <a href="https://www.facebook.com/khiem472"> Nguyễn Văn Khiêm </a> 
+ - <a href="https://www.facebook.com/khah.nguyen.520"> Nguyễn Quốc Khánh </a> 
 
- Video Demo:
-[![](http://img.youtube.com/vi/pDtRp2PPLiA/0.jpg)](http://www.youtube.com/watch?v=pDtRp2PPLiA "")
+#### Video Demo: <a href="https://www.youtube.com/watch?v=pDtRp2PPLiA"> Click Here! </a> 
